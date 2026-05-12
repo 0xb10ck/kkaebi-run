@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://b1emulgwisin0001"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_enemy_data"]
+
+[resource]
+script = ExtResource("1_enemy_data")
+id = &"mulgwisin"
+display_name_ko = "물귀신"
+hp = 40
+move_speed = 50.0
+contact_damage = 10
+hitbox_radius = 20.0
+exp_value = 5
+gold_drop_chance = 0.50
+gold_drop_amount = 2
+sprite_size = Vector2i(48, 48)
+placeholder_color = Color(0.2980, 0.6863, 0.3137, 0.7)
+on_contact_effect = &"slow_player"
+slow_factor = 0.30
+slow_duration = 1.0
+group_size = 1
+group_spacing_px = 30.0

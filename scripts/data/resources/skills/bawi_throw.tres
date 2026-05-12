@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=2 format=3 uid="uid://b1sbawithrow0001"]
+
+[ext_resource type="Script" path="res://scripts/data/skill_data.gd" id="1_skd"]
+
+[resource]
+script = ExtResource("1_skd")
+id = &"bawi_throw"
+display_name_ko = "바위투척"
+description_ko = "가장 먼 적에게 무거운 바위를 던져 기절시킵니다."
+element = 4
+scene_path = "res://scenes/skills/BawiThrow.tscn"
+icon_color = Color(0.878, 0.760, 0.235, 1.0)
