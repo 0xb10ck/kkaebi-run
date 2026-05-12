@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1kkaebixpgem0001"]
+
+[ext_resource type="Script" path="res://scripts/items/xp_gem.gd" id="1_xpgem"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xpgem"]
+radius = 10.0
+
+[node name="XPGem" type="Area2D"]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("1_xpgem")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xpgem")
+
+[node name="Sprite" type="ColorRect" parent="."]
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 6.0
+offset_bottom = 6.0
+color = Color(0.4196, 0.6392, 1, 1)
+mouse_filter = 2
