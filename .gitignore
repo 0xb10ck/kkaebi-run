@@ -2,22 +2,9 @@
 .godot/
 .import/
 
-# Imported translations generated from CSV files
-*.translation
-
-# Mono / .NET specific
-.mono/
-data_*/
-mono_crash.*.json
-
 # Local export config and build outputs
 export.cfg
 builds/
 
-# OS / editor
-.DS_Store
-Thumbs.db
-.vscode/
-.idea/
-*.swp
-*.swo
+# Imported translations generated from CSV files
+*.translation
