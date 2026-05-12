@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1kksgoldshield01"]
-
-[ext_resource type="Script" path="res://scripts/skills/gold_shield_skill.gd" id="1_gsk"]
-
-[node name="GoldShield" type="Node2D"]
-script = ExtResource("1_gsk")

@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1kkaebitoast0001"]
-
-[ext_resource type="Script" path="res://scripts/ui/toast.gd" id="1_tst"]
-
-[node name="Toast" type="Control"]
-script = ExtResource("1_tst")
