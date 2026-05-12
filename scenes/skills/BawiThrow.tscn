@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1kksbawithrow001"]
+
+[ext_resource type="Script" path="res://scripts/skills/bawi_throw_skill.gd" id="1_btk"]
+
+[node name="BawiThrow" type="Node2D"]
+script = ExtResource("1_btk")
