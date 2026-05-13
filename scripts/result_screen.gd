@@ -7,10 +7,11 @@ signal main_menu_pressed
 
 const STAGE_FULL_SEC: int = 300
 
-const TITLE_DIED: String = "쓰러지셨습니다"
-const SUBTITLE_DIED: String = "다음에는 더 멀리 가실 수 있습니다"
-const TITLE_CLEAR: String = "5분을 버텨내셨습니다"
-const SUBTITLE_CLEAR: String = "깨비런 첫 스테이지를 클리어하셨어요"
+# §7.2 / §7.3 result-screen copy.
+const TITLE_DIED: String = "도깨비가 잠들었습니다"
+const SUBTITLE_DIED: String = "신목의 기운을 다시 모으기까지 잠시 기다려 주십시오."
+const TITLE_CLEAR: String = "스테이지를 완수하셨습니다"
+const SUBTITLE_CLEAR: String = "두멍마을의 밤이 다시 조용해졌습니다. 도깨비님 덕분입니다."
 
 
 @onready var _root: Control = $Root

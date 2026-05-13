@@ -27,7 +27,7 @@ const SKILL_DEFS: Dictionary = {
 	"gold_shield": {
 		"name": "금빛 방패",
 		"color": "#F0EDE6",
-		"desc": "피격 시 30% 확률로 반사합니다",
+		"desc": "1회 피격을 완전히 막아주는 보호막. 소진 후 5초 뒤 재생성됩니다.",
 		"scene": preload("res://scenes/skills/gold_shield.tscn"),
 	},
 	"rock_throw": {
@@ -35,6 +35,24 @@ const SKILL_DEFS: Dictionary = {
 		"color": "#E0C23C",
 		"desc": "가장 먼 적에게 발사, 스턴 0.5초",
 		"scene": preload("res://scenes/skills/rock_throw.tscn"),
+	},
+}
+
+const BONUS_DEFS: Dictionary = {
+	"bonus_max_hp": {
+		"name": "최대 HP +20",
+		"color": "#E07A3C",
+		"desc": "최대 체력이 20 증가하고 즉시 회복됩니다.",
+	},
+	"bonus_speed": {
+		"name": "이동 속도 +5%",
+		"color": "#7AC4FF",
+		"desc": "이동 속도가 영구적으로 5% 증가합니다.",
+	},
+	"bonus_exp_gain": {
+		"name": "경험치 획득량 +10%",
+		"color": "#B8E03C",
+		"desc": "경험치 보석에서 얻는 경험치가 영구적으로 10% 증가합니다.",
 	},
 }
 
@@ -47,34 +65,41 @@ func get_offer() -> Array:
 	for id in SKILL_DEFS.keys():
 		if not owned.has(id):
 			unowned_ids.append(id)
+	unowned_ids.shuffle()
 
-	var pool: Array
-	if unowned_ids.size() > 0:
-		pool = unowned_ids.duplicate()
-	else:
-		pool = []
-		for id in owned.keys():
-			if int(owned[id]["level"]) < MAX_SKILL_LEVEL:
-				pool.append(id)
-
-	pool.shuffle()
-	var picked: Array = pool.slice(0, OFFER_SIZE)
+	var skill_pick_count: int = min(unowned_ids.size(), OFFER_SIZE)
+	var skill_picks: Array = unowned_ids.slice(0, skill_pick_count)
+	var bonus_slots: int = OFFER_SIZE - skill_pick_count
 
 	var offers: Array = []
-	for id in picked:
+	for id in skill_picks:
 		var def: Dictionary = SKILL_DEFS[id]
-		var is_owned: bool = owned.has(id)
-		var current_level: int = 0
-		if is_owned:
-			current_level = int(owned[id]["level"])
 		offers.append({
+			"type": "skill",
 			"id": id,
 			"name": def["name"],
 			"color": def["color"],
 			"desc": def["desc"],
-			"owned": is_owned,
-			"current_level": current_level,
+			"owned": false,
+			"current_level": 0,
 		})
+
+	if bonus_slots > 0:
+		var bonus_ids: Array = BONUS_DEFS.keys()
+		bonus_ids.shuffle()
+		var picked_bonus: Array = bonus_ids.slice(0, bonus_slots)
+		for bid in picked_bonus:
+			var bdef: Dictionary = BONUS_DEFS[bid]
+			offers.append({
+				"type": "bonus",
+				"id": bid,
+				"name": bdef["name"],
+				"color": bdef["color"],
+				"desc": bdef["desc"],
+				"owned": false,
+				"current_level": 0,
+			})
+
 	return offers
 
 

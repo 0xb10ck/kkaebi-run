@@ -31,18 +31,24 @@ func show_offer(offers: Array, player: Node, manager: Node) -> void:
 		var offer: Dictionary = offers[i]
 		_apply_offer_to_card(card, offer)
 		var button: Button = card.get_node("VBoxContainer/SelectButton") as Button
-		var skill_id: String = String(offer["id"])
+		var offer_local: Dictionary = offer
 		var cb: Callable = func() -> void:
-			_on_pick(skill_id, player, manager)
+			_on_pick(offer_local, player, manager)
 		button.pressed.connect(cb)
 		_connected.append({"btn": button, "cb": cb})
 	visible = true
 	get_tree().paused = true
 
 
-func _on_pick(skill_id: String, player: Node, manager: Node) -> void:
-	if is_instance_valid(manager) and manager.has_method("acquire"):
-		manager.acquire(skill_id, player)
+func _on_pick(offer: Dictionary, player: Node, manager: Node) -> void:
+	var type_str: String = String(offer.get("type", "skill"))
+	var pick_id: String = String(offer["id"])
+	if type_str == "bonus":
+		if is_instance_valid(player) and player.has_method("apply_bonus"):
+			player.apply_bonus(pick_id)
+	else:
+		if is_instance_valid(manager) and manager.has_method("acquire"):
+			manager.acquire(pick_id, player)
 	_disconnect_all()
 	visible = false
 	get_tree().paused = false

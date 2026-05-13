@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://b00kkaebi0toast0"]
+
+[ext_resource type="Script" path="res://scripts/toast.gd" id="1_toast"]
+
+[node name="Toast" type="CanvasLayer"]
+layer = 25
+script = ExtResource("1_toast")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 120.0
+offset_right = 464.0
+offset_bottom = 180.0
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = false
+theme_override_colors/font_color = Color(0.984, 0.949, 0.886, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 28

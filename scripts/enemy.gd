@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 
 const CONTACT_COOLDOWN: float = 0.5
+const REHIT_COOLDOWN: float = 0.4
 const EXP_GEM_PATH: String = "res://scenes/gameplay/exp_gem.tscn"
 
 
@@ -22,6 +23,7 @@ var _contact_timer: float = 0.0
 var _slow_factor: float = 1.0
 var _slow_remaining: float = 0.0
 var _stun_remaining: float = 0.0
+var _last_hit_by: Dictionary = {}
 
 @onready var _contact_area: Area2D = $ContactArea if has_node("ContactArea") else null
 
@@ -116,9 +118,26 @@ func _on_contact_hit(_player: Node2D) -> void:
 	pass
 
 
-func take_damage(amount: int) -> void:
+func apply_time_scaling(elapsed: float) -> void:
+	var t: float = maxf(0.0, elapsed)
+	var hp_mult: float = 1.0 + floor(t / 30.0) * 0.10
+	var speed_mult: float = 1.0 + floor(t / 60.0) * 0.05
+	var dmg_mult: float = 1.0 + floor(t / 90.0) * 0.10
+	max_hp = int(round(float(max_hp) * hp_mult))
+	move_speed = move_speed * speed_mult
+	contact_damage = int(round(float(contact_damage) * dmg_mult))
+	hp = max_hp
+
+
+func take_damage(amount: int, attacker: Object = null) -> void:
 	if is_dying:
 		return
+	if attacker != null:
+		var aid: int = attacker.get_instance_id()
+		var now: float = Time.get_ticks_msec() / 1000.0
+		if _last_hit_by.has(aid) and (now - float(_last_hit_by[aid])) < REHIT_COOLDOWN:
+			return
+		_last_hit_by[aid] = now
 	hp = max(0, hp - amount)
 	if hp <= 0:
 		die()

@@ -3,9 +3,11 @@ extends Enemy
 
 func _ready() -> void:
 	max_hp = 8
-	move_speed = 60.0
-	contact_damage = 8
+	move_speed = 80.0
+	contact_damage = 4
 	exp_drop_value = 1
+	coin_drop_value = 1
+	coin_drop_chance = 0.10
 	hp = max_hp
 	super._ready()
 

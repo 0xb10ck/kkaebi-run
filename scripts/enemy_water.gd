@@ -1,17 +1,17 @@
 extends Enemy
 
 
-const SLOW_FACTOR: float = 0.5
-const SLOW_DURATION: float = 1.5
+const SLOW_FACTOR: float = 0.7
+const SLOW_DURATION: float = 1.0
 
 
 func _ready() -> void:
-	max_hp = 15
-	move_speed = 80.0
-	contact_damage = 12
+	max_hp = 40
+	move_speed = 50.0
+	contact_damage = 10
 	exp_drop_value = 5
 	coin_drop_value = 2
-	coin_drop_chance = 1.0
+	coin_drop_chance = 0.50
 	hp = max_hp
 	super._ready()
 

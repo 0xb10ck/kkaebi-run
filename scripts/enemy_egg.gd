@@ -7,10 +7,12 @@ const EGG_SEGMENTS: int = 24
 
 
 func _ready() -> void:
-	max_hp = 4
-	move_speed = 120.0
-	contact_damage = 5
-	exp_drop_value = 1
+	max_hp = 15
+	move_speed = 140.0
+	contact_damage = 6
+	exp_drop_value = 2
+	coin_drop_value = 1
+	coin_drop_chance = 0.15
 	hp = max_hp
 	super._ready()
 
