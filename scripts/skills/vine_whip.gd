@@ -8,9 +8,29 @@ const LINE_COLOR: Color = Color("#4CAF50")
 const LINE_WIDTH: float = 4.0
 
 
+var _active_lines: Array = []
+
+
 func _ready() -> void:
 	cooldown = 1.5
 	super._ready()
+
+
+func _physics_process(delta: float) -> void:
+	super._physics_process(delta)
+	if _active_lines.is_empty():
+		return
+	for line in _active_lines:
+		line.time_left -= delta
+	_active_lines = _active_lines.filter(func(l): return l.time_left > 0.0)
+	queue_redraw()
+
+
+func _draw() -> void:
+	for line in _active_lines:
+		var local_from: Vector2 = to_local(line.from)
+		var local_to: Vector2 = to_local(line.to)
+		draw_line(local_from, local_to, LINE_COLOR, LINE_WIDTH)
 
 
 func _cast() -> void:
@@ -38,15 +58,5 @@ func _find_nearest_enemy() -> Node2D:
 
 
 func _spawn_line(from: Vector2, to: Vector2) -> void:
-	var line: Line2D = Line2D.new()
-	line.top_level = true
-	line.width = LINE_WIDTH
-	line.default_color = LINE_COLOR
-	line.add_point(from)
-	line.add_point(to)
-	add_child(line)
-	var timer: SceneTreeTimer = get_tree().create_timer(LINE_DURATION)
-	timer.timeout.connect(func() -> void:
-		if is_instance_valid(line):
-			line.queue_free()
-	)
+	_active_lines.append({"from": from, "to": to, "time_left": LINE_DURATION})
+	queue_redraw()
