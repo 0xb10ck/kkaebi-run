@@ -18,9 +18,10 @@ signal died
 var hp: int = MAX_HP
 var level: int = 1
 var exp: int = 0
-var exp_to_next: int = 10
+var exp_to_next: int = 15
 var invincible: bool = false
 var attack_timer: float = 0.0
+var shield_chance: float = 0.0
 var _slow_factor: float = 1.0
 var _slow_remaining: float = 0.0
 
@@ -94,6 +95,8 @@ func apply_slow(factor: float, duration: float) -> void:
 func take_damage(amount: int) -> void:
 	if _dead or invincible:
 		return
+	if shield_chance > 0.0 and randf() < shield_chance:
+		return
 	hp = max(0, hp - amount)
 	hp_changed.emit(hp, MAX_HP)
 	if hp <= 0:
@@ -126,7 +129,7 @@ func _add_exp(amount: int) -> void:
 	while exp >= exp_to_next:
 		exp -= exp_to_next
 		level += 1
-		exp_to_next = int(exp_to_next * 1.5)
+		exp_to_next = level * 15
 		level_up.emit(level)
 	exp_changed.emit(exp, exp_to_next)
 

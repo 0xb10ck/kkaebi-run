@@ -1,0 +1,93 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/level_up_panel.gd" id="1_level_up"]
+
+[node name="LevelUpPanel" type="CanvasLayer"]
+layer = 10
+process_mode = 2
+visible = false
+script = ExtResource("1_level_up")
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.6)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+theme_override_constants/separation = 8
+
+[node name="Card0" type="PanelContainer" parent="CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(140, 280)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/HBoxContainer/Card0"]
+theme_override_constants/separation = 8
+
+[node name="ColorBand" type="ColorRect" parent="CenterContainer/HBoxContainer/Card0/VBoxContainer"]
+custom_minimum_size = Vector2(0, 36)
+color = Color(0.5, 0.5, 0.5, 1)
+
+[node name="NameLabel" type="Label" parent="CenterContainer/HBoxContainer/Card0/VBoxContainer"]
+text = "스킬"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="DescLabel" type="Label" parent="CenterContainer/HBoxContainer/Card0/VBoxContainer"]
+text = "설명"
+autowrap_mode = 3
+size_flags_vertical = 3
+custom_minimum_size = Vector2(0, 100)
+
+[node name="SelectButton" type="Button" parent="CenterContainer/HBoxContainer/Card0/VBoxContainer"]
+text = "선택"
+
+[node name="Card1" type="PanelContainer" parent="CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(140, 280)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/HBoxContainer/Card1"]
+theme_override_constants/separation = 8
+
+[node name="ColorBand" type="ColorRect" parent="CenterContainer/HBoxContainer/Card1/VBoxContainer"]
+custom_minimum_size = Vector2(0, 36)
+color = Color(0.5, 0.5, 0.5, 1)
+
+[node name="NameLabel" type="Label" parent="CenterContainer/HBoxContainer/Card1/VBoxContainer"]
+text = "스킬"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="DescLabel" type="Label" parent="CenterContainer/HBoxContainer/Card1/VBoxContainer"]
+text = "설명"
+autowrap_mode = 3
+size_flags_vertical = 3
+custom_minimum_size = Vector2(0, 100)
+
+[node name="SelectButton" type="Button" parent="CenterContainer/HBoxContainer/Card1/VBoxContainer"]
+text = "선택"
+
+[node name="Card2" type="PanelContainer" parent="CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(140, 280)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/HBoxContainer/Card2"]
+theme_override_constants/separation = 8
+
+[node name="ColorBand" type="ColorRect" parent="CenterContainer/HBoxContainer/Card2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 36)
+color = Color(0.5, 0.5, 0.5, 1)
+
+[node name="NameLabel" type="Label" parent="CenterContainer/HBoxContainer/Card2/VBoxContainer"]
+text = "스킬"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="DescLabel" type="Label" parent="CenterContainer/HBoxContainer/Card2/VBoxContainer"]
+text = "설명"
+autowrap_mode = 3
+size_flags_vertical = 3
+custom_minimum_size = Vector2(0, 100)
+
+[node name="SelectButton" type="Button" parent="CenterContainer/HBoxContainer/Card2/VBoxContainer"]
+text = "선택"

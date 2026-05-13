@@ -1,0 +1,202 @@
+[gd_scene load_steps=2 format=3 uid="uid://b00kkaebi0result"]
+
+[ext_resource type="Script" path="res://scripts/result_screen.gd" id="1_result"]
+
+[node name="ResultScreen" type="CanvasLayer"]
+layer = 20
+script = ExtResource("1_result")
+
+[node name="Root" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 0
+
+[node name="DimOverlay" type="ColorRect" parent="Root"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.6)
+
+[node name="Panel" type="Panel" parent="Root"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 187.0
+offset_right = 416.0
+offset_bottom = 667.0
+pivot_offset = Vector2(176, 240)
+
+[node name="Title" type="Label" parent="Root/Panel"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 28.0
+offset_right = 352.0
+offset_bottom = 72.0
+text = "쓰러지셨습니다"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0.941, 0.929, 0.902, 1)
+theme_override_font_sizes/font_size = 26
+
+[node name="Subtitle" type="Label" parent="Root/Panel"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 76.0
+offset_right = 352.0
+offset_bottom = 100.0
+text = "다음에는 더 멀리 가실 수 있습니다"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0.941, 0.929, 0.902, 0.7)
+theme_override_font_sizes/font_size = 14
+
+[node name="Stats" type="Control" parent="Root/Panel"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 120.0
+offset_right = 332.0
+offset_bottom = 280.0
+
+[node name="SurviveRow" type="Control" parent="Root/Panel/Stats"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 312.0
+offset_bottom = 32.0
+
+[node name="Label" type="Label" parent="Root/Panel/Stats/SurviveRow"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 156.0
+offset_bottom = 32.0
+text = "생존 시간"
+horizontal_alignment = 0
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0.941, 0.929, 0.902, 1)
+theme_override_font_sizes/font_size = 16
+
+[node name="Value" type="Label" parent="Root/Panel/Stats/SurviveRow"]
+layout_mode = 0
+offset_left = 156.0
+offset_top = 0.0
+offset_right = 312.0
+offset_bottom = 32.0
+text = "00:00"
+horizontal_alignment = 2
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0.878, 0.761, 0.235, 1)
+theme_override_font_sizes/font_size = 16
+
+[node name="KillsRow" type="Control" parent="Root/Panel/Stats"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 36.0
+offset_right = 312.0
+offset_bottom = 68.0
+
+[node name="Label" type="Label" parent="Root/Panel/Stats/KillsRow"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 156.0
+offset_bottom = 32.0
+text = "처치 수"
+horizontal_alignment = 0
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0.941, 0.929, 0.902, 1)
+theme_override_font_sizes/font_size = 16
+
+[node name="Value" type="Label" parent="Root/Panel/Stats/KillsRow"]
+layout_mode = 0
+offset_left = 156.0
+offset_top = 0.0
+offset_right = 312.0
+offset_bottom = 32.0
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0.878, 0.761, 0.235, 1)
+theme_override_font_sizes/font_size = 16
+
+[node name="LevelRow" type="Control" parent="Root/Panel/Stats"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 72.0
+offset_right = 312.0
+offset_bottom = 104.0
+
+[node name="Label" type="Label" parent="Root/Panel/Stats/LevelRow"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 156.0
+offset_bottom = 32.0
+text = "최고 레벨"
+horizontal_alignment = 0
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0.941, 0.929, 0.902, 1)
+theme_override_font_sizes/font_size = 16
+
+[node name="Value" type="Label" parent="Root/Panel/Stats/LevelRow"]
+layout_mode = 0
+offset_left = 156.0
+offset_top = 0.0
+offset_right = 312.0
+offset_bottom = 32.0
+text = "레벨 1"
+horizontal_alignment = 2
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0.878, 0.761, 0.235, 1)
+theme_override_font_sizes/font_size = 16
+
+[node name="CoinsRow" type="Control" parent="Root/Panel/Stats"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 108.0
+offset_right = 312.0
+offset_bottom = 140.0
+
+[node name="Label" type="Label" parent="Root/Panel/Stats/CoinsRow"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 156.0
+offset_bottom = 32.0
+text = "획득 금화"
+horizontal_alignment = 0
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0.941, 0.929, 0.902, 1)
+theme_override_font_sizes/font_size = 16
+
+[node name="Value" type="Label" parent="Root/Panel/Stats/CoinsRow"]
+layout_mode = 0
+offset_left = 156.0
+offset_top = 0.0
+offset_right = 312.0
+offset_bottom = 32.0
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0.878, 0.761, 0.235, 1)
+theme_override_font_sizes/font_size = 16
+
+[node name="RestartButton" type="Button" parent="Root/Panel"]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 332.0
+offset_right = 276.0
+offset_bottom = 376.0
+text = "다시 시작"
+theme_override_font_sizes/font_size = 16
+
+[node name="MainMenuButton" type="Button" parent="Root/Panel"]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 388.0
+offset_right = 276.0
+offset_bottom = 432.0
+text = "메인 메뉴로"
+theme_override_font_sizes/font_size = 16

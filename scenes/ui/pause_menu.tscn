@@ -1,0 +1,67 @@
+[gd_scene load_steps=2 format=3 uid="uid://b00kkaebi0pause"]
+
+[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_pause"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_pause")
+
+[node name="Root" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 0
+
+[node name="DimOverlay" type="ColorRect" parent="Root"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.5)
+
+[node name="Panel" type="Panel" parent="Root"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 257.0
+offset_right = 400.0
+offset_bottom = 597.0
+
+[node name="Title" type="Label" parent="Root/Panel"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 36.0
+offset_right = 320.0
+offset_bottom = 76.0
+text = "일시정지"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0.941, 0.929, 0.902, 1)
+theme_override_font_sizes/font_size = 24
+
+[node name="ContinueButton" type="Button" parent="Root/Panel"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 108.0
+offset_right = 260.0
+offset_bottom = 152.0
+text = "계속"
+theme_override_font_sizes/font_size = 16
+
+[node name="RestartButton" type="Button" parent="Root/Panel"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 164.0
+offset_right = 260.0
+offset_bottom = 208.0
+text = "다시 시작"
+theme_override_font_sizes/font_size = 16
+
+[node name="MainMenuButton" type="Button" parent="Root/Panel"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 220.0
+offset_right = 260.0
+offset_bottom = 264.0
+text = "메인 메뉴로"
+theme_override_font_sizes/font_size = 16

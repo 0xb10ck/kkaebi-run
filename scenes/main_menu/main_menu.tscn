@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://b00kkaebi0menu0"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_menu"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_menu")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.102, 0.086, 0.071, 1)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 280.0
+offset_right = 480.0
+offset_bottom = 360.0
+text = "깨비런"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0.878, 0.761, 0.235, 1)
+theme_override_font_sizes/font_size = 56
+
+[node name="Subtitle" type="Label" parent="."]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 360.0
+offset_right = 480.0
+offset_bottom = 392.0
+text = "오방 도깨비의 5분 생존기"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0.941, 0.929, 0.902, 0.8)
+theme_override_font_sizes/font_size = 16
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 480.0
+offset_right = 340.0
+offset_bottom = 528.0
+text = "시작하기"
+theme_override_font_sizes/font_size = 18

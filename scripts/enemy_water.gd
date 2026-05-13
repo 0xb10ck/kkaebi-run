@@ -10,6 +10,8 @@ func _ready() -> void:
 	move_speed = 80.0
 	contact_damage = 12
 	exp_drop_value = 5
+	coin_drop_value = 2
+	coin_drop_chance = 1.0
 	hp = max_hp
 	super._ready()
 
