@@ -10,6 +10,9 @@ extends Resource
 @export var sprite_texture: Texture2D
 @export var portrait_texture: Texture2D
 
+# === 역할 / 분류 ===
+@export var role: String = ""  # 딜러 / 탱커 / 서포터 / 하이브리드 등 자유 텍스트
+
 # === 기본 스탯 ===
 @export var base_hp: int = 100
 @export var base_move_speed: float = 100.0
@@ -31,9 +34,11 @@ extends Resource
 # === 고유 패시브 / 궁극기 ===
 @export var passive_id: StringName
 @export var passive_params: Dictionary = {}
+@export_multiline var passive_description: String = ""
 @export var ultimate_id: StringName
 @export var ultimate_cooldown_s: float = 45.0
 @export var ultimate_params: Dictionary = {}
+@export_multiline var ultimate_description: String = ""
 
 # === 시작 스킬 가중치 (skill_id -> float) ===
 @export var start_weight_overrides: Dictionary = {}
@@ -46,3 +51,53 @@ extends Resource
 # === 친밀도 트리 ===
 @export var affinity_tree: Array[AffinityNode] = []
 @export var affinity_max: int = 20
+
+
+# === AC 명세 별칭 표면 (AC3) ===
+# base_weapon: weapon_scene과 동일. 외부 식별자명 호환.
+# unlock_condition: unlock_requires + unlock_cost_orbs를 묶은 Dictionary.
+
+var base_weapon: PackedScene:
+	get:
+		return weapon_scene
+	set(value):
+		weapon_scene = value
+
+var unlock_condition: Dictionary:
+	get:
+		return {
+			"requires": unlock_requires,
+			"cost_orbs": unlock_cost_orbs,
+		}
+	set(value):
+		if value.has("requires"):
+			var req: Array[StringName] = []
+			for item in value["requires"]:
+				req.append(StringName(String(item)))
+			unlock_requires = req
+		if value.has("cost_orbs"):
+			unlock_cost_orbs = int(value["cost_orbs"])
+
+# 풀스펙 명세 별칭: default_weapon_scene / affinity_bonuses
+# 외부에서 사용하는 식별자명을 기존 @export 필드에 매핑한다.
+
+var default_weapon_scene: PackedScene:
+	get:
+		return weapon_scene
+	set(value):
+		weapon_scene = value
+
+var affinity_bonuses: Array[Dictionary]:
+	get:
+		var result: Array[Dictionary] = []
+		for node in affinity_tree:
+			if node == null:
+				continue
+			result.append({
+				"id": node.id,
+				"affinity_required": node.affinity_required,
+				"branch": node.branch,
+				"effect_kind": node.effect_kind,
+				"effect_params": node.effect_params,
+			})
+		return result

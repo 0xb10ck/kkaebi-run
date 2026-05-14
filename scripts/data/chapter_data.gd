@@ -40,3 +40,28 @@ extends Resource
 @export var clear_first_bonus_orbs: int = 0
 @export var hard_mode_unlocked: bool = false
 @export var hard_difficulty_mult: float = 1.5
+
+# === 타일셋 (옵션) ===
+@export var tileset: Resource
+
+
+# === 풀스펙 명세 별칭 ===
+# 외부에서 쓰는 식별자명을 기존 @export 필드에 매핑한다.
+
+var stage_duration_sec: float:
+	get:
+		return stage_duration_s
+	set(value):
+		stage_duration_s = value
+
+var monster_pool: Array[StringName]:
+	get:
+		return enemy_pool
+	set(value):
+		enemy_pool = value
+
+var miniboss_id: StringName:
+	get:
+		return mini_boss_id
+	set(value):
+		mini_boss_id = value
