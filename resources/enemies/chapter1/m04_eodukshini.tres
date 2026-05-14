@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://m04eodukshini"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"m04_eodukshini"
+display_name_ko = "어둑시니"
+lore_ko = "보면 볼수록 커지는 어둠 속의 형체. 시야에서 벗어나면 빠르게 다가온다."
+sprite_size_px = Vector2i(24, 24)
+placeholder_color = Color(0.05, 0.05, 0.08, 1)
+base_hp = 14
+base_move_speed = 45.0
+base_contact_damage = 4
+attack_cooldown = 1.2
+detection_radius = 800.0
+hitbox_radius = 9.6
+ranged_kind = 0
+ranged_damage = 0
+ranged_range_px = 0.0
+ranged_projectile_speed = 0.0
+ranged_cooldown = 2.0
+ranged_telegraph = 0.0
+special_abilities = Array[int]([3])
+special_params = {
+"vision_cone_deg": 120.0,
+"growth_per_sec": 1.1,
+"max_growth_mult": 2.0,
+"speed_outside_vision_mult": 1.5,
+"max_sprite_size_w": 48,
+"max_sprite_size_h": 48,
+}
+group_ai = 0
+group_size = 1
+group_spacing_px = 30.0
+ai_aggression = 1.0
+flock_cohesion = 0.0
+exp_value = 3
+gold_drop_chance = 0.10
+gold_drop_amount = 1
+orb_value = 0
+chapters = Array[int]([1, 2])
+spawn_weight = 60
+min_stage_time_s = 120.0
+max_concurrent = 999

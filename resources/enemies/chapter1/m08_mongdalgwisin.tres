@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://m08mongdalgwisin"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"m08_mongdalgwisin"
+display_name_ko = "몽달귀신"
+lore_ko = "장가 못 가고 죽은 총각의 한. 종이꽃을 던지며 손각시 곁에서 강해진다."
+sprite_size_px = Vector2i(24, 40)
+placeholder_color = Color(0.55, 0.45, 0.55, 1)
+base_hp = 18
+base_move_speed = 55.0
+base_contact_damage = 4
+attack_cooldown = 1.8
+detection_radius = 800.0
+hitbox_radius = 9.6
+ranged_kind = 1
+ranged_damage = 5
+ranged_range_px = 200.0
+ranged_projectile_speed = 160.0
+ranged_cooldown = 1.8
+ranged_telegraph = 0.2
+special_abilities = Array[int]([])
+special_params = {
+"loneliness_partner_id": "m07_songakshi",
+"loneliness_speed_buff_mult": 1.30,
+"loneliness_damage_buff_mult": 1.20,
+}
+group_ai = 0
+group_size = 1
+group_spacing_px = 30.0
+ai_aggression = 1.0
+flock_cohesion = 0.0
+exp_value = 4
+gold_drop_chance = 0.12
+gold_drop_amount = 1
+orb_value = 0
+chapters = Array[int]([1, 3])
+spawn_weight = 45
+min_stage_time_s = 180.0
+max_concurrent = 999

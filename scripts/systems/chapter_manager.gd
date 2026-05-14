@@ -173,6 +173,24 @@ func quit_to_main_menu() -> void:
 	_safe_change_scene(MAIN_MENU_PATH)
 
 
+# === AC 명세 별칭 — stage → boss → interlude → next_chapter 순서로 외부 호출 ===
+
+func advance_stage() -> void:
+	on_stage_cleared()
+
+
+func start_boss_battle() -> void:
+	advance_to_boss()
+
+
+func start_interlude() -> void:
+	start_intermission()
+
+
+func start_next_chapter() -> void:
+	advance_to_next_chapter()
+
+
 # === 헬퍼: 씬 전환 안전 호출 ===
 
 func _safe_change_scene(path: String) -> void:

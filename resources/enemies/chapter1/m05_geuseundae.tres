@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://m05geuseundae"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"m05_geuseundae"
+display_name_ko = "그슨대"
+lore_ko = "제주 설화 — 길에서 보면 점점 키가 길어진다. 가까이 가면 머리를 내려친다."
+sprite_size_px = Vector2i(16, 24)
+placeholder_color = Color(0.70, 0.70, 0.65, 1)
+base_hp = 16
+base_move_speed = 55.0
+base_contact_damage = 4
+attack_cooldown = 2.0
+detection_radius = 800.0
+hitbox_radius = 6.4
+ranged_kind = 1
+ranged_damage = 5
+ranged_range_px = 128.0
+ranged_projectile_speed = 0.0
+ranged_cooldown = 2.0
+ranged_telegraph = 0.15
+special_abilities = Array[int]([])
+special_params = {
+"stretch_trigger_distance_px": 250.0,
+"stretch_step_px": 6.0,
+"stretch_step_interval_s": 0.5,
+"max_length_px": 64.0,
+"ranged_activate_length_px": 48.0,
+}
+group_ai = 0
+group_size = 1
+group_spacing_px = 30.0
+ai_aggression = 1.0
+flock_cohesion = 0.0
+exp_value = 3
+gold_drop_chance = 0.10
+gold_drop_amount = 1
+orb_value = 0
+chapters = Array[int]([1, 2])
+spawn_weight = 50
+min_stage_time_s = 180.0
+max_concurrent = 999

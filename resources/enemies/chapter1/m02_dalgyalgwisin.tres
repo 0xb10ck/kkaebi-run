@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://m02dalgyalgwisin"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"m02_dalgyalgwisin"
+display_name_ko = "달걀귀신"
+lore_ko = "얼굴 없는 달걀 모양 귀신. 항상 무리지어 다니며 일제히 돌진한다."
+sprite_size_px = Vector2i(20, 24)
+placeholder_color = Color(1, 1, 1, 1)
+base_hp = 8
+base_move_speed = 70.0
+base_contact_damage = 4
+attack_cooldown = 0.8
+detection_radius = 800.0
+hitbox_radius = 8.0
+ranged_kind = 0
+ranged_damage = 0
+ranged_range_px = 0.0
+ranged_projectile_speed = 0.0
+ranged_cooldown = 2.0
+ranged_telegraph = 0.0
+special_abilities = Array[int]([1])
+special_params = {
+"charge_trigger_distance_px": 50.0,
+"charge_speed_mult": 1.6,
+"charge_duration_s": 0.8,
+"charge_cooldown_s": 4.0,
+}
+group_ai = 1
+group_size = 5
+group_spacing_px = 20.0
+ai_aggression = 1.0
+flock_cohesion = 0.8
+exp_value = 2
+gold_drop_chance = 0.06
+gold_drop_amount = 1
+orb_value = 0
+chapters = Array[int]([1, 2])
+spawn_weight = 100
+min_stage_time_s = 0.0
+max_concurrent = 999

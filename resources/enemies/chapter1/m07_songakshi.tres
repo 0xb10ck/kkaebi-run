@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://m07songakshi"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"m07_songakshi"
+display_name_ko = "손각시"
+lore_ko = "결혼 못 하고 죽은 처녀의 작은 한. HP가 절반 이하면 순간이동한다."
+sprite_size_px = Vector2i(24, 40)
+placeholder_color = Color(0.95, 0.95, 0.92, 1)
+base_hp = 20
+base_move_speed = 50.0
+base_contact_damage = 6
+attack_cooldown = 2.5
+detection_radius = 300.0
+hitbox_radius = 9.6
+ranged_kind = 0
+ranged_damage = 0
+ranged_range_px = 0.0
+ranged_projectile_speed = 0.0
+ranged_cooldown = 2.0
+ranged_telegraph = 0.0
+special_abilities = Array[int]([6])
+special_params = {
+"teleport_hp_threshold": 0.5,
+"teleport_range_px": 100.0,
+"teleport_cooldown_s": 4.0,
+"teleport_flash_time_s": 0.3,
+"engage_duration_s": 5.0,
+"retreat_duration_s": 1.5,
+"loneliness_partner_id": "m08_mongdalgwisin",
+}
+group_ai = 0
+group_size = 1
+group_spacing_px = 30.0
+ai_aggression = 1.0
+flock_cohesion = 0.0
+exp_value = 4
+gold_drop_chance = 0.14
+gold_drop_amount = 1
+orb_value = 0
+chapters = Array[int]([1, 3])
+spawn_weight = 40
+min_stage_time_s = 120.0
+max_concurrent = 999

@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://legacyenemywater"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"legacy_enemy_water"
+display_name_ko = "물귀신(레거시)"
+lore_ko = "MVP 시절의 물귀신. 데이터 자원 마이그레이션 호환용."
+sprite_size_px = Vector2i(24, 24)
+placeholder_color = Color(0.298, 0.686, 0.314, 1)
+base_hp = 40
+base_move_speed = 50.0
+base_contact_damage = 10
+attack_cooldown = 2.0
+detection_radius = 800.0
+hitbox_radius = 12.0
+ranged_kind = 0
+ranged_damage = 0
+ranged_range_px = 0.0
+ranged_projectile_speed = 0.0
+ranged_cooldown = 2.0
+ranged_telegraph = 0.0
+special_abilities = Array[int]([2])
+special_params = {
+"drag_speed_mult": 0.7,
+"drag_duration_s": 1.0,
+}
+group_ai = 0
+group_size = 1
+group_spacing_px = 30.0
+ai_aggression = 1.0
+flock_cohesion = 0.0
+exp_value = 5
+gold_drop_chance = 0.50
+gold_drop_amount = 2
+orb_value = 0
+chapters = Array[int]([1])
+spawn_weight = 40
+min_stage_time_s = 0.0
+max_concurrent = 999

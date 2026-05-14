@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://m09duduri"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"m09_duduri"
+display_name_ko = "두두리"
+lore_ko = "삼국유사 비형랑조 — 도깨비 무리의 우두머리. 북을 쳐 주변 챕터1 몹의 이속을 올린다."
+sprite_size_px = Vector2i(28, 32)
+placeholder_color = Color(0.78, 0.45, 0.20, 1)
+base_hp = 22
+base_move_speed = 45.0
+base_contact_damage = 3
+attack_cooldown = 2.0
+detection_radius = 800.0
+hitbox_radius = 11.2
+ranged_kind = 4
+ranged_damage = 5
+ranged_range_px = 100.0
+ranged_projectile_speed = 0.0
+ranged_cooldown = 2.0
+ranged_telegraph = 0.15
+special_abilities = Array[int]([])
+special_params = {
+"keep_distance_min_px": 200.0,
+"keep_distance_max_px": 300.0,
+"drum_aura_radius_px": 240.0,
+"drum_aura_speed_buff_mult": 1.25,
+"drum_aura_targets": "chapter1_normals",
+"shockwave_knockback_duration_s": 0.3,
+}
+group_ai = 0
+group_size = 1
+group_spacing_px = 30.0
+ai_aggression = 1.0
+flock_cohesion = 0.0
+exp_value = 5
+gold_drop_chance = 0.18
+gold_drop_amount = 1
+orb_value = 0
+chapters = Array[int]([1])
+spawn_weight = 30
+min_stage_time_s = 180.0
+max_concurrent = 3

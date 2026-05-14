@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://legacyenemyegg"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"legacy_enemy_egg"
+display_name_ko = "달걀귀신(레거시)"
+lore_ko = "MVP 시절의 달걀귀신. 데이터 자원 마이그레이션 호환용."
+sprite_size_px = Vector2i(20, 24)
+placeholder_color = Color(0.941, 0.929, 0.902, 1)
+base_hp = 15
+base_move_speed = 140.0
+base_contact_damage = 6
+attack_cooldown = 0.8
+detection_radius = 800.0
+hitbox_radius = 10.0
+ranged_kind = 0
+ranged_damage = 0
+ranged_range_px = 0.0
+ranged_projectile_speed = 0.0
+ranged_cooldown = 2.0
+ranged_telegraph = 0.0
+special_abilities = Array[int]([])
+special_params = {}
+group_ai = 1
+group_size = 4
+group_spacing_px = 30.0
+ai_aggression = 1.0
+flock_cohesion = 0.8
+exp_value = 2
+gold_drop_chance = 0.15
+gold_drop_amount = 1
+orb_value = 0
+chapters = Array[int]([1])
+spawn_weight = 80
+min_stage_time_s = 0.0
+max_concurrent = 999

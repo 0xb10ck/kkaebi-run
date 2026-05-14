@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://legacyenemyfire"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"legacy_enemy_fire"
+display_name_ko = "도깨비불(레거시)"
+lore_ko = "MVP 시절의 푸른 도깨비불. 데이터 자원 마이그레이션 호환용."
+sprite_size_px = Vector2i(16, 16)
+placeholder_color = Color(0.878, 0.235, 0.235, 1)
+base_hp = 8
+base_move_speed = 80.0
+base_contact_damage = 4
+attack_cooldown = 1.0
+detection_radius = 800.0
+hitbox_radius = 10.0
+ranged_kind = 0
+ranged_damage = 0
+ranged_range_px = 0.0
+ranged_projectile_speed = 0.0
+ranged_cooldown = 2.0
+ranged_telegraph = 0.0
+special_abilities = Array[int]([])
+special_params = {}
+group_ai = 0
+group_size = 1
+group_spacing_px = 30.0
+ai_aggression = 1.0
+flock_cohesion = 0.0
+exp_value = 1
+gold_drop_chance = 0.10
+gold_drop_amount = 1
+orb_value = 0
+chapters = Array[int]([1])
+spawn_weight = 100
+min_stage_time_s = 0.0
+max_concurrent = 999
