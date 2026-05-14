@@ -1,0 +1,155 @@
+[gd_resource type="Resource" script_class="BossData" load_steps=13 format=3 uid="uid://bn1mb03chagwi"]
+
+[ext_resource type="Script" path="res://scripts/data/boss_data.gd" id="1_data"]
+[ext_resource type="Script" path="res://scripts/data/boss_phase.gd" id="2_phase"]
+[ext_resource type="Script" path="res://scripts/data/boss_pattern.gd" id="3_pattern"]
+
+[sub_resource type="Resource" id="p_cg_cart_rush"]
+script = ExtResource("3_pattern")
+id = &"cg_cart_rush"
+display_name_ko = "수레 돌진"
+shape = 1
+weight = 10
+cooldown_s = 7.0
+telegraph_duration_s = 0.7
+hitbox_length_px = 560.0
+hitbox_radius_px = 60.0
+damage = 32
+
+[sub_resource type="Resource" id="p_cg_soul_summon"]
+script = ExtResource("3_pattern")
+id = &"cg_soul_summon"
+display_name_ko = "영혼 손님 소환"
+shape = 8
+weight = 6
+cooldown_s = 10.0
+telegraph_duration_s = 1.0
+summon_enemy_id = &"chagwi_soul"
+summon_count = 1
+damage = 16
+
+[sub_resource type="Resource" id="p_cg_force_ride"]
+script = ExtResource("3_pattern")
+id = &"cg_force_ride"
+display_name_ko = "강제 탑승 시도"
+shape = 11
+weight = 5
+cooldown_s = 12.0
+telegraph_duration_s = 0.9
+status_effect = &"control_flip"
+status_duration_s = 2.0
+damage = 20
+
+[sub_resource type="Resource" id="p_cg_wheel_shrapnel"]
+script = ExtResource("3_pattern")
+id = &"cg_wheel_shrapnel"
+display_name_ko = "수레바퀴 파편"
+shape = 0
+weight = 6
+cooldown_s = 8.0
+telegraph_duration_s = 0.6
+hitbox_radius_px = 180.0
+projectile_speed = 300.0
+projectile_count = 8
+projectile_spread_deg = 360.0
+damage = 18
+
+[sub_resource type="Resource" id="p_cg_wail"]
+script = ExtResource("3_pattern")
+id = &"cg_wail"
+display_name_ko = "곡소리 광역"
+shape = 3
+weight = 3
+cooldown_s = 999.0
+telegraph_duration_s = 1.0
+damage = 25
+
+[sub_resource type="Resource" id="p_cg_shadow_blink"]
+script = ExtResource("3_pattern")
+id = &"cg_shadow_blink"
+display_name_ko = "그림자 점멸"
+shape = 7
+weight = 10
+cooldown_s = 5.0
+telegraph_duration_s = 0.4
+hitbox_length_px = 160.0
+hitbox_radius_px = 25.0
+damage = 28
+
+[sub_resource type="Resource" id="p_cg_arrow"]
+script = ExtResource("3_pattern")
+id = &"cg_arrow"
+display_name_ko = "망령 화살"
+shape = 5
+weight = 7
+cooldown_s = 8.0
+telegraph_duration_s = 0.5
+projectile_speed = 280.0
+projectile_count = 3
+projectile_spread_deg = 20.0
+damage = 14
+
+[sub_resource type="Resource" id="p_cg_chain_pull"]
+script = ExtResource("3_pattern")
+id = &"cg_chain_pull"
+display_name_ko = "사슬 끌어당김"
+shape = 1
+weight = 6
+cooldown_s = 9.0
+telegraph_duration_s = 0.7
+hitbox_length_px = 800.0
+hitbox_radius_px = 15.0
+status_effect = &"stun"
+status_duration_s = 1.0
+damage = 18
+
+[sub_resource type="Resource" id="phase_cg_1"]
+script = ExtResource("2_phase")
+phase_index = 0
+hp_threshold_percent = 1.0
+transition_invuln_s = 1.8
+transition_camera_shake = 0.4
+idle_min_s = 0.7
+idle_max_s = 1.3
+pattern_queue = Array[Resource]([SubResource("p_cg_cart_rush"), SubResource("p_cg_soul_summon"), SubResource("p_cg_force_ride"), SubResource("p_cg_wheel_shrapnel")])
+move_speed_mult = 1.0
+damage_mult = 1.0
+keyword_ko = "수레 운용"
+
+[sub_resource type="Resource" id="phase_cg_2"]
+script = ExtResource("2_phase")
+phase_index = 1
+hp_threshold_percent = 0.50
+transition_invuln_s = 2.0
+transition_camera_shake = 0.5
+idle_min_s = 0.4
+idle_max_s = 0.9
+pattern_queue = Array[Resource]([SubResource("p_cg_wail"), SubResource("p_cg_shadow_blink"), SubResource("p_cg_arrow"), SubResource("p_cg_chain_pull")])
+move_speed_mult = 1.15
+damage_mult = 1.25
+keyword_ko = "수레 없음"
+
+[resource]
+script = ExtResource("1_data")
+id = &"mb03_chagwishin"
+display_name_ko = "차귀신"
+lore_ko = "죽은 자의 영혼이 수레를 끌고 산 자를 데려간다는 제주 전승의 사령입니다."
+sprite_size_px = Vector2i(56, 80)
+hitbox_size_px = Vector2(48, 72)
+is_mini_boss = true
+hp = 3800
+armor = 6
+base_move_speed = 100.0
+melee_damage = 22
+phase_transition_mode = 0
+phases = Array[Resource]([SubResource("phase_cg_1"), SubResource("phase_cg_2")])
+intro_cutscene_id = &"cut_mb03_chagwi"
+intro_duration_s = 2.5
+death_cutscene_duration_s = 1.8
+first_kill_orbs = 65
+first_kill_leaves = 0
+rekill_orbs = 5
+grants_codex_entry = &"mb03_chagwishin"
+chapter = 3
+trigger_time_s = 210.0
+seal_stone_skippable = true

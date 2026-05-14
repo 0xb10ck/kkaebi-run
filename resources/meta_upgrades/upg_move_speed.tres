@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MetaUpgradeData" load_steps=2 format=3 uid="uid://bn1upgspd"]
+
+[ext_resource type="Script" path="res://scripts/data/meta_upgrade_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+key = &"move_speed"
+display_name_ko = "이동속도"
+description_ko = "도깨비님의 발걸음이 가벼워집니다. 적을 끌고 다니거나 피하기 좋습니다."
+max_level = 5
+costs_orbs = Array[int]([35, 70, 140, 280, 560])
+effects = Array[float]([0.03, 0.06, 0.10, 0.15, 0.20])
+effect_kind = &"additive_percent"
+apply_target = &"move_speed"
+requires_shinmok_stage = 1

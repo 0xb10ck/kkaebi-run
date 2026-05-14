@@ -1,0 +1,68 @@
+[gd_scene load_steps=2 format=3 uid="uid://b00kkaebi0intermission"]
+
+[ext_resource type="Script" path="res://scripts/gameplay/intermission.gd" id="1_inter"]
+
+[node name="Intermission" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_inter")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.114, 0.094, 0.082, 1)
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 220.0
+offset_right = 432.0
+offset_bottom = 640.0
+
+[node name="Title" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 32.0
+offset_right = 368.0
+offset_bottom = 92.0
+text = "보스를 물리치셨습니다"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+theme_override_colors/font_color = Color(0.878, 0.761, 0.235, 1)
+theme_override_font_sizes/font_size = 22
+
+[node name="Body" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 108.0
+offset_right = 360.0
+offset_bottom = 244.0
+text = "잠시 숨을 고르십시오. 신목이 다음 길을 안내해 드립니다."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+theme_override_colors/font_color = Color(0.941, 0.929, 0.902, 0.85)
+theme_override_font_sizes/font_size = 15
+
+[node name="NextButton" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 280.0
+offset_right = 304.0
+offset_bottom = 332.0
+text = "다음 챕터로 떠나겠습니다"
+theme_override_font_sizes/font_size = 16
+
+[node name="MenuButton" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 344.0
+offset_right = 304.0
+offset_bottom = 388.0
+text = "메인 메뉴로 돌아가기"
+theme_override_font_sizes/font_size = 16

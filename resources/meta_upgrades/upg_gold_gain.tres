@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MetaUpgradeData" load_steps=2 format=3 uid="uid://bn1upggold"]
+
+[ext_resource type="Script" path="res://scripts/data/meta_upgrade_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+key = &"gold_gain"
+display_name_ko = "금화 획득"
+description_ko = "잡귀가 떨구는 금화가 영구히 늘어납니다. 런 종료 시 도깨비 구슬로 정산됩니다."
+max_level = 5
+costs_orbs = Array[int]([25, 50, 100, 200, 400])
+effects = Array[float]([0.08, 0.16, 0.28, 0.44, 0.65])
+effect_kind = &"additive_percent"
+apply_target = &"gold_gain"
+requires_shinmok_stage = 2

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://scripts/level_up_panel.gd" id="1_level_up"]
+[ext_resource type="Script" path="res://scripts/ui/level_up_panel.gd" id="1_level_up"]
 
 [node name="LevelUpPanel" type="CanvasLayer"]
 layer = 10

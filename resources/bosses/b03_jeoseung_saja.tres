@@ -1,0 +1,206 @@
+[gd_resource type="Resource" script_class="BossData" load_steps=18 format=3 uid="uid://bn1b03saja"]
+
+[ext_resource type="Script" path="res://scripts/data/boss_data.gd" id="1_data"]
+[ext_resource type="Script" path="res://scripts/data/boss_phase.gd" id="2_phase"]
+[ext_resource type="Script" path="res://scripts/data/boss_pattern.gd" id="3_pattern"]
+
+[sub_resource type="Resource" id="p_js_record"]
+script = ExtResource("3_pattern")
+id = &"js_record"
+display_name_ko = "명부 기록"
+shape = 9
+weight = 2
+cooldown_s = 1.0
+telegraph_duration_s = 0.0
+damage = 0
+
+[sub_resource type="Resource" id="p_js_execute"]
+script = ExtResource("3_pattern")
+id = &"js_execute"
+display_name_ko = "기록 처형"
+shape = 0
+weight = 4
+cooldown_s = 12.0
+telegraph_duration_s = 0.6
+hitbox_radius_px = 120.0
+damage = 30
+
+[sub_resource type="Resource" id="p_js_chain"]
+script = ExtResource("3_pattern")
+id = &"js_chain"
+display_name_ko = "사슬 던지기"
+shape = 1
+weight = 10
+cooldown_s = 6.0
+telegraph_duration_s = 0.7
+hitbox_length_px = 600.0
+hitbox_radius_px = 18.0
+status_effect = &"chain_pull"
+status_duration_s = 1.0
+damage = 18
+
+[sub_resource type="Resource" id="p_js_hat_slash"]
+script = ExtResource("3_pattern")
+id = &"js_hat_slash"
+display_name_ko = "갓 베기"
+shape = 2
+weight = 12
+cooldown_s = 2.5
+telegraph_duration_s = 0.35
+hitbox_radius_px = 110.0
+hitbox_angle_deg = 130.0
+damage = 24
+
+[sub_resource type="Resource" id="p_js_ghost_call"]
+script = ExtResource("3_pattern")
+id = &"js_ghost_call"
+display_name_ko = "망령 호출"
+shape = 8
+weight = 5
+cooldown_s = 18.0
+telegraph_duration_s = 1.0
+summon_enemy_id = &"js_wraith"
+summon_count = 4
+damage = 14
+
+[sub_resource type="Resource" id="p_js_thunder"]
+script = ExtResource("3_pattern")
+id = &"js_thunder"
+display_name_ko = "명부 낙뢰"
+shape = 0
+weight = 9
+cooldown_s = 7.0
+telegraph_duration_s = 1.0
+hitbox_radius_px = 100.0
+damage = 28
+
+[sub_resource type="Resource" id="p_js_blink_slash"]
+script = ExtResource("3_pattern")
+id = &"js_blink_slash"
+display_name_ko = "점멸 베기"
+shape = 7
+weight = 10
+cooldown_s = 5.0
+telegraph_duration_s = 0.4
+hitbox_radius_px = 130.0
+hitbox_angle_deg = 90.0
+damage = 30
+
+[sub_resource type="Resource" id="p_js_chain_p2"]
+script = ExtResource("3_pattern")
+id = &"js_chain_p2"
+display_name_ko = "사슬 던지기(강)"
+shape = 1
+weight = 10
+cooldown_s = 5.0
+telegraph_duration_s = 0.6
+hitbox_length_px = 600.0
+hitbox_radius_px = 18.0
+damage = 20
+
+[sub_resource type="Resource" id="p_js_book_open"]
+script = ExtResource("3_pattern")
+id = &"js_book_open"
+display_name_ko = "명부 개방"
+shape = 3
+weight = 3
+cooldown_s = 30.0
+telegraph_duration_s = 1.0
+damage = 40
+
+[sub_resource type="Resource" id="p_js_death_meter"]
+script = ExtResource("3_pattern")
+id = &"js_death_meter"
+display_name_ko = "사명(즉사 게이지)"
+shape = 9
+weight = 2
+cooldown_s = 999.0
+telegraph_duration_s = 1.5
+damage = 350
+
+[sub_resource type="Resource" id="p_js_ghost_storm"]
+script = ExtResource("3_pattern")
+id = &"js_ghost_storm"
+display_name_ko = "망령 폭풍"
+shape = 0
+weight = 8
+cooldown_s = 8.0
+telegraph_duration_s = 0.7
+hitbox_radius_px = 300.0
+damage = 22
+
+[sub_resource type="Resource" id="p_js_blink_slash_p3"]
+script = ExtResource("3_pattern")
+id = &"js_blink_slash_p3"
+display_name_ko = "점멸 베기(강)"
+shape = 7
+weight = 12
+cooldown_s = 4.0
+telegraph_duration_s = 0.3
+hitbox_radius_px = 140.0
+hitbox_angle_deg = 110.0
+damage = 34
+
+[sub_resource type="Resource" id="phase_js_1"]
+script = ExtResource("2_phase")
+phase_index = 0
+hp_threshold_percent = 1.0
+transition_invuln_s = 2.0
+transition_camera_shake = 0.3
+idle_min_s = 0.7
+idle_max_s = 1.3
+pattern_queue = Array[Resource]([SubResource("p_js_record"), SubResource("p_js_execute"), SubResource("p_js_chain"), SubResource("p_js_hat_slash")])
+move_speed_mult = 1.0
+damage_mult = 1.0
+keyword_ko = "명부 기록"
+
+[sub_resource type="Resource" id="phase_js_2"]
+script = ExtResource("2_phase")
+phase_index = 1
+hp_threshold_percent = 0.65
+transition_invuln_s = 2.0
+transition_camera_shake = 0.5
+idle_min_s = 0.5
+idle_max_s = 1.0
+pattern_queue = Array[Resource]([SubResource("p_js_ghost_call"), SubResource("p_js_thunder"), SubResource("p_js_blink_slash"), SubResource("p_js_chain_p2")])
+move_speed_mult = 1.15
+damage_mult = 1.2
+keyword_ko = "사령 호출"
+
+[sub_resource type="Resource" id="phase_js_3"]
+script = ExtResource("2_phase")
+phase_index = 2
+hp_threshold_percent = 0.30
+transition_invuln_s = 2.5
+transition_camera_shake = 0.7
+idle_min_s = 0.3
+idle_max_s = 0.7
+pattern_queue = Array[Resource]([SubResource("p_js_book_open"), SubResource("p_js_death_meter"), SubResource("p_js_ghost_storm"), SubResource("p_js_blink_slash_p3")])
+move_speed_mult = 1.3
+damage_mult = 1.3
+keyword_ko = "명부 개방"
+
+[resource]
+script = ExtResource("1_data")
+id = &"b03_jeoseung_saja"
+display_name_ko = "저승사자"
+lore_ko = "검은 도포에 갓을 쓴 죽음의 사자. 명부의 사령(使令)입니다."
+sprite_size_px = Vector2i(80, 112)
+hitbox_size_px = Vector2(56, 88)
+is_mini_boss = false
+hp = 11000
+armor = 8
+base_move_speed = 110.0
+melee_damage = 28
+phase_transition_mode = 0
+phases = Array[Resource]([SubResource("phase_js_1"), SubResource("phase_js_2"), SubResource("phase_js_3")])
+intro_cutscene_id = &"cut_b03_saja"
+intro_duration_s = 3.0
+death_cutscene_duration_s = 3.0
+first_kill_orbs = 320
+first_kill_leaves = 1
+rekill_orbs = 25
+grants_codex_entry = &"b03_jeoseung_saja"
+chapter = 3
+trigger_time_s = 0.0
+seal_stone_skippable = false

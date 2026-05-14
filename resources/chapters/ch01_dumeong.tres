@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="ChapterData" load_steps=2 format=3 uid="uid://bn1ch01dumeong"]
+
+[ext_resource type="Script" path="res://scripts/data/chapter_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"ch01_dumeong"
+display_name_ko = "두멍마을"
+chapter_number = 1
+description_ko = "안개에 잠긴 두멍마을에 도깨비불이 깃들었습니다. 도깨비님께서 마을의 새벽을 지켜 주십시오."
+background_color = Color(0.165, 0.165, 0.207, 1)
+unlock_shinmok_required = 1
+unlock_requires = Array[StringName]([])
+stage_count = 3
+stage_duration_s = 300.0
+enemy_pool = Array[StringName]([&"m01_dokkaebibul", &"m02_egg_specter", &"m03_water_ghost"])
+enemy_weights = {&"m01_dokkaebibul": 60, &"m02_egg_specter": 25, &"m03_water_ghost": 15}
+hp_scale = 1.0
+damage_scale = 1.0
+move_speed_scale = 1.0
+spawn_curve_id = &"ch01_default"
+mini_boss_id = &"mb01_jangsanbeom"
+chapter_boss_id = &"b01_dokkaebibul_daejang"
+environment_pool = Array[int]([0, 1])
+environment_density = 0.35
+event_pool = Array[int]([0, 3])
+event_probability_per_min = 0.25
+clear_base_orbs = 30
+clear_first_bonus_orbs = 50
+hard_mode_unlocked = false
+hard_difficulty_mult = 1.5

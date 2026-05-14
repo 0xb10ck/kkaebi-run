@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MetaUpgradeData" load_steps=2 format=3 uid="uid://bn1upgrevive"]
+
+[ext_resource type="Script" path="res://scripts/data/meta_upgrade_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+key = &"revive"
+display_name_ko = "부활"
+description_ko = "사망 시 일정 횟수만큼 도깨비님을 다시 일으켜 드립니다. 큰 자원을 들이는 신통입니다."
+max_level = 5
+costs_orbs = Array[int]([100, 250, 500, 1000, 2000])
+effects = Array[float]([1.0, 2.0, 2.0, 3.0, 3.0])
+effect_kind = &"count"
+apply_target = &"revive"
+requires_shinmok_stage = 4

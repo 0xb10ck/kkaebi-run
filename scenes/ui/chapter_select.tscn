@@ -1,0 +1,63 @@
+[gd_scene load_steps=2 format=3 uid="uid://b00kkaebi0chsel"]
+
+[ext_resource type="Script" path="res://scripts/ui/chapter_select.gd" id="1_chsel"]
+
+[node name="ChapterSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_chsel")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.102, 0.086, 0.071, 1)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 24.0
+offset_right = 480.0
+offset_bottom = 64.0
+text = "챕터를 골라 주십시오"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0.878, 0.761, 0.235, 1)
+theme_override_font_sizes/font_size = 22
+
+[node name="CharacterLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 68.0
+offset_right = 480.0
+offset_bottom = 92.0
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0.941, 0.929, 0.902, 0.85)
+theme_override_font_sizes/font_size = 14
+
+[node name="Scroll" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 100.0
+offset_right = 464.0
+offset_bottom = 760.0
+
+[node name="List" type="VBoxContainer" parent="Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 780.0
+offset_right = 380.0
+offset_bottom = 828.0
+text = "메인 메뉴로 돌아가기"
+theme_override_font_sizes/font_size = 16

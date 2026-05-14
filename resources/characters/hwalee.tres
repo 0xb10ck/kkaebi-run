@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=2 format=3 uid="uid://bn1charhwalee"]
+
+[ext_resource type="Script" path="res://scripts/data/character_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"hwalee"
+display_name_ko = "화리"
+lore_ko = "불꽃을 다루는 원거리 도깨비님이십니다. 화상의 도트로 적을 천천히 태워 주십니다."
+sprite_size_px = Vector2i(48, 48)
+base_hp = 85
+base_move_speed = 100.0
+base_attack = 12
+base_attack_speed = 0.9
+base_pickup_radius = 55.0
+base_luck = 0.0
+base_crit = 5.0
+base_cdr = 0.0
+base_intelligence = 10
+weapon_radius_px = 200.0
+weapon_damage_coef = 1.0
+weapon_hit_cooldown_s = 0.9
+weapon_max_targets = 1
+passive_id = &"fire_child"
+ultimate_id = &"bulkkot_pokbal"
+ultimate_cooldown_s = 45.0
+unlock_cost_orbs = 80
+unlock_requires = Array[StringName]([])
+unlocked_by_default = false
+affinity_max = 20

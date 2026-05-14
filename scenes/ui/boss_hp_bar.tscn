@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3 uid="uid://b00kkaebi0bosshpbar"]
+
+[ext_resource type="Script" path="res://scripts/ui/boss_hp_bar.gd" id="1_bhp"]
+
+[node name="BossHpBar" type="CanvasLayer"]
+layer = 15
+script = ExtResource("1_bhp")
+
+[node name="Root" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 0.0
+offset_top = 16.0
+offset_right = 0.0
+offset_bottom = 96.0
+
+[node name="Bar" type="Panel" parent="Root"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 0.0
+offset_right = 456.0
+offset_bottom = 80.0
+
+[node name="NameLabel" type="Label" parent="Root/Bar"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 280.0
+offset_bottom = 36.0
+text = "보스 이름"
+horizontal_alignment = 0
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0.878, 0.761, 0.235, 1)
+theme_override_font_sizes/font_size = 18
+
+[node name="PhaseLabel" type="Label" parent="Root/Bar"]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 8.0
+offset_right = 416.0
+offset_bottom = 36.0
+text = "페이즈 1 / 1"
+horizontal_alignment = 2
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0.941, 0.929, 0.902, 0.85)
+theme_override_font_sizes/font_size = 14
+
+[node name="HpBar" type="ProgressBar" parent="Root/Bar"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 44.0
+offset_right = 416.0
+offset_bottom = 68.0
+min_value = 0.0
+max_value = 1.0
+step = 0.001
+value = 1.0
+show_percentage = false

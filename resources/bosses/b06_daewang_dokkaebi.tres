@@ -1,0 +1,231 @@
+[gd_resource type="Resource" script_class="BossData" load_steps=20 format=3 uid="uid://bn1b06daewang"]
+
+[ext_resource type="Script" path="res://scripts/data/boss_data.gd" id="1_data"]
+[ext_resource type="Script" path="res://scripts/data/boss_phase.gd" id="2_phase"]
+[ext_resource type="Script" path="res://scripts/data/boss_pattern.gd" id="3_pattern"]
+
+[sub_resource type="Resource" id="p_dw_sword"]
+script = ExtResource("3_pattern")
+id = &"dw_sword"
+display_name_ko = "방망이 변신 — 칼"
+shape = 1
+weight = 8
+cooldown_s = 6.0
+telegraph_duration_s = 0.6
+hitbox_length_px = 500.0
+hitbox_radius_px = 30.0
+damage = 30
+
+[sub_resource type="Resource" id="p_dw_hammer"]
+script = ExtResource("3_pattern")
+id = &"dw_hammer"
+display_name_ko = "방망이 변신 — 망치"
+shape = 0
+weight = 8
+cooldown_s = 6.0
+telegraph_duration_s = 0.6
+hitbox_radius_px = 160.0
+damage = 36
+
+[sub_resource type="Resource" id="p_dw_fan"]
+script = ExtResource("3_pattern")
+id = &"dw_fan"
+display_name_ko = "방망이 변신 — 부채"
+shape = 6
+weight = 8
+cooldown_s = 6.0
+telegraph_duration_s = 0.6
+projectile_speed = 240.0
+projectile_count = 5
+projectile_spread_deg = 130.0
+damage = 22
+
+[sub_resource type="Resource" id="p_dw_dice"]
+script = ExtResource("3_pattern")
+id = &"dw_dice"
+display_name_ko = "주사위 룰렛"
+shape = 9
+weight = 4
+cooldown_s = 12.0
+telegraph_duration_s = 0.8
+damage = 0
+
+[sub_resource type="Resource" id="p_dw_blink"]
+script = ExtResource("3_pattern")
+id = &"dw_blink"
+display_name_ko = "빙글 점멸"
+shape = 9
+weight = 5
+cooldown_s = 5.0
+telegraph_duration_s = 0.3
+damage = 0
+
+[sub_resource type="Resource" id="p_dw_firework"]
+script = ExtResource("3_pattern")
+id = &"dw_firework"
+display_name_ko = "축제 폭죽"
+shape = 0
+weight = 9
+cooldown_s = 8.0
+telegraph_duration_s = 1.0
+hitbox_radius_px = 90.0
+damage = 26
+
+[sub_resource type="Resource" id="p_dw_minigame_ssireum"]
+script = ExtResource("3_pattern")
+id = &"dw_minigame_ssireum"
+display_name_ko = "미니게임 — 씨름"
+shape = 9
+weight = 3
+cooldown_s = 20.0
+telegraph_duration_s = 2.0
+damage = 30
+
+[sub_resource type="Resource" id="p_dw_minigame_yut"]
+script = ExtResource("3_pattern")
+id = &"dw_minigame_yut"
+display_name_ko = "미니게임 — 윷놀이"
+shape = 9
+weight = 3
+cooldown_s = 15.0
+telegraph_duration_s = 2.0
+damage = 24
+
+[sub_resource type="Resource" id="p_dw_club_spin"]
+script = ExtResource("3_pattern")
+id = &"dw_club_spin"
+display_name_ko = "도깨비방망이 회오리"
+shape = 0
+weight = 10
+cooldown_s = 5.0
+telegraph_duration_s = 0.5
+hitbox_radius_px = 220.0
+damage = 28
+
+[sub_resource type="Resource" id="p_dw_mask_rage"]
+script = ExtResource("3_pattern")
+id = &"dw_mask_rage"
+display_name_ko = "가면 — 분노"
+shape = 9
+weight = 3
+cooldown_s = 20.0
+telegraph_duration_s = 0.5
+damage = 0
+
+[sub_resource type="Resource" id="p_dw_mask_joy"]
+script = ExtResource("3_pattern")
+id = &"dw_mask_joy"
+display_name_ko = "가면 — 환희"
+shape = 9
+weight = 3
+cooldown_s = 20.0
+telegraph_duration_s = 0.5
+damage = 0
+
+[sub_resource type="Resource" id="p_dw_mask_chaos"]
+script = ExtResource("3_pattern")
+id = &"dw_mask_chaos"
+display_name_ko = "가면 — 혼돈"
+shape = 9
+weight = 3
+cooldown_s = 20.0
+telegraph_duration_s = 0.5
+damage = 0
+
+[sub_resource type="Resource" id="p_dw_market_collapse"]
+script = ExtResource("3_pattern")
+id = &"dw_market_collapse"
+display_name_ko = "도깨비 시장 붕괴"
+shape = 6
+weight = 2
+cooldown_s = 999.0
+telegraph_duration_s = 1.5
+projectile_speed = 320.0
+projectile_count = 8
+projectile_spread_deg = 360.0
+damage = 50
+
+[sub_resource type="Resource" id="p_dw_blink_p3"]
+script = ExtResource("3_pattern")
+id = &"dw_blink_p3"
+display_name_ko = "빙글 점멸(강)"
+shape = 0
+weight = 9
+cooldown_s = 3.0
+telegraph_duration_s = 0.2
+hitbox_radius_px = 100.0
+damage = 22
+
+[sub_resource type="Resource" id="p_dw_random_morph"]
+script = ExtResource("3_pattern")
+id = &"dw_random_morph"
+display_name_ko = "방망이 변신 — 랜덤"
+shape = 11
+weight = 12
+cooldown_s = 4.0
+telegraph_duration_s = 0.5
+damage = 30
+
+[sub_resource type="Resource" id="phase_dw_1"]
+script = ExtResource("2_phase")
+phase_index = 0
+hp_threshold_percent = 1.0
+transition_invuln_s = 2.0
+transition_camera_shake = 0.4
+idle_min_s = 0.7
+idle_max_s = 1.3
+pattern_queue = Array[Resource]([SubResource("p_dw_sword"), SubResource("p_dw_hammer"), SubResource("p_dw_fan"), SubResource("p_dw_dice"), SubResource("p_dw_blink")])
+move_speed_mult = 1.0
+damage_mult = 1.0
+keyword_ko = "방망이"
+
+[sub_resource type="Resource" id="phase_dw_2"]
+script = ExtResource("2_phase")
+phase_index = 1
+hp_threshold_percent = 0.65
+transition_invuln_s = 2.0
+transition_camera_shake = 0.5
+idle_min_s = 0.5
+idle_max_s = 1.0
+pattern_queue = Array[Resource]([SubResource("p_dw_firework"), SubResource("p_dw_minigame_ssireum"), SubResource("p_dw_minigame_yut"), SubResource("p_dw_club_spin")])
+move_speed_mult = 1.15
+damage_mult = 1.15
+keyword_ko = "축제"
+
+[sub_resource type="Resource" id="phase_dw_3"]
+script = ExtResource("2_phase")
+phase_index = 2
+hp_threshold_percent = 0.30
+transition_invuln_s = 3.0
+transition_camera_shake = 0.8
+idle_min_s = 0.3
+idle_max_s = 0.6
+pattern_queue = Array[Resource]([SubResource("p_dw_mask_rage"), SubResource("p_dw_mask_joy"), SubResource("p_dw_mask_chaos"), SubResource("p_dw_market_collapse"), SubResource("p_dw_blink_p3"), SubResource("p_dw_random_morph")])
+move_speed_mult = 1.3
+damage_mult = 1.3
+keyword_ko = "가면 광기"
+
+[resource]
+script = ExtResource("1_data")
+id = &"b06_daewang_dokkaebi"
+display_name_ko = "장난꾸러기 대왕 도깨비"
+lore_ko = "도깨비 시장을 다스리는 장난꾸러기 대왕 도깨비. 가면 뒤에는 잔치와 도박이 있습니다."
+sprite_size_px = Vector2i(128, 144)
+hitbox_size_px = Vector2(88, 112)
+is_mini_boss = false
+hp = 20000
+armor = 12
+base_move_speed = 140.0
+melee_damage = 30
+phase_transition_mode = 0
+phases = Array[Resource]([SubResource("phase_dw_1"), SubResource("phase_dw_2"), SubResource("phase_dw_3")])
+intro_cutscene_id = &"cut_b06_daewang"
+intro_duration_s = 3.5
+death_cutscene_duration_s = 3.0
+first_kill_orbs = 650
+first_kill_leaves = 1
+rekill_orbs = 40
+grants_codex_entry = &"b06_daewang_dokkaebi"
+chapter = 6
+trigger_time_s = 0.0
+seal_stone_skippable = false

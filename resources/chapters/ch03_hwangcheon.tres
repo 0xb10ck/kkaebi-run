@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="ChapterData" load_steps=2 format=3 uid="uid://bn1ch03hwangcheon"]
+
+[ext_resource type="Script" path="res://scripts/data/chapter_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"ch03_hwangcheon"
+display_name_ko = "지하 황천"
+chapter_number = 3
+description_ko = "죽은 자의 길이 열렸습니다. 명부의 사자가 도깨비님의 이름을 부르려 합니다."
+background_color = Color(0.094, 0.094, 0.137, 1)
+unlock_shinmok_required = 3
+unlock_requires = Array[StringName]([&"ch02_sinryeong"])
+stage_count = 3
+stage_duration_s = 300.0
+enemy_pool = Array[StringName]([])
+enemy_weights = {}
+hp_scale = 1.9
+damage_scale = 1.55
+move_speed_scale = 1.10
+spawn_curve_id = &"ch03_default"
+mini_boss_id = &"mb03_chagwishin"
+chapter_boss_id = &"b03_jeoseung_saja"
+environment_pool = Array[int]([1, 2, 3])
+environment_density = 0.5
+event_pool = Array[int]([0, 2, 5])
+event_probability_per_min = 0.30
+clear_base_orbs = 100
+clear_first_bonus_orbs = 100
+hard_mode_unlocked = false
+hard_difficulty_mult = 1.5

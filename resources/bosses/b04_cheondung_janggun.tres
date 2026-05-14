@@ -1,0 +1,216 @@
+[gd_resource type="Resource" script_class="BossData" load_steps=19 format=3 uid="uid://bn1b04thunder"]
+
+[ext_resource type="Script" path="res://scripts/data/boss_data.gd" id="1_data"]
+[ext_resource type="Script" path="res://scripts/data/boss_phase.gd" id="2_phase"]
+[ext_resource type="Script" path="res://scripts/data/boss_pattern.gd" id="3_pattern"]
+
+[sub_resource type="Resource" id="p_th_hammer"]
+script = ExtResource("3_pattern")
+id = &"th_hammer"
+display_name_ko = "망치 내려치기"
+shape = 0
+weight = 12
+cooldown_s = 4.0
+telegraph_duration_s = 0.7
+hitbox_radius_px = 160.0
+damage = 38
+
+[sub_resource type="Resource" id="p_th_shockwave"]
+script = ExtResource("3_pattern")
+id = &"th_shockwave"
+display_name_ko = "충격파"
+shape = 0
+weight = 8
+cooldown_s = 4.0
+telegraph_duration_s = 0.2
+hitbox_radius_px = 320.0
+damage = 26
+
+[sub_resource type="Resource" id="p_th_jump_smash"]
+script = ExtResource("3_pattern")
+id = &"th_jump_smash"
+display_name_ko = "도약 강하"
+shape = 0
+weight = 9
+cooldown_s = 8.0
+telegraph_duration_s = 1.0
+hitbox_radius_px = 180.0
+damage = 36
+
+[sub_resource type="Resource" id="p_th_thunder_spear"]
+script = ExtResource("3_pattern")
+id = &"th_thunder_spear"
+display_name_ko = "뇌격 투창"
+shape = 4
+weight = 8
+cooldown_s = 7.0
+telegraph_duration_s = 0.6
+projectile_speed = 460.0
+projectile_count = 1
+damage = 24
+
+[sub_resource type="Resource" id="p_th_lightning_grid"]
+script = ExtResource("3_pattern")
+id = &"th_lightning_grid"
+display_name_ko = "낙뢰 격자"
+shape = 0
+weight = 6
+cooldown_s = 10.0
+telegraph_duration_s = 0.8
+hitbox_radius_px = 50.0
+damage = 28
+
+[sub_resource type="Resource" id="p_th_static_field"]
+script = ExtResource("3_pattern")
+id = &"th_static_field"
+display_name_ko = "정전기 장판"
+shape = 0
+weight = 6
+cooldown_s = 7.0
+telegraph_duration_s = 0.6
+hitbox_radius_px = 80.0
+status_effect = &"static_slow"
+status_duration_s = 6.0
+damage = 8
+
+[sub_resource type="Resource" id="p_th_homing_bolt"]
+script = ExtResource("3_pattern")
+id = &"th_homing_bolt"
+display_name_ko = "호밍 뇌구"
+shape = 5
+weight = 8
+cooldown_s = 6.0
+telegraph_duration_s = 0.5
+projectile_speed = 220.0
+projectile_count = 2
+damage = 22
+
+[sub_resource type="Resource" id="p_th_rotating_hammer"]
+script = ExtResource("3_pattern")
+id = &"th_rotating_hammer"
+display_name_ko = "회전 망치"
+shape = 0
+weight = 10
+cooldown_s = 5.0
+telegraph_duration_s = 0.5
+hitbox_radius_px = 200.0
+damage = 34
+
+[sub_resource type="Resource" id="p_th_storm"]
+script = ExtResource("3_pattern")
+id = &"th_storm"
+display_name_ko = "폭풍 강림"
+shape = 3
+weight = 3
+cooldown_s = 35.0
+telegraph_duration_s = 1.5
+damage = 30
+
+[sub_resource type="Resource" id="p_th_summon_pungwoo"]
+script = ExtResource("3_pattern")
+id = &"th_summon_pungwoo"
+display_name_ko = "풍백·우사 소환"
+shape = 8
+weight = 2
+cooldown_s = 999.0
+telegraph_duration_s = 1.2
+summon_enemy_id = &"th_pungbaek_woosa"
+summon_count = 2
+damage = 0
+
+[sub_resource type="Resource" id="p_th_thunder_line"]
+script = ExtResource("3_pattern")
+id = &"th_thunder_line"
+display_name_ko = "천둥 직선"
+shape = 1
+weight = 9
+cooldown_s = 6.0
+telegraph_duration_s = 0.8
+hitbox_length_px = 1200.0
+hitbox_radius_px = 35.0
+damage = 32
+
+[sub_resource type="Resource" id="p_th_rotating_hammer_p3"]
+script = ExtResource("3_pattern")
+id = &"th_rotating_hammer_p3"
+display_name_ko = "회전 망치(강)"
+shape = 0
+weight = 12
+cooldown_s = 4.0
+telegraph_duration_s = 0.4
+hitbox_radius_px = 240.0
+damage = 40
+
+[sub_resource type="Resource" id="p_th_wrath_lightning"]
+script = ExtResource("3_pattern")
+id = &"th_wrath_lightning"
+display_name_ko = "분노 낙뢰"
+shape = 3
+weight = 2
+cooldown_s = 999.0
+telegraph_duration_s = 2.0
+damage = 70
+
+[sub_resource type="Resource" id="phase_th_1"]
+script = ExtResource("2_phase")
+phase_index = 0
+hp_threshold_percent = 1.0
+transition_invuln_s = 2.2
+transition_camera_shake = 0.4
+idle_min_s = 0.7
+idle_max_s = 1.3
+pattern_queue = Array[Resource]([SubResource("p_th_hammer"), SubResource("p_th_shockwave"), SubResource("p_th_jump_smash"), SubResource("p_th_thunder_spear")])
+move_speed_mult = 1.0
+damage_mult = 1.0
+keyword_ko = "망치"
+
+[sub_resource type="Resource" id="phase_th_2"]
+script = ExtResource("2_phase")
+phase_index = 1
+hp_threshold_percent = 0.70
+transition_invuln_s = 2.2
+transition_camera_shake = 0.5
+idle_min_s = 0.5
+idle_max_s = 1.0
+pattern_queue = Array[Resource]([SubResource("p_th_lightning_grid"), SubResource("p_th_static_field"), SubResource("p_th_homing_bolt"), SubResource("p_th_rotating_hammer")])
+move_speed_mult = 1.1
+damage_mult = 1.15
+keyword_ko = "뇌격"
+
+[sub_resource type="Resource" id="phase_th_3"]
+script = ExtResource("2_phase")
+phase_index = 2
+hp_threshold_percent = 0.35
+transition_invuln_s = 2.8
+transition_camera_shake = 0.8
+idle_min_s = 0.3
+idle_max_s = 0.7
+pattern_queue = Array[Resource]([SubResource("p_th_storm"), SubResource("p_th_summon_pungwoo"), SubResource("p_th_thunder_line"), SubResource("p_th_rotating_hammer_p3"), SubResource("p_th_wrath_lightning")])
+move_speed_mult = 1.25
+damage_mult = 1.3
+keyword_ko = "폭풍"
+
+[resource]
+script = ExtResource("1_data")
+id = &"b04_cheondung_janggun"
+display_name_ko = "천둥장군"
+lore_ko = "비를 부르는 뇌신(雷神). 풍백·우사와 함께 천상의 무장 신입니다."
+sprite_size_px = Vector2i(120, 152)
+hitbox_size_px = Vector2(88, 120)
+is_mini_boss = false
+hp = 15000
+armor = 12
+base_move_speed = 120.0
+melee_damage = 32
+phase_transition_mode = 0
+phases = Array[Resource]([SubResource("phase_th_1"), SubResource("phase_th_2"), SubResource("phase_th_3")])
+intro_cutscene_id = &"cut_b04_thunder"
+intro_duration_s = 3.5
+death_cutscene_duration_s = 3.0
+first_kill_orbs = 480
+first_kill_leaves = 1
+rekill_orbs = 35
+grants_codex_entry = &"b04_cheondung_janggun"
+chapter = 4
+trigger_time_s = 0.0
+seal_stone_skippable = false

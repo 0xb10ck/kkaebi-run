@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MetaUpgradeData" load_steps=2 format=3 uid="uid://bn1upgatk"]
+
+[ext_resource type="Script" path="res://scripts/data/meta_upgrade_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+key = &"attack"
+display_name_ko = "공격력"
+description_ko = "스킬의 기본 공격력이 영구히 증가합니다. 잡귀 사냥이 한결 편해집니다."
+max_level = 5
+costs_orbs = Array[int]([40, 80, 160, 320, 640])
+effects = Array[float]([0.04, 0.08, 0.14, 0.22, 0.32])
+effect_kind = &"additive_percent"
+apply_target = &"attack"
+requires_shinmok_stage = 1

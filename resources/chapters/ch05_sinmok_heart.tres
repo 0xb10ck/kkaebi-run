@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="ChapterData" load_steps=2 format=3 uid="uid://bn1ch05sinmok"]
+
+[ext_resource type="Script" path="res://scripts/data/chapter_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"ch05_sinmok_heart"
+display_name_ko = "신목의 심장"
+chapter_number = 5
+description_ko = "오염된 신목의 가장 깊은 곳입니다. 검은 도깨비와 흑룡이 도깨비님의 그림자처럼 기다리고 있습니다."
+background_color = Color(0.094, 0.082, 0.137, 1)
+unlock_shinmok_required = 5
+unlock_requires = Array[StringName]([&"ch04_cheonsang"])
+stage_count = 3
+stage_duration_s = 300.0
+enemy_pool = Array[StringName]([])
+enemy_weights = {}
+hp_scale = 3.3
+damage_scale = 2.4
+move_speed_scale = 1.20
+spawn_curve_id = &"ch05_default"
+mini_boss_id = &"mb05_geomeun_dokkaebi"
+chapter_boss_id = &"b05_heuk_ryong"
+environment_pool = Array[int]([1, 2, 3, 4])
+environment_density = 0.55
+event_pool = Array[int]([0, 1, 2, 5])
+event_probability_per_min = 0.35
+clear_base_orbs = 250
+clear_first_bonus_orbs = 300
+hard_mode_unlocked = true
+hard_difficulty_mult = 1.5

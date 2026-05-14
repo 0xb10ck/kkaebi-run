@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=2 format=3 uid="uid://bn1charbyeolee"]
+
+[ext_resource type="Script" path="res://scripts/data/character_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"byeolee"
+display_name_ko = "별이"
+lore_ko = "별빛을 다루는 마법형 도깨비님이십니다. 연쇄 마법으로 적을 함께 처치해 주십니다."
+sprite_size_px = Vector2i(48, 48)
+base_hp = 90
+base_move_speed = 95.0
+base_attack = 9
+base_attack_speed = 1.0
+base_pickup_radius = 65.0
+base_luck = 5.0
+base_crit = 5.0
+base_cdr = 0.0
+base_intelligence = 14
+weapon_radius_px = 220.0
+weapon_damage_coef = 1.0
+weapon_hit_cooldown_s = 1.0
+weapon_max_targets = 3
+passive_id = &"starbond"
+ultimate_id = &"starfall"
+ultimate_cooldown_s = 40.0
+unlock_cost_orbs = 400
+unlock_requires = Array[StringName]([])
+unlocked_by_default = false
+affinity_max = 20

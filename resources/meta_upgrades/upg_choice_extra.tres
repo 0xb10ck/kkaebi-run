@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MetaUpgradeData" load_steps=2 format=3 uid="uid://bn1upgchoice"]
+
+[ext_resource type="Script" path="res://scripts/data/meta_upgrade_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+key = &"choice_extra"
+display_name_ko = "신통 선택지"
+description_ko = "레벨업 시 보여드릴 신통의 가짓수에 보너스가 생깁니다. 빌드 선택의 폭이 넓어집니다."
+max_level = 5
+costs_orbs = Array[int]([60, 120, 240, 480, 960])
+effects = Array[float]([0.05, 0.10, 0.18, 0.28, 0.40])
+effect_kind = &"additive_percent"
+apply_target = &"choice_extra"
+requires_shinmok_stage = 3

@@ -1,0 +1,116 @@
+[gd_scene load_steps=2 format=3 uid="uid://b00kkaebi0shinmok"]
+
+[ext_resource type="Script" path="res://scripts/ui/shinmok.gd" id="1_shin"]
+
+[node name="Shinmok" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_shin")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.102, 0.086, 0.071, 1)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 24.0
+offset_right = 480.0
+offset_bottom = 64.0
+text = "신목"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0.878, 0.761, 0.235, 1)
+theme_override_font_sizes/font_size = 22
+
+[node name="StageLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 70.0
+offset_right = 480.0
+offset_bottom = 96.0
+text = "신목 Lv.0"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0.941, 0.929, 0.902, 0.9)
+theme_override_font_sizes/font_size = 16
+
+[node name="Visual" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 110.0
+offset_right = 340.0
+offset_bottom = 310.0
+color = Color(0.43, 0.32, 0.18, 1)
+
+[node name="OrbsLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 326.0
+offset_right = 480.0
+offset_bottom = 350.0
+text = "도깨비 구슬 0개"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0.941, 0.929, 0.902, 0.9)
+theme_override_font_sizes/font_size = 14
+
+[node name="CostLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 354.0
+offset_right = 480.0
+offset_bottom = 378.0
+text = "다음 단계 헌납 비용: -"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0.941, 0.929, 0.902, 0.85)
+theme_override_font_sizes/font_size = 14
+
+[node name="DonateButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 396.0
+offset_right = 380.0
+offset_bottom = 448.0
+text = "헌납하기"
+theme_override_font_sizes/font_size = 18
+
+[node name="UnlocksTitle" type="Label" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 472.0
+offset_right = 456.0
+offset_bottom = 502.0
+text = "단계별 해금 미리보기"
+horizontal_alignment = 0
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0.878, 0.761, 0.235, 1)
+theme_override_font_sizes/font_size = 15
+
+[node name="UnlocksBody" type="Label" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 506.0
+offset_right = 456.0
+offset_bottom = 760.0
+text = ""
+horizontal_alignment = 0
+vertical_alignment = 0
+autowrap_mode = 2
+theme_override_colors/font_color = Color(0.941, 0.929, 0.902, 0.9)
+theme_override_font_sizes/font_size = 13
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 780.0
+offset_right = 380.0
+offset_bottom = 828.0
+text = "메인 메뉴로 돌아가기"
+theme_override_font_sizes/font_size = 16

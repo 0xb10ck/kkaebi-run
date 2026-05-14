@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="ChapterData" load_steps=2 format=3 uid="uid://bn1ch04cheonsang"]
+
+[ext_resource type="Script" path="res://scripts/data/chapter_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"ch04_cheonsang"
+display_name_ko = "천상계"
+chapter_number = 4
+description_ko = "구름 너머 천상의 정원에 발을 디뎠습니다. 황금 멧돼지와 뇌신이 도깨비님을 가로막습니다."
+background_color = Color(0.176, 0.227, 0.318, 1)
+unlock_shinmok_required = 4
+unlock_requires = Array[StringName]([&"ch03_hwangcheon"])
+stage_count = 3
+stage_duration_s = 300.0
+enemy_pool = Array[StringName]([])
+enemy_weights = {}
+hp_scale = 2.5
+damage_scale = 1.9
+move_speed_scale = 1.15
+spawn_curve_id = &"ch04_default"
+mini_boss_id = &"mb04_geumdwaeji"
+chapter_boss_id = &"b04_cheondung_janggun"
+environment_pool = Array[int]([1, 3, 4])
+environment_density = 0.5
+event_pool = Array[int]([0, 1, 3, 4])
+event_probability_per_min = 0.32
+clear_base_orbs = 150
+clear_first_bonus_orbs = 150
+hard_mode_unlocked = false
+hard_difficulty_mult = 1.5

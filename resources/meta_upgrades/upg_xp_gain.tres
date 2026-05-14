@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MetaUpgradeData" load_steps=2 format=3 uid="uid://bn1upgxp"]
+
+[ext_resource type="Script" path="res://scripts/data/meta_upgrade_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+key = &"xp_gain"
+display_name_ko = "경험치 획득"
+description_ko = "경험 구슬에서 얻는 경험치가 영구히 증가합니다. 레벨업이 빨라집니다."
+max_level = 5
+costs_orbs = Array[int]([30, 60, 120, 240, 480])
+effects = Array[float]([0.05, 0.10, 0.18, 0.28, 0.40])
+effect_kind = &"additive_percent"
+apply_target = &"xp_gain"
+requires_shinmok_stage = 1

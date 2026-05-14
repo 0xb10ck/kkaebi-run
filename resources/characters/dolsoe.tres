@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=2 format=3 uid="uid://bn1chardolsoe"]
+
+[ext_resource type="Script" path="res://scripts/data/character_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"dolsoe"
+display_name_ko = "돌쇠"
+lore_ko = "바위처럼 단단한 탱커 도깨비님이십니다. 무거운 일격으로 적의 발을 묶어 주십니다."
+sprite_size_px = Vector2i(48, 48)
+base_hp = 150
+base_move_speed = 80.0
+base_attack = 9
+base_attack_speed = 1.3
+base_pickup_radius = 65.0
+base_luck = 0.0
+base_crit = 5.0
+base_cdr = 0.0
+base_intelligence = 10
+weapon_radius_px = 110.0
+weapon_damage_coef = 1.0
+weapon_hit_cooldown_s = 1.3
+weapon_max_targets = 8
+passive_id = &"stone_will"
+ultimate_id = &"jijin"
+ultimate_cooldown_s = 50.0
+unlock_cost_orbs = 250
+unlock_requires = Array[StringName]([])
+unlocked_by_default = false
+affinity_max = 20

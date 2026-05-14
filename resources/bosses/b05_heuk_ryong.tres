@@ -1,0 +1,222 @@
+[gd_resource type="Resource" script_class="BossData" load_steps=19 format=3 uid="uid://bn1b05dragon"]
+
+[ext_resource type="Script" path="res://scripts/data/boss_data.gd" id="1_data"]
+[ext_resource type="Script" path="res://scripts/data/boss_phase.gd" id="2_phase"]
+[ext_resource type="Script" path="res://scripts/data/boss_pattern.gd" id="3_pattern"]
+
+[sub_resource type="Resource" id="p_hr_black_breath"]
+script = ExtResource("3_pattern")
+id = &"hr_black_breath"
+display_name_ko = "흑염 브레스"
+shape = 2
+weight = 10
+cooldown_s = 8.0
+telegraph_duration_s = 1.0
+hitbox_radius_px = 600.0
+hitbox_angle_deg = 90.0
+damage = 45
+
+[sub_resource type="Resource" id="p_hr_scale_burst"]
+script = ExtResource("3_pattern")
+id = &"hr_scale_burst"
+display_name_ko = "비늘 폭발"
+shape = 6
+weight = 9
+cooldown_s = 5.0
+telegraph_duration_s = 0.6
+projectile_speed = 320.0
+projectile_count = 8
+projectile_spread_deg = 360.0
+damage = 22
+
+[sub_resource type="Resource" id="p_hr_tail_sweep"]
+script = ExtResource("3_pattern")
+id = &"hr_tail_sweep"
+display_name_ko = "꼬리 휩쓸기"
+shape = 2
+weight = 9
+cooldown_s = 6.0
+telegraph_duration_s = 0.7
+hitbox_radius_px = 280.0
+hitbox_angle_deg = 220.0
+damage = 36
+
+[sub_resource type="Resource" id="p_hr_flyby"]
+script = ExtResource("3_pattern")
+id = &"hr_flyby"
+display_name_ko = "측면 비행"
+shape = 1
+weight = 5
+cooldown_s = 12.0
+telegraph_duration_s = 1.0
+hitbox_length_px = 1200.0
+hitbox_radius_px = 100.0
+damage = 50
+
+[sub_resource type="Resource" id="p_hr_dark_fog"]
+script = ExtResource("3_pattern")
+id = &"hr_dark_fog"
+display_name_ko = "검은 안개"
+shape = 11
+weight = 3
+cooldown_s = 25.0
+telegraph_duration_s = 1.5
+damage = 0
+
+[sub_resource type="Resource" id="p_hr_shadow_drake"]
+script = ExtResource("3_pattern")
+id = &"hr_shadow_drake"
+display_name_ko = "그림자 새끼용"
+shape = 8
+weight = 5
+cooldown_s = 12.0
+telegraph_duration_s = 1.0
+summon_enemy_id = &"hr_shadow_drake_unit"
+summon_count = 3
+damage = 24
+
+[sub_resource type="Resource" id="p_hr_breath_bomb"]
+script = ExtResource("3_pattern")
+id = &"hr_breath_bomb"
+display_name_ko = "흑염 폭격"
+shape = 0
+weight = 8
+cooldown_s = 6.0
+telegraph_duration_s = 0.8
+hitbox_radius_px = 100.0
+damage = 30
+
+[sub_resource type="Resource" id="p_hr_scale_burst_p2"]
+script = ExtResource("3_pattern")
+id = &"hr_scale_burst_p2"
+display_name_ko = "비늘 폭발(강)"
+shape = 6
+weight = 10
+cooldown_s = 4.0
+telegraph_duration_s = 0.5
+projectile_speed = 380.0
+projectile_count = 12
+projectile_spread_deg = 360.0
+damage = 26
+
+[sub_resource type="Resource" id="p_hr_breath_thunder"]
+script = ExtResource("3_pattern")
+id = &"hr_breath_thunder"
+display_name_ko = "흑염+뇌우 콤보"
+shape = 2
+weight = 6
+cooldown_s = 20.0
+telegraph_duration_s = 1.5
+hitbox_radius_px = 700.0
+hitbox_angle_deg = 120.0
+damage = 50
+
+[sub_resource type="Resource" id="p_hr_annihilate"]
+script = ExtResource("3_pattern")
+id = &"hr_annihilate"
+display_name_ko = "절멸 브레스"
+shape = 1
+weight = 5
+cooldown_s = 12.0
+telegraph_duration_s = 1.5
+hitbox_length_px = 1200.0
+hitbox_radius_px = 100.0
+damage = 60
+
+[sub_resource type="Resource" id="p_hr_spinning_flyby"]
+script = ExtResource("3_pattern")
+id = &"hr_spinning_flyby"
+display_name_ko = "회전 비행 돌진"
+shape = 1
+weight = 8
+cooldown_s = 7.0
+telegraph_duration_s = 0.9
+hitbox_length_px = 1400.0
+hitbox_radius_px = 75.0
+damage = 42
+
+[sub_resource type="Resource" id="p_hr_drake_storm"]
+script = ExtResource("3_pattern")
+id = &"hr_drake_storm"
+display_name_ko = "그림자 새끼용 폭주"
+shape = 8
+weight = 5
+cooldown_s = 15.0
+telegraph_duration_s = 1.0
+summon_enemy_id = &"hr_shadow_drake_unit"
+summon_count = 5
+damage = 22
+
+[sub_resource type="Resource" id="p_hr_final_judgement"]
+script = ExtResource("3_pattern")
+id = &"hr_final_judgement"
+display_name_ko = "최후의 검은 신목"
+shape = 3
+weight = 2
+cooldown_s = 999.0
+telegraph_duration_s = 3.0
+damage = 100
+
+[sub_resource type="Resource" id="phase_hr_1"]
+script = ExtResource("2_phase")
+phase_index = 0
+hp_threshold_percent = 1.0
+transition_invuln_s = 2.5
+transition_camera_shake = 0.5
+idle_min_s = 0.8
+idle_max_s = 1.5
+pattern_queue = Array[Resource]([SubResource("p_hr_black_breath"), SubResource("p_hr_scale_burst"), SubResource("p_hr_tail_sweep"), SubResource("p_hr_flyby")])
+move_speed_mult = 1.0
+damage_mult = 1.0
+keyword_ko = "흑염"
+
+[sub_resource type="Resource" id="phase_hr_2"]
+script = ExtResource("2_phase")
+phase_index = 1
+hp_threshold_percent = 0.70
+transition_invuln_s = 2.5
+transition_camera_shake = 0.6
+idle_min_s = 0.5
+idle_max_s = 1.0
+pattern_queue = Array[Resource]([SubResource("p_hr_dark_fog"), SubResource("p_hr_shadow_drake"), SubResource("p_hr_breath_bomb"), SubResource("p_hr_scale_burst_p2")])
+move_speed_mult = 1.15
+damage_mult = 1.2
+keyword_ko = "안개"
+
+[sub_resource type="Resource" id="phase_hr_3"]
+script = ExtResource("2_phase")
+phase_index = 2
+hp_threshold_percent = 0.35
+transition_invuln_s = 3.0
+transition_camera_shake = 0.9
+idle_min_s = 0.3
+idle_max_s = 0.6
+pattern_queue = Array[Resource]([SubResource("p_hr_breath_thunder"), SubResource("p_hr_annihilate"), SubResource("p_hr_spinning_flyby"), SubResource("p_hr_drake_storm"), SubResource("p_hr_final_judgement")])
+move_speed_mult = 1.3
+damage_mult = 1.4
+keyword_ko = "각성"
+
+[resource]
+script = ExtResource("1_data")
+id = &"b05_heuk_ryong"
+display_name_ko = "흑룡"
+lore_ko = "신목을 오염시킨 근원 악. 못 다 승천한 검은 용입니다."
+sprite_size_px = Vector2i(128, 128)
+hitbox_size_px = Vector2(96, 96)
+is_mini_boss = false
+hp = 24000
+armor = 16
+base_move_speed = 100.0
+melee_damage = 40
+phase_transition_mode = 0
+phases = Array[Resource]([SubResource("phase_hr_1"), SubResource("phase_hr_2"), SubResource("phase_hr_3")])
+intro_cutscene_id = &"cut_b05_heukryong"
+intro_duration_s = 3.5
+death_cutscene_duration_s = 4.0
+first_kill_orbs = 800
+first_kill_leaves = 2
+rekill_orbs = 50
+grants_codex_entry = &"b05_heuk_ryong"
+chapter = 5
+trigger_time_s = 0.0
+seal_stone_skippable = false
