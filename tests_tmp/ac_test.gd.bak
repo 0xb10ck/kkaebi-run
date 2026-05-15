@@ -1,0 +1,103 @@
+extends SceneTree
+
+var phase_changed_count: int = 0
+var run_started_called: bool = false
+
+func _init() -> void:
+	# Defer execution one frame so autoloads are ready.
+	root.ready.connect(_run_tests)
+
+func _run_tests() -> void:
+	print("=== AC_TEST_START ===")
+	var EventBus = root.get_node("EventBus")
+	var ChapterManager = root.get_node("ChapterManager")
+	var MetaState = root.get_node("MetaState")
+
+	# AC10
+	EventBus.run_started.connect(_on_run_started)
+	EventBus.run_started.emit(&"test_char", &"ch01_dumeong")
+	print("AC10:run_started_callback=", run_started_called)
+
+	# AC4
+	var ch_list: Array = ChapterManager.get_chapter_list()
+	print("AC4:chapters_count=", ch_list.size())
+	print("AC4:advance_stage=", ChapterManager.has_method("advance_stage"))
+	print("AC4:start_boss_battle=", ChapterManager.has_method("start_boss_battle"))
+	print("AC4:start_interlude=", ChapterManager.has_method("start_interlude"))
+	print("AC4:start_next_chapter=", ChapterManager.has_method("start_next_chapter"))
+
+	# AC7
+	var prev_orbs: int = MetaState.dokkaebi_orbs
+	var prev_dtl: int = MetaState.divine_tree_level
+	MetaState.dokkaebi_orbs = 1234
+	MetaState.divine_tree_level = 3
+	print("AC7:set divine=", MetaState.divine_tree_level, " orbs=", MetaState.dokkaebi_orbs)
+	if MetaState.has_method("save"):
+		MetaState.save()
+	else:
+		print("AC7:no save method")
+	var fa: FileAccess = FileAccess.open("user://save.json", FileAccess.READ)
+	if fa != null:
+		print("AC7:save_json_exists=true size=", fa.get_length())
+		fa.close()
+	else:
+		print("AC7:save_json_exists=false")
+	MetaState.dokkaebi_orbs = 0
+	MetaState.divine_tree_level = 0
+	if MetaState.has_method("load"):
+		MetaState.load()
+	print("AC7:after_load orbs=", MetaState.dokkaebi_orbs, " divine=", MetaState.divine_tree_level)
+
+	# AC11
+	var rs = RunSettlement.new()
+	var before: int = MetaState.dokkaebi_orbs
+	var settled: int = rs.settle(100, 600.0, 2)
+	var after: int = MetaState.dokkaebi_orbs
+	print("AC11:settled=", settled, " before=", before, " after=", after, " delta=", after - before)
+
+	# AC5
+	var BossBaseScript: Script = load("res://scripts/bosses/boss_base.gd")
+	var boss_node = BossBaseScript.new()
+	var bd: BossData = BossData.new()
+	bd.id = &"dummy"
+	bd.max_hp = 1000
+	var p1: BossPhase = BossPhase.new()
+	p1.hp_threshold_percent = 0.5
+	var p2: BossPhase = BossPhase.new()
+	p2.hp_threshold_percent = 0.25
+	bd.phases = [p1, p2]
+	boss_node.phase_changed.connect(_on_phase_changed)
+	root.add_child(boss_node)
+	if boss_node.has_method("setup"):
+		boss_node.setup(bd)
+	# Drop HP to trigger phase
+	if "current_hp" in boss_node:
+		boss_node.current_hp = 500
+		if boss_node.has_method("_check_phase_transition"):
+			boss_node._check_phase_transition()
+		boss_node.current_hp = 200
+		if boss_node.has_method("_check_phase_transition"):
+			boss_node._check_phase_transition()
+	elif boss_node.has_method("apply_damage"):
+		boss_node.apply_damage(500)
+		boss_node.apply_damage(300)
+	print("AC5:phase_changed_count=", phase_changed_count)
+	print("AC5:has_phase_thresholds=", "phase_thresholds" in boss_node, " val=", boss_node.phase_thresholds if "phase_thresholds" in boss_node else null)
+
+	# AC9 main menu button count
+	var mm := load("res://scenes/main_menu/main_menu.tscn").instantiate()
+	root.add_child(mm)
+	var buttons := mm.get_node_or_null("Buttons")
+	var cnt: int = buttons.get_child_count() if buttons != null else 0
+	print("AC9:buttons_count=", cnt)
+
+	MetaState.dokkaebi_orbs = prev_orbs
+	MetaState.divine_tree_level = prev_dtl
+	print("=== AC_TEST_END ===")
+	quit()
+
+func _on_run_started(_a, _b) -> void:
+	run_started_called = true
+
+func _on_phase_changed(_idx) -> void:
+	phase_changed_count += 1

@@ -1,0 +1,66 @@
+extends SceneTree
+
+var phase_changed_count: int = 0
+
+func _initialize() -> void:
+	process_frame.connect(_run_tests_once, CONNECT_ONE_SHOT)
+
+func _run_tests_once() -> void:
+	_run_tests()
+	quit()
+
+func _run_tests() -> void:
+	print("=== AC_TEST2_START ===")
+
+	# AC5: phase transitions
+	var BossBaseScript: Script = load("res://scripts/bosses/boss_base.gd")
+	var boss_node: Node = BossBaseScript.new()
+	var BDScript: Script = load("res://scripts/data/boss_data.gd")
+	var bd = BDScript.new()
+	bd.id = &"dummy_boss"
+	bd.hp = 1000
+	var BPScript: Script = load("res://scripts/data/boss_phase.gd")
+	var p1 = BPScript.new()
+	p1.hp_threshold_percent = 0.5
+	var p2 = BPScript.new()
+	p2.hp_threshold_percent = 0.25
+	var phases_typed: Array[BossPhase] = [p1, p2]; bd.phases = phases_typed
+	boss_node.phase_changed.connect(_on_phase_changed)
+	root.add_child(boss_node)
+	if boss_node.has_method("setup"):
+		boss_node.setup(bd)
+	print("AC5:current_hp_initial=", boss_node.current_hp if "current_hp" in boss_node else "N/A")
+	if boss_node.has_method("apply_damage"):
+		boss_node.apply_damage(500)
+		print("AC5:after_500dmg_hp=", boss_node.current_hp if "current_hp" in boss_node else "N/A")
+		boss_node.apply_damage(300)
+		print("AC5:after_800dmg_hp=", boss_node.current_hp if "current_hp" in boss_node else "N/A")
+	elif "current_hp" in boss_node:
+		boss_node.current_hp = 500
+		if boss_node.has_method("_update_phase"):
+			boss_node._update_phase()
+		boss_node.current_hp = 200
+		if boss_node.has_method("_update_phase"):
+			boss_node._update_phase()
+	print("AC5:phase_changed_count=", phase_changed_count)
+	if "phase_thresholds" in boss_node:
+		print("AC5:phase_thresholds=", boss_node.phase_thresholds)
+	var methods: Array = []
+	for m in boss_node.get_method_list():
+		if not m.name.begins_with("_") and (m.name.contains("damage") or m.name.contains("hp") or m.name.contains("phase") or m.name == "setup"):
+			methods.append(m.name)
+	print("AC5:methods=", methods)
+
+	# AC9 main menu
+	var mm: Node = load("res://scenes/main_menu/main_menu.tscn").instantiate()
+	root.add_child(mm)
+	var buttons: Node = mm.get_node_or_null("Buttons")
+	if buttons != null:
+		print("AC9:buttons_count=", buttons.get_child_count())
+		for c in buttons.get_children():
+			print("AC9:btn=", c.name)
+
+	print("=== AC_TEST2_END ===")
+
+func _on_phase_changed(_idx) -> void:
+	phase_changed_count += 1

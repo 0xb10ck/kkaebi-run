@@ -7,6 +7,7 @@ extends Node2D
 const ENEMY_FIRE: PackedScene = preload("res://scenes/enemies/enemy_fire.tscn")
 const ENEMY_EGG: PackedScene = preload("res://scenes/enemies/enemy_egg.tscn")
 const ENEMY_WATER: PackedScene = preload("res://scenes/enemies/enemy_water.tscn")
+
 const LEVEL_UP_PANEL: PackedScene = preload("res://scenes/ui/level_up_panel.tscn")
 const HUD_SCENE: PackedScene = preload("res://scenes/ui/hud.tscn")
 const RESULT_SCENE: PackedScene = preload("res://scenes/ui/result_screen.tscn")
@@ -22,6 +23,29 @@ const EGG_FLOCK_SIZE: int = 4
 const EGG_FLOCK_SPACING: float = 30.0
 const ENEMY_CAP: int = 120
 const ZERO_POLL_INTERVAL: float = 1.0
+
+# §3.2 — 챕터 1 데이터 기반 스폰 풀. 각 항목은 {scene, data, key} (key = 카운팅용).
+const CHAPTER1_POOL: Array = [
+	{"key": "m01", "scene_path": "res://scenes/enemies/m01_dokkaebibul.tscn", "data_path": "res://resources/enemies/chapter1/m01_dokkaebibul.tres"},
+	{"key": "m02", "scene_path": "res://scenes/enemies/m02_dalgyalgwisin.tscn", "data_path": "res://resources/enemies/chapter1/m02_dalgyalgwisin.tres"},
+	{"key": "m03", "scene_path": "res://scenes/enemies/m03_mulgwisin.tscn", "data_path": "res://resources/enemies/chapter1/m03_mulgwisin.tres"},
+	{"key": "m04", "scene_path": "res://scenes/enemies/m04_eodukshini.tscn", "data_path": "res://resources/enemies/chapter1/m04_eodukshini.tres"},
+	{"key": "m05", "scene_path": "res://scenes/enemies/m05_geuseundae.tscn", "data_path": "res://resources/enemies/chapter1/m05_geuseundae.tres"},
+	{"key": "m06", "scene_path": "res://scenes/enemies/m06_bitjarugwisin.tscn", "data_path": "res://resources/enemies/chapter1/m06_bitjarugwisin.tres"},
+	{"key": "m07", "scene_path": "res://scenes/enemies/m07_songakshi.tscn", "data_path": "res://resources/enemies/chapter1/m07_songakshi.tres"},
+	{"key": "m08", "scene_path": "res://scenes/enemies/m08_mongdalgwisin.tscn", "data_path": "res://resources/enemies/chapter1/m08_mongdalgwisin.tres"},
+	{"key": "m09", "scene_path": "res://scenes/enemies/m09_duduri.tscn", "data_path": "res://resources/enemies/chapter1/m09_duduri.tres"},
+]
+
+# §5.2 — 시간대별 글로벌 스폰 레이트 (마리/초).
+const CHAPTER1_RATE_TIERS: Array = [
+	{"t_start":   0.0, "rate": 0.7},
+	{"t_start":  30.0, "rate": 1.1},
+	{"t_start":  90.0, "rate": 1.6},
+	{"t_start": 150.0, "rate": 2.0},
+	{"t_start": 210.0, "rate": 2.5},
+	{"t_start": 270.0, "rate": 3.0},
+]
 
 # §7.5 — 두멍마을(ch01) 기준 토스트. 챕터 변경 시 텍스트는 ChapterData에서 받아오도록 확장 여지.
 const TOAST_START: String = "도깨비님, 스테이지가 시작되었습니다. 부디 마을을 지켜 주십시오."
@@ -62,6 +86,12 @@ var _fire_timer: float = 0.0
 var _egg_timer: float = 0.0
 var _water_timer: float = 0.0
 
+# 챕터1 M01~M09 데이터 기반 스폰 상태.
+var _ch1_pool_loaded: Array = []     # [{scene: PackedScene, data: EnemyData, key: String}]
+var _ch1_spawn_accum: float = 0.0
+var _ch1_active_counts: Dictionary = {}  # key -> int (max_concurrent 추적)
+var _use_chapter1_pool: bool = true
+
 var level_up_panel: CanvasLayer
 var _level_up_queue: int = 0
 var _level_up_showing: bool = false
@@ -90,6 +120,7 @@ var _toast_clear_done: bool = false
 func _ready() -> void:
 	get_tree().paused = false
 	_apply_chapter_context()
+	_load_chapter1_pool()
 	time_left = stage_duration_s
 
 	if skill_manager != null and skill_manager.has_method("reset_for_run"):
@@ -146,14 +177,28 @@ func _apply_chapter_context() -> void:
 	if data == null:
 		stage_duration_s = DEFAULT_STAGE_DURATION
 		spawn_tiers = DEFAULT_SPAWN_TIERS
+		_use_chapter1_pool = true
 		return
 	stage_duration_s = data.stage_duration_s if data.stage_duration_s > 0.0 else DEFAULT_STAGE_DURATION
 	hp_scale = data.hp_scale
 	damage_scale = data.damage_scale
 	move_speed_scale = data.move_speed_scale
 	spawn_tiers = _build_spawn_tiers_from_chapter(data)
+	# 챕터 1만 M01~M09 데이터 기반 풀 사용. 그 외 챕터는 기존 fire/egg/water 폴백.
+	_use_chapter1_pool = (data.chapter_number == 1)
 	if background != null and data.background_color.a > 0.0:
 		background.color = data.background_color
+
+
+func _load_chapter1_pool() -> void:
+	_ch1_pool_loaded.clear()
+	for row in CHAPTER1_POOL:
+		var scene: PackedScene = load(row["scene_path"])
+		var data: Resource = load(row["data_path"])
+		if scene == null or data == null:
+			continue
+		_ch1_pool_loaded.append({"scene": scene, "data": data, "key": row["key"]})
+		_ch1_active_counts[row["key"]] = 0
 
 
 # §4 — ChapterData.spawn_curve_id 기반 곡선 빌드. 풀스펙 곡선이 .tres로 외화되기 전까지는
@@ -311,6 +356,110 @@ func _show_toast(text: String) -> void:
 
 func _tick_spawns(delta: float) -> void:
 	var elapsed: float = stage_duration_s - time_left
+	if _use_chapter1_pool and not _ch1_pool_loaded.is_empty():
+		_tick_chapter1_pool(delta, elapsed)
+		return
+	_tick_legacy_spawns(delta, elapsed)
+
+
+func _tick_chapter1_pool(delta: float, elapsed: float) -> void:
+	# 글로벌 레이트 기반 스폰: 누적량이 1 이상이면 한 마리 뽑는다.
+	var rate: float = _current_ch1_rate(elapsed)
+	_ch1_spawn_accum += rate * delta
+	while _ch1_spawn_accum >= 1.0:
+		_ch1_spawn_accum -= 1.0
+		_spawn_one_from_pool(elapsed)
+
+
+func _current_ch1_rate(elapsed: float) -> float:
+	var rate: float = float(CHAPTER1_RATE_TIERS[0]["rate"])
+	for row in CHAPTER1_RATE_TIERS:
+		if elapsed >= float(row["t_start"]):
+			rate = float(row["rate"])
+		else:
+			break
+	return rate
+
+
+func _spawn_one_from_pool(elapsed: float) -> void:
+	var eligible: Array = []
+	var total_weight: int = 0
+	for row in _ch1_pool_loaded:
+		var d: EnemyData = row["data"]
+		if d == null:
+			continue
+		if elapsed < d.min_stage_time_s:
+			continue
+		var active: int = int(_ch1_active_counts.get(row["key"], 0))
+		if active >= d.max_concurrent:
+			continue
+		eligible.append(row)
+		total_weight += maxi(1, d.spawn_weight)
+	if eligible.is_empty():
+		return
+	var pick: int = randi() % total_weight
+	var chosen: Dictionary = eligible[0]
+	var acc: int = 0
+	for row in eligible:
+		var w: int = maxi(1, (row["data"] as EnemyData).spawn_weight)
+		acc += w
+		if pick < acc:
+			chosen = row
+			break
+	_spawn_from_pool_entry(chosen, elapsed)
+
+
+func _spawn_from_pool_entry(entry: Dictionary, elapsed: float) -> void:
+	var data: EnemyData = entry["data"]
+	var scene: PackedScene = entry["scene"]
+	var key: String = entry["key"]
+	var size: int = maxi(1, data.group_size)
+	# 무리 스폰: group_ai != NONE 이고 group_size > 1.
+	if data.group_ai != GameEnums.GroupAIKind.NONE and size > 1:
+		_spawn_group(scene, data, key, elapsed)
+	else:
+		_spawn_single_pooled(scene, data, key, elapsed)
+
+
+func _spawn_single_pooled(scene: PackedScene, data: EnemyData, key: String, elapsed: float) -> void:
+	_enforce_cap(1)
+	var enemy: Node2D = scene.instantiate()
+	enemy.global_position = _random_spawn_point()
+	enemy_container.add_child(enemy)
+	if enemy.has_method("apply_time_scaling"):
+		enemy.apply_time_scaling(elapsed)
+	_apply_chapter_scaling(enemy)
+	_register_active(enemy, data, key)
+
+
+func _spawn_group(scene: PackedScene, data: EnemyData, key: String, elapsed: float) -> void:
+	var size: int = clampi(data.group_size, 1, 12)
+	_enforce_cap(size)
+	var center: Vector2 = _random_spawn_point()
+	var spacing: float = maxf(8.0, data.group_spacing_px)
+	for i in size:
+		var angle: float = TAU * float(i) / float(size)
+		var offset: Vector2 = Vector2(cos(angle), sin(angle)) * spacing
+		var enemy: Node2D = scene.instantiate()
+		enemy.global_position = center + offset
+		enemy_container.add_child(enemy)
+		if enemy.has_method("apply_time_scaling"):
+			enemy.apply_time_scaling(elapsed)
+		_apply_chapter_scaling(enemy)
+		_register_active(enemy, data, key)
+
+
+func _register_active(enemy: Node, _data: EnemyData, key: String) -> void:
+	_ch1_active_counts[key] = int(_ch1_active_counts.get(key, 0)) + 1
+	if enemy.has_signal("tree_exited"):
+		enemy.tree_exited.connect(_on_pooled_enemy_freed.bind(key))
+
+
+func _on_pooled_enemy_freed(key: String) -> void:
+	_ch1_active_counts[key] = maxi(0, int(_ch1_active_counts.get(key, 0)) - 1)
+
+
+func _tick_legacy_spawns(delta: float, elapsed: float) -> void:
 	var tier: Dictionary = _current_tier(elapsed)
 
 	_fire_timer -= delta

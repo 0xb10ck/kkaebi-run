@@ -11,6 +11,8 @@ signal intro_finished
 signal pattern_executed(pattern_id: StringName)
 signal phase_changed(new_index: int)
 signal died(boss_id: StringName)
+# AC5 명세 표면: telegraph 진입 시 발신.
+signal telegraph_signal(pattern_id: StringName, duration_s: float)
 
 # === 런타임 상태 ===
 var current_phase_index: int = 0
@@ -29,6 +31,9 @@ var _pending_pattern: BossPattern
 var _telegraph_total_s: float = 0.0
 var _pattern_remaining_s: float = 0.0
 
+# AC5 명세 표면: 페이즈별 HP 임계 캐시. _ready에서 data.phases로부터 채운다.
+var phase_thresholds: Array[float] = []
+
 @onready var sprite: Node = get_node_or_null("Sprite")
 @onready var hurtbox: Node = get_node_or_null("HurtBox")
 @onready var telegraph_layer: Node2D = _ensure_telegraph_layer()
@@ -44,6 +49,17 @@ func _ready() -> void:
 		current_phase = data.phases[0]
 	current_hp = data.hp
 	spawn_time = Time.get_unix_time_from_system()
+	# AC5: phase_thresholds 캐시 — data.phases의 hp_threshold_percent를 미리 모아둔다.
+	phase_thresholds = []
+	for phase in data.phases:
+		if phase == null:
+			continue
+		phase_thresholds.append(phase.hp_threshold_percent)
+	_play_intro_cutscene()
+
+
+# AC5 명세 표면: 컷인 진입점. 외부에서 동일 의미로 호출 가능.
+func cutscene_hook() -> void:
 	_play_intro_cutscene()
 
 
@@ -283,6 +299,8 @@ func emit_telegraph(p: BossPattern) -> void:
 
 
 func _emit_telegraph(p: BossPattern) -> void:
+	# AC5: telegraph 진입 시 telegraph_signal 발신.
+	telegraph_signal.emit(p.id, p.telegraph_duration_s)
 	if telegraph_layer == null:
 		return
 	var t: Telegraph = Telegraph.new()

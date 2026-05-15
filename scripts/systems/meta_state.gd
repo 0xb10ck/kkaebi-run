@@ -353,6 +353,73 @@ var shinmok_level: int:
 		return shinmok_stage
 
 
+# === AC6 명세 별칭 표면 ===
+# divine_tree_level: shinmok_stage 0-기준 매핑. shinmok_stage 1~6 ↔ divine_tree_level 0~5.
+# 0은 잠금 단계, default 0 (shinmok_stage=1 기본값에 대응).
+var divine_tree_level: int:
+	get:
+		return shinmok_stage - 1
+	set(value):
+		shinmok_stage = clamp(value + 1, 1, 6)
+
+
+# permanent_upgrades: 기존 upgrades dict의 8개 항목을 명세 키명으로 노출.
+# 기존 키(max_hp, attack, xp_gain, gold_gain, choice_extra)는 명세 키(hp, atk, exp, gold, choice)와 매핑.
+const _PERMANENT_KEY_MAP: Dictionary = {
+	"hp": &"max_hp",
+	"atk": &"attack",
+	"move_speed": &"move_speed",
+	"exp": &"xp_gain",
+	"gold": &"gold_gain",
+	"revive": &"revive",
+	"choice": &"choice_extra",
+	"luck": &"luck",
+}
+
+var permanent_upgrades: Dictionary:
+	get:
+		var result: Dictionary = {}
+		for short_key in _PERMANENT_KEY_MAP:
+			var full_key: StringName = _PERMANENT_KEY_MAP[short_key]
+			result[short_key] = int(upgrades.get(full_key, 0))
+		return result
+	set(value):
+		for short_key in value:
+			if _PERMANENT_KEY_MAP.has(short_key):
+				upgrades[_PERMANENT_KEY_MAP[short_key]] = int(value[short_key])
+
+
+# characters_unlocked / characters_affinity: 기존 필드 별칭.
+var characters_unlocked: Array[StringName]:
+	get:
+		return unlocked_characters
+	set(value):
+		unlocked_characters = value
+
+var characters_affinity: Dictionary:
+	get:
+		return character_affinity
+	set(value):
+		character_affinity = value
+
+
+# codex: 카테고리별 도감 dict를 묶은 표면.
+var codex: Dictionary:
+	get:
+		return {
+			"monsters": codex_monsters,
+			"relics": codex_relics,
+			"places": codex_places,
+		}
+	set(value):
+		if value.has("monsters"):
+			codex_monsters = value["monsters"]
+		if value.has("relics"):
+			codex_relics = value["relics"]
+		if value.has("places"):
+			codex_places = value["places"]
+
+
 func purchase_upgrade(key: StringName) -> bool:
 	return apply_upgrade_purchase(key)
 
