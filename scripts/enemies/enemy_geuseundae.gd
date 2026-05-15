@@ -1,12 +1,18 @@
 extends EnemyBase
 
-# M05 그슨대 — 250px 미만이면 세로로 신장 연장, 일정 길이 이상이면 머리 내려치기 즉시 히트박스.
+# M05 그슨대 — 250px 미만이면 0.5초마다 세로 길이 +6px(최대 64).
+# 길이 48 이상이면 enemy_projectile.tscn 직선 투사체로 머리 내려치기(쿨다운 2.0s).
+
+const ENEMY_PROJECTILE: PackedScene = preload("res://scenes/enemies/enemy_projectile.tscn")
 
 const DEFAULT_TRIGGER_PX: float = 250.0
 const DEFAULT_STEP_PX: float = 6.0
 const DEFAULT_STEP_INTERVAL_S: float = 0.5
 const DEFAULT_MAX_LENGTH_PX: float = 64.0
 const DEFAULT_RANGED_ACTIVATE_LENGTH_PX: float = 48.0
+const DEFAULT_RANGED_COOLDOWN_S: float = 2.0
+const DEFAULT_PROJECTILE_SPEED: float = 220.0
+const STRIKE_COLOR: Color = Color(0.95, 0.95, 0.90, 1.0)
 
 const FALLBACK_COLOR: Color = Color(0.70, 0.70, 0.65, 1.0)
 const FALLBACK_WIDTH: float = 16.0
@@ -17,6 +23,9 @@ var _step_px: float = DEFAULT_STEP_PX
 var _step_interval: float = DEFAULT_STEP_INTERVAL_S
 var _max_length: float = DEFAULT_MAX_LENGTH_PX
 var _ranged_activate_length: float = DEFAULT_RANGED_ACTIVATE_LENGTH_PX
+var _ranged_cooldown: float = DEFAULT_RANGED_COOLDOWN_S
+var _ranged_damage: int = 5
+var _ranged_speed: float = DEFAULT_PROJECTILE_SPEED
 
 var _current_length: float = BASE_HEIGHT
 var _step_timer: float = 0.0
@@ -44,6 +53,12 @@ func _ready() -> void:
 			_max_length = float(params["max_length_px"])
 		if params.has("ranged_activate_length_px"):
 			_ranged_activate_length = float(params["ranged_activate_length_px"])
+		if data.ranged_cooldown > 0.0:
+			_ranged_cooldown = data.ranged_cooldown
+		if data.ranged_damage > 0:
+			_ranged_damage = data.ranged_damage
+		if data.ranged_projectile_speed > 0.0:
+			_ranged_speed = data.ranged_projectile_speed
 	hp = max_hp
 
 
@@ -60,7 +75,7 @@ func _physics_process(delta: float) -> void:
 				_current_length = minf(_max_length, _current_length + _step_px)
 				queue_redraw()
 				if _current_length >= _ranged_activate_length and _attack_cd_timer <= 0.0:
-					_perform_head_strike()
+					_fire_head_strike()
 		else:
 			# 거리가 멀어지면 신장이 천천히 원상복구.
 			if _current_length > BASE_HEIGHT:
@@ -69,17 +84,25 @@ func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
 
 
-func _perform_head_strike() -> void:
+func _fire_head_strike() -> void:
 	if not is_instance_valid(target):
 		return
-	var cd: float = data.ranged_cooldown if data != null else 2.0
-	_attack_cd_timer = cd
-	var dmg: int = data.ranged_damage if data != null else 5
+	_attack_cd_timer = _ranged_cooldown
+	var p: EnemyProjectile = ENEMY_PROJECTILE.instantiate()
+	p.speed = _ranged_speed
+	p.damage = _ranged_damage
 	var range_px: float = _current_length * 2.0
-	# 즉시 히트박스 — 사거리 내에 있으면 곧바로 데미지.
-	if global_position.distance_to(target.global_position) <= range_px:
-		if target.has_method("take_damage"):
-			target.take_damage(dmg)
+	p.lifetime = range_px / maxf(1.0, _ranged_speed)
+	p.direction = (target.global_position - global_position).normalized()
+	p.hit_radius = 6.0
+	p.color = STRIKE_COLOR
+	var scene: Node = get_tree().current_scene
+	if scene != null:
+		scene.add_child(p)
+	else:
+		get_parent().add_child(p)
+	# 머리 끝 위치(스프라이트 상단)에서 발사.
+	p.global_position = global_position + Vector2(0, -_current_length)
 
 
 func _draw() -> void:
