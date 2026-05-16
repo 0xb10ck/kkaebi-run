@@ -8,3 +8,6 @@ builds/
 
 # Imported translations generated from CSV files
 *.translation
+
+# Godot auto-generated UID files
+*.gd.uid
