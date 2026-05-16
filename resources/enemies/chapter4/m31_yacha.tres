@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://m31yacha"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"m31_yacha"
+display_name_ko = "야차"
+lore_ko = "불교 신화의 야차(夜叉) — 한국 불교에 수용된 사나운 정령. 푸르스름한 피부에 송곳니가 드러난 얼굴, 양손에 짧은 도끼를 들고 허리에 호피를 둘렀다."
+sprite_size_px = Vector2i(40, 48)
+placeholder_color = Color(0.45, 0.65, 0.55, 1)
+base_hp = 55
+base_move_speed = 95.0
+base_contact_damage = 11
+attack_cooldown = 2.5
+detection_radius = 800.0
+hitbox_radius = 16.0
+ranged_kind = 0
+ranged_damage = 0
+ranged_range_px = 0.0
+ranged_projectile_speed = 0.0
+ranged_cooldown = 2.0
+ranged_telegraph = 0.0
+special_abilities = Array[int]([])
+special_params = {
+"triple_strike_count": 3,
+"triple_strike_interval_s": 0.25,
+"dodge_chance": 0.5,
+"dodge_distance_px": 60.0,
+"dodge_pre_hit_window_s": 0.1,
+"dodge_cooldown_s": 1.0,
+}
+group_ai = 0
+group_size = 1
+group_spacing_px = 30.0
+ai_aggression = 1.0
+flock_cohesion = 0.0
+exp_value = 16
+gold_drop_chance = 0.36
+gold_drop_amount = 1
+orb_value = 0
+chapters = Array[int]([4, 5])
+spawn_weight = 90
+min_stage_time_s = 0.0
+max_concurrent = 999

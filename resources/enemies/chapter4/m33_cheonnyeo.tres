@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://m33cheonnyeo"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"m33_cheonnyeo"
+display_name_ko = "천녀 잔영"
+lore_ko = "한국 「선녀와 나무꾼」 설화의 어두운 변주 — 천상으로 돌아가지 못해 타락한 선녀. 흰 천의(天衣) 자락 끝이 검게 변질되어 있고 머리에는 잘린 흰 학 깃털을 꽂았다."
+sprite_size_px = Vector2i(32, 48)
+placeholder_color = Color(0.92, 0.88, 0.95, 0.9)
+base_hp = 50
+base_move_speed = 60.0
+base_contact_damage = 9
+attack_cooldown = 3.0
+detection_radius = 800.0
+hitbox_radius = 12.8
+ranged_kind = 4
+ranged_damage = 12
+ranged_range_px = 160.0
+ranged_projectile_speed = 0.0
+ranged_cooldown = 3.0
+ranged_telegraph = 0.3
+special_abilities = Array[int]([19])
+special_params = {
+"float_offset_px": 12.0,
+"cone_angle_deg": 90.0,
+"cone_range_px": 160.0,
+"flash_telegraph_s": 0.3,
+"flash_damage": 12,
+"blind_duration_s": 1.5,
+"prefers_screen_edge": true,
+}
+group_ai = 0
+group_size = 1
+group_spacing_px = 30.0
+ai_aggression = 1.0
+flock_cohesion = 0.0
+exp_value = 16
+gold_drop_chance = 0.38
+gold_drop_amount = 1
+orb_value = 0
+chapters = Array[int]([4])
+spawn_weight = 70
+min_stage_time_s = 0.0
+max_concurrent = 999

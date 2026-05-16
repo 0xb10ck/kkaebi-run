@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://m30bulgasari"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"m30_bulgasari"
+display_name_ko = "불가사리"
+lore_ko = "한국 불가사리 전설 — 쇠를 먹고 자라 죽지 않는다는 신이한 짐승. 곰과 코끼리를 섞은 듯한 검은 짐승, 짧은 코와 작은 뿔, 몸 곳곳에 박힌 금속 조각이 흉터처럼 드러나 있다."
+sprite_size_px = Vector2i(48, 40)
+placeholder_color = Color(0.15, 0.13, 0.18, 1)
+base_hp = 90
+base_move_speed = 40.0
+base_contact_damage = 14
+attack_cooldown = 2.0
+detection_radius = 800.0
+hitbox_radius = 16.0
+ranged_kind = 0
+ranged_damage = 0
+ranged_range_px = 0.0
+ranged_projectile_speed = 0.0
+ranged_cooldown = 2.0
+ranged_telegraph = 0.0
+special_abilities = Array[int]([])
+special_params = {
+"metal_absorb_interval_s": 10.0,
+"metal_absorb_radius_px": 40.0,
+"metal_absorb_heal_per_shard": 5,
+"weakness_element": 4,
+"weakness_damage_mult": 2.0,
+"resist_other_elements_mult": 0.7,
+}
+group_ai = 0
+group_size = 1
+group_spacing_px = 30.0
+ai_aggression = 1.0
+flock_cohesion = 0.0
+exp_value = 22
+gold_drop_chance = 0.50
+gold_drop_amount = 1
+orb_value = 0
+chapters = Array[int]([4, 5])
+spawn_weight = 30
+min_stage_time_s = 120.0
+max_concurrent = 999

@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://m32nachal"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"m32_nachal"
+display_name_ko = "나찰"
+lore_ko = "불교 신화의 나찰(羅刹) — 야차보다 더 사납고 마성을 띤 정령. 야차와 유사하나 더 거대하고 빨간 피부에 머리가 셋(중앙·좌·우), 손에는 큰 곡도를 들었다."
+sprite_size_px = Vector2i(48, 56)
+placeholder_color = Color(0.78, 0.18, 0.18, 1)
+base_hp = 75
+base_move_speed = 70.0
+base_contact_damage = 14
+attack_cooldown = 3.0
+detection_radius = 800.0
+hitbox_radius = 19.2
+ranged_kind = 4
+ranged_damage = 11
+ranged_range_px = 80.0
+ranged_projectile_speed = 0.0
+ranged_cooldown = 3.0
+ranged_telegraph = 1.0
+special_abilities = Array[int]([11])
+special_params = {
+"three_head_360_vision": true,
+"dodge_immune": true,
+"aoe_radius_px": 80.0,
+"aoe_telegraph_s": 1.0,
+"aoe_damage": 11,
+"enrage_hp_threshold": 0.5,
+"enrage_attack_speed_mult": 1.5,
+"enrage_move_speed_mult": 1.2,
+}
+group_ai = 0
+group_size = 1
+group_spacing_px = 30.0
+ai_aggression = 1.0
+flock_cohesion = 0.0
+exp_value = 20
+gold_drop_chance = 0.42
+gold_drop_amount = 1
+orb_value = 0
+chapters = Array[int]([4])
+spawn_weight = 40
+min_stage_time_s = 120.0
+max_concurrent = 999

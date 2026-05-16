@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://m34noegong"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"m34_noegong"
+display_name_ko = "뇌공"
+lore_ko = "한국 천둥신(雷神) 신앙 — 천둥장군 휘하의 작은 뇌신 잡병. 짙은 파란 피부에 양손으로 작은 망치와 북을 들었고, 등에는 작은 번개 무늬 깃발이 꽂혀 있다."
+sprite_size_px = Vector2i(32, 40)
+placeholder_color = Color(0.15, 0.30, 0.85, 1)
+base_hp = 45
+base_move_speed = 55.0
+base_contact_damage = 6
+attack_cooldown = 2.0
+detection_radius = 800.0
+hitbox_radius = 12.8
+ranged_kind = 4
+ranged_damage = 14
+ranged_range_px = 250.0
+ranged_projectile_speed = 0.0
+ranged_cooldown = 2.0
+ranged_telegraph = 1.0
+special_abilities = Array[int]([])
+special_params = {
+"maintain_distance_px": 250.0,
+"lightning_hitbox_px": 32.0,
+"lightning_telegraph_s": 1.0,
+"lightning_damage": 14,
+"burst_interval_s": 4.0,
+"burst_directions": 8,
+"burst_radius_px": 80.0,
+}
+group_ai = 0
+group_size = 1
+group_spacing_px = 30.0
+ai_aggression = 1.0
+flock_cohesion = 0.0
+exp_value = 17
+gold_drop_chance = 0.36
+gold_drop_amount = 1
+orb_value = 0
+chapters = Array[int]([4])
+spawn_weight = 80
+min_stage_time_s = 60.0
+max_concurrent = 999
