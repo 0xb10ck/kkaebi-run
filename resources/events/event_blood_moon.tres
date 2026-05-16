@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="RandomEventData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/random_event_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"event_blood_moon"
+display_name_ko = "피의 달"
+description_ko = "강제 발동. 60초간 몬스터 출현 ×2, 경험치 ×2, 금화 ×1.5, 받는 피해 +15%. 첫 1회 완주 시 칭호 획득."
+event_kind = 5
+base_weight = 5.0
+allowed_chapters = PackedInt32Array(3, 4, 5)
+time_min_s = 300.0
+time_max_s = 9999.0
+hp_pct_min = 0.0
+hp_pct_max = 1.0
+requires_post_boss_kill = false
+post_boss_window_s = 0.0
+once_per_run = true
+max_per_run = 1
+duration_s = 60.0
+weight_modifiers = {}
+script_path = "res://scripts/events/event_blood_moon.gd"
+icon_color = Color(0.85, 0.18, 0.22, 1.0)
+toast_text_ko = "피의 달이 떠올랐습니다."

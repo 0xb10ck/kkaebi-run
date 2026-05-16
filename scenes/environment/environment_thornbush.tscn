@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3kkrnenvthornb"]
+
+[ext_resource type="Script" path="res://scripts/environment/environment_thornbush.gd" id="1_thorn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_thorn"]
+size = Vector2(32, 32)
+
+[node name="EnvThornbush" type="Area2D"]
+collision_layer = 32
+collision_mask = 5
+script = ExtResource("1_thorn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_thorn")
+
+[node name="Visual" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+color = Color(0.42, 0.32, 0.20, 1)

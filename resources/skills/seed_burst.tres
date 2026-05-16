@@ -1,0 +1,113 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=10 format=3 uid="uid://kkr_wo_seed_burst"]
+
+[ext_resource type="Script" path="res://scripts/data/skill_data.gd" id="1_data"]
+[ext_resource type="Script" path="res://scripts/data/skill_level.gd" id="2_lvl"]
+[ext_resource type="PackedScene" path="res://scenes/skills/seed_burst.tscn" id="3_scene"]
+
+[sub_resource type="Resource" id="lvl1_seed_burst"]
+script = ExtResource("2_lvl")
+damage_formula = "10 + INT*0.2"
+damage_base = 10.0
+damage_int_coef = 0.2
+cooldown_s = 5.0
+range_px = 280.0
+radius_px = 0.0
+duration_s = 1.0
+tick_interval_s = 0.0
+projectile_count = 4
+projectile_speed = 360.0
+status_effect = &""
+status_potency = 0.0
+status_duration_s = 0.0
+stack_max = 1
+extras = {"shard_range_px": 100.0, "shard_damage_ratio": 0.7}
+
+[sub_resource type="Resource" id="lvl2_seed_burst"]
+script = ExtResource("2_lvl")
+damage_formula = "14 + INT*0.3"
+damage_base = 14.0
+damage_int_coef = 0.3
+cooldown_s = 4.5
+range_px = 280.0
+radius_px = 0.0
+duration_s = 1.0
+tick_interval_s = 0.0
+projectile_count = 4
+projectile_speed = 360.0
+status_effect = &""
+status_potency = 0.0
+status_duration_s = 0.0
+stack_max = 1
+extras = {"shard_range_px": 100.0, "shard_damage_ratio": 0.7}
+
+[sub_resource type="Resource" id="lvl3_seed_burst"]
+script = ExtResource("2_lvl")
+damage_formula = "18 + INT*0.4"
+damage_base = 18.0
+damage_int_coef = 0.4
+cooldown_s = 4.0
+range_px = 280.0
+radius_px = 0.0
+duration_s = 1.0
+tick_interval_s = 0.0
+projectile_count = 4
+projectile_speed = 360.0
+status_effect = &""
+status_potency = 0.0
+status_duration_s = 0.0
+stack_max = 1
+extras = {"shard_range_px": 100.0, "shard_damage_ratio": 0.7}
+
+[sub_resource type="Resource" id="lvl4_seed_burst"]
+script = ExtResource("2_lvl")
+damage_formula = "22 + INT*0.48"
+damage_base = 22.0
+damage_int_coef = 0.48
+cooldown_s = 3.5
+range_px = 280.0
+radius_px = 0.0
+duration_s = 1.0
+tick_interval_s = 0.0
+projectile_count = 4
+projectile_speed = 360.0
+status_effect = &""
+status_potency = 0.0
+status_duration_s = 0.0
+stack_max = 1
+extras = {"shard_range_px": 100.0, "shard_damage_ratio": 0.7}
+
+[sub_resource type="Resource" id="lvl5_seed_burst"]
+script = ExtResource("2_lvl")
+damage_formula = "26 + INT*0.55"
+damage_base = 26.0
+damage_int_coef = 0.55
+cooldown_s = 3.0
+range_px = 280.0
+radius_px = 0.0
+duration_s = 1.0
+tick_interval_s = 0.0
+projectile_count = 4
+projectile_speed = 360.0
+status_effect = &""
+status_potency = 0.0
+status_duration_s = 0.0
+stack_max = 1
+extras = {"shard_range_px": 100.0, "shard_damage_ratio": 0.7}
+
+[resource]
+script = ExtResource("1_data")
+id = &"seed_burst"
+display_name_ko = "씨앗 폭발"
+description_ko = "가장 가까운 적 4명에게 씨앗을 발사합니다. 명중 후 1초 뒤 폭발하며 십자(+) 방향으로 가시 파편 4개가 튀어나가 추가 피해를 줍니다."
+element = 3
+rarity = 0
+trigger_mode = 0
+scene = ExtResource("3_scene")
+icon_color = Color(0.55, 0.45, 0.2, 1)
+max_level = 5
+levels = Array[Resource]([SubResource("lvl1_seed_burst"), SubResource("lvl2_seed_burst"), SubResource("lvl3_seed_burst"), SubResource("lvl4_seed_burst"), SubResource("lvl5_seed_burst")])
+min_chapter_to_offer = 1
+synergy_partners = Array[StringName]([&"vine_whip"])
+counter_partners = Array[StringName]([])
+evolution_targets = Array[StringName]([])
+unlock_condition = "기본 해금 — 1챕터부터 등장합니다."

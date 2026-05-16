@@ -1,0 +1,113 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=10 format=3 uid="uid://kkr_wo_forest_wrath"]
+
+[ext_resource type="Script" path="res://scripts/data/skill_data.gd" id="1_data"]
+[ext_resource type="Script" path="res://scripts/data/skill_level.gd" id="2_lvl"]
+[ext_resource type="PackedScene" path="res://scenes/skills/forest_wrath.tscn" id="3_scene"]
+
+[sub_resource type="Resource" id="lvl1_forest_wrath"]
+script = ExtResource("2_lvl")
+damage_formula = "35 + INT*0.5"
+damage_base = 35.0
+damage_int_coef = 0.5
+cooldown_s = 70.0
+range_px = 9999.0
+radius_px = 60.0
+duration_s = 3.0
+tick_interval_s = 0.0
+projectile_count = 18
+projectile_speed = 0.0
+status_effect = &""
+status_potency = 0.0
+status_duration_s = 0.0
+stack_max = 1
+extras = {"telegraph_s": 0.2}
+
+[sub_resource type="Resource" id="lvl2_forest_wrath"]
+script = ExtResource("2_lvl")
+damage_formula = "50 + INT*0.7"
+damage_base = 50.0
+damage_int_coef = 0.7
+cooldown_s = 60.0
+range_px = 9999.0
+radius_px = 60.0
+duration_s = 3.0
+tick_interval_s = 0.0
+projectile_count = 24
+projectile_speed = 0.0
+status_effect = &""
+status_potency = 0.0
+status_duration_s = 0.0
+stack_max = 1
+extras = {"telegraph_s": 0.2}
+
+[sub_resource type="Resource" id="lvl3_forest_wrath"]
+script = ExtResource("2_lvl")
+damage_formula = "70 + INT*1.0"
+damage_base = 70.0
+damage_int_coef = 1.0
+cooldown_s = 50.0
+range_px = 9999.0
+radius_px = 60.0
+duration_s = 3.0
+tick_interval_s = 0.0
+projectile_count = 30
+projectile_speed = 0.0
+status_effect = &""
+status_potency = 0.0
+status_duration_s = 0.0
+stack_max = 1
+extras = {"telegraph_s": 0.2}
+
+[sub_resource type="Resource" id="lvl4_forest_wrath"]
+script = ExtResource("2_lvl")
+damage_formula = "95 + INT*1.4"
+damage_base = 95.0
+damage_int_coef = 1.4
+cooldown_s = 45.0
+range_px = 9999.0
+radius_px = 60.0
+duration_s = 3.0
+tick_interval_s = 0.0
+projectile_count = 38
+projectile_speed = 0.0
+status_effect = &""
+status_potency = 0.0
+status_duration_s = 0.0
+stack_max = 1
+extras = {"telegraph_s": 0.2}
+
+[sub_resource type="Resource" id="lvl5_forest_wrath"]
+script = ExtResource("2_lvl")
+damage_formula = "125 + INT*1.8"
+damage_base = 125.0
+damage_int_coef = 1.8
+cooldown_s = 40.0
+range_px = 9999.0
+radius_px = 60.0
+duration_s = 3.0
+tick_interval_s = 0.0
+projectile_count = 48
+projectile_speed = 0.0
+status_effect = &""
+status_potency = 0.0
+status_duration_s = 0.0
+stack_max = 1
+extras = {"telegraph_s": 0.2}
+
+[resource]
+script = ExtResource("1_data")
+id = &"forest_wrath"
+display_name_ko = "숲의 분노"
+description_ko = "화면 전역의 무작위 지점에서 거대한 가시 줄기가 솟구쳐 다단 타격을 가합니다. 3초에 걸쳐 다수의 타격이 발생합니다."
+element = 3
+rarity = 2
+trigger_mode = 0
+scene = ExtResource("3_scene")
+icon_color = Color(0.2, 0.6, 0.2, 1)
+max_level = 5
+levels = Array[Resource]([SubResource("lvl1_forest_wrath"), SubResource("lvl2_forest_wrath"), SubResource("lvl3_forest_wrath"), SubResource("lvl4_forest_wrath"), SubResource("lvl5_forest_wrath")])
+min_chapter_to_offer = 3
+synergy_partners = Array[StringName]([&"sinmok_blessing"])
+counter_partners = Array[StringName]([])
+evolution_targets = Array[StringName]([])
+unlock_condition = "3챕터 진입 시 해금됩니다."

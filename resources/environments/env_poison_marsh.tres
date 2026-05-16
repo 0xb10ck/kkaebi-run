@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="EnvElementData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/env_element_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"env_poison_marsh"
+display_name_ko = "독 늪"
+lore_ko = "자주색 거품이 끓는 늪. 발을 들이면 살이 녹습니다."
+env_kind = 2
+size_px = Vector2(64, 64)
+damage_per_tick = 5
+damage_pct_of_max_hp = 0.0
+tick_interval_s = 0.5
+slow_factor = 0.7
+slow_duration_s = 0.6
+vision_reduction = 0.0
+range_reduction = 0.0
+detect_reduction = 0.0
+duration_s = -1.0
+max_hits = 0
+gold_drop_on_destroy = 0
+destructible_by = PackedStringArray("fire", "earth")
+spawn_chapters = PackedInt32Array(2, 3)
+spawn_count_per_chapter = {"2": 2, "3": 3}
+script_path = "res://scripts/environment/environment_poison_marsh.gd"
+scene_path = "res://scenes/environment/poison_marsh.tscn"
+placeholder_color = Color(0.4, 0.1, 0.45, 0.65)

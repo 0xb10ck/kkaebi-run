@@ -1,0 +1,113 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=10 format=3 uid="uid://kkr_er_landslide"]
+
+[ext_resource type="Script" path="res://scripts/data/skill_data.gd" id="1_data"]
+[ext_resource type="Script" path="res://scripts/data/skill_level.gd" id="2_lvl"]
+[ext_resource type="PackedScene" path="res://scenes/skills/landslide.tscn" id="3_scene"]
+
+[sub_resource type="Resource" id="lvl1_landslide"]
+script = ExtResource("2_lvl")
+damage_formula = "70 + ATK*1.0"
+damage_base = 70.0
+damage_int_coef = 1.0
+cooldown_s = 60.0
+range_px = 1280.0
+radius_px = 200.0
+duration_s = 1.83
+tick_interval_s = 0.25
+projectile_count = 1
+projectile_speed = 700.0
+status_effect = &"knockback"
+status_potency = 100.0
+status_duration_s = 0.2
+stack_max = 1
+extras = {"max_hits_per_enemy": 2}
+
+[sub_resource type="Resource" id="lvl2_landslide"]
+script = ExtResource("2_lvl")
+damage_formula = "100 + ATK*1.4"
+damage_base = 100.0
+damage_int_coef = 1.4
+cooldown_s = 55.0
+range_px = 1280.0
+radius_px = 200.0
+duration_s = 1.83
+tick_interval_s = 0.25
+projectile_count = 1
+projectile_speed = 700.0
+status_effect = &"knockback"
+status_potency = 100.0
+status_duration_s = 0.2
+stack_max = 1
+extras = {"max_hits_per_enemy": 3}
+
+[sub_resource type="Resource" id="lvl3_landslide"]
+script = ExtResource("2_lvl")
+damage_formula = "140 + ATK*1.9"
+damage_base = 140.0
+damage_int_coef = 1.9
+cooldown_s = 48.0
+range_px = 1280.0
+radius_px = 200.0
+duration_s = 1.83
+tick_interval_s = 0.25
+projectile_count = 1
+projectile_speed = 700.0
+status_effect = &"knockback"
+status_potency = 100.0
+status_duration_s = 0.2
+stack_max = 1
+extras = {"max_hits_per_enemy": 3}
+
+[sub_resource type="Resource" id="lvl4_landslide"]
+script = ExtResource("2_lvl")
+damage_formula = "190 + ATK*2.5"
+damage_base = 190.0
+damage_int_coef = 2.5
+cooldown_s = 42.0
+range_px = 1280.0
+radius_px = 200.0
+duration_s = 1.83
+tick_interval_s = 0.25
+projectile_count = 1
+projectile_speed = 700.0
+status_effect = &"knockback"
+status_potency = 100.0
+status_duration_s = 0.2
+stack_max = 1
+extras = {"max_hits_per_enemy": 4}
+
+[sub_resource type="Resource" id="lvl5_landslide"]
+script = ExtResource("2_lvl")
+damage_formula = "250 + ATK*3.2"
+damage_base = 250.0
+damage_int_coef = 3.2
+cooldown_s = 35.0
+range_px = 1280.0
+radius_px = 200.0
+duration_s = 1.83
+tick_interval_s = 0.25
+projectile_count = 1
+projectile_speed = 700.0
+status_effect = &"knockback"
+status_potency = 100.0
+status_duration_s = 0.2
+stack_max = 1
+extras = {"max_hits_per_enemy": 5}
+
+[resource]
+script = ExtResource("1_data")
+id = &"landslide"
+display_name_ko = "산사태"
+description_ko = "화면 한쪽에서 거대한 바위 더미가 가로로 굴러가며 진로 위의 적을 분쇄하고 넉백시킵니다. 적은 한 사이클당 정해진 횟수만큼 다단 타격됩니다."
+element = 5
+rarity = 2
+trigger_mode = 0
+scene = ExtResource("3_scene")
+icon_color = Color(0.50, 0.42, 0.32, 1)
+max_level = 5
+levels = Array[Resource]([SubResource("lvl1_landslide"), SubResource("lvl2_landslide"), SubResource("lvl3_landslide"), SubResource("lvl4_landslide"), SubResource("lvl5_landslide")])
+min_chapter_to_offer = 3
+synergy_partners = Array[StringName]([&"rock_throw", &"earth_wall"])
+counter_partners = Array[StringName]([])
+evolution_targets = Array[StringName]([&"sky_fortress"])
+unlock_condition = "3챕터를 클리어한 회차 이후부터 등장합니다."

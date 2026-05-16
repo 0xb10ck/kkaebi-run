@@ -1,0 +1,113 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=10 format=3 uid="uid://kkr_wo_sinmok_blessing"]
+
+[ext_resource type="Script" path="res://scripts/data/skill_data.gd" id="1_data"]
+[ext_resource type="Script" path="res://scripts/data/skill_level.gd" id="2_lvl"]
+[ext_resource type="PackedScene" path="res://scenes/skills/sinmok_blessing.tscn" id="3_scene"]
+
+[sub_resource type="Resource" id="lvl1_sinmok_blessing"]
+script = ExtResource("2_lvl")
+damage_formula = "5 + INT*0.1"
+damage_base = 5.0
+damage_int_coef = 0.1
+cooldown_s = 30.0
+range_px = 120.0
+radius_px = 120.0
+duration_s = 12.0
+tick_interval_s = 4.0
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &"slow"
+status_potency = 0.2
+status_duration_s = 4.5
+stack_max = 1
+extras = {"shinmok_hp": 50}
+
+[sub_resource type="Resource" id="lvl2_sinmok_blessing"]
+script = ExtResource("2_lvl")
+damage_formula = "8 + INT*0.15"
+damage_base = 8.0
+damage_int_coef = 0.15
+cooldown_s = 27.0
+range_px = 120.0
+radius_px = 120.0
+duration_s = 14.0
+tick_interval_s = 4.0
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &"slow"
+status_potency = 0.2
+status_duration_s = 4.5
+stack_max = 1
+extras = {"shinmok_hp": 80}
+
+[sub_resource type="Resource" id="lvl3_sinmok_blessing"]
+script = ExtResource("2_lvl")
+damage_formula = "12 + INT*0.22"
+damage_base = 12.0
+damage_int_coef = 0.22
+cooldown_s = 24.0
+range_px = 120.0
+radius_px = 120.0
+duration_s = 17.0
+tick_interval_s = 4.0
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &"slow"
+status_potency = 0.2
+status_duration_s = 4.5
+stack_max = 1
+extras = {"shinmok_hp": 120}
+
+[sub_resource type="Resource" id="lvl4_sinmok_blessing"]
+script = ExtResource("2_lvl")
+damage_formula = "17 + INT*0.3"
+damage_base = 17.0
+damage_int_coef = 0.3
+cooldown_s = 21.0
+range_px = 120.0
+radius_px = 120.0
+duration_s = 20.0
+tick_interval_s = 4.0
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &"slow"
+status_potency = 0.2
+status_duration_s = 4.5
+stack_max = 1
+extras = {"shinmok_hp": 170}
+
+[sub_resource type="Resource" id="lvl5_sinmok_blessing"]
+script = ExtResource("2_lvl")
+damage_formula = "24 + INT*0.4"
+damage_base = 24.0
+damage_int_coef = 0.4
+cooldown_s = 18.0
+range_px = 120.0
+radius_px = 120.0
+duration_s = 25.0
+tick_interval_s = 4.0
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &"slow"
+status_potency = 0.2
+status_duration_s = 4.5
+stack_max = 1
+extras = {"shinmok_hp": 230}
+
+[resource]
+script = ExtResource("1_data")
+id = &"sinmok_blessing"
+display_name_ko = "신목의 가호"
+description_ko = "발밑에 신목을 소환합니다. 일정 간격으로 HP를 회복시키고 주변 적에게 둔화를 겁니다. 신목은 자체 HP를 가지며 적의 공격으로 파괴될 수 있습니다."
+element = 3
+rarity = 1
+trigger_mode = 0
+scene = ExtResource("3_scene")
+icon_color = Color(0.35, 0.75, 0.45, 1)
+max_level = 5
+levels = Array[Resource]([SubResource("lvl1_sinmok_blessing"), SubResource("lvl2_sinmok_blessing"), SubResource("lvl3_sinmok_blessing"), SubResource("lvl4_sinmok_blessing"), SubResource("lvl5_sinmok_blessing")])
+min_chapter_to_offer = 2
+synergy_partners = Array[StringName]([&"flame_breath", &"dragon_palace_wave"])
+counter_partners = Array[StringName]([])
+evolution_targets = Array[StringName]([&"wildfire", &"life_rain"])
+unlock_condition = "2챕터 진입 시 해금됩니다."

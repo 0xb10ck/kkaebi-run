@@ -1,0 +1,113 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=10 format=3 uid="uid://kkr_mt_metal_chain"]
+
+[ext_resource type="Script" path="res://scripts/data/skill_data.gd" id="1_data"]
+[ext_resource type="Script" path="res://scripts/data/skill_level.gd" id="2_lvl"]
+[ext_resource type="PackedScene" path="res://scenes/skills/metal_chain.tscn" id="3_scene"]
+
+[sub_resource type="Resource" id="lvl1_metal_chain"]
+script = ExtResource("2_lvl")
+damage_formula = "25 + ATK*0.4"
+damage_base = 25.0
+damage_int_coef = 0.4
+cooldown_s = 9.0
+range_px = 500.0
+radius_px = 0.0
+duration_s = 0.0
+tick_interval_s = 0.0
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &"bind"
+status_potency = 1.0
+status_duration_s = 1.0
+stack_max = 1
+extras = {"pull_distance": 80.0}
+
+[sub_resource type="Resource" id="lvl2_metal_chain"]
+script = ExtResource("2_lvl")
+damage_formula = "35 + ATK*0.6"
+damage_base = 35.0
+damage_int_coef = 0.6
+cooldown_s = 8.0
+range_px = 500.0
+radius_px = 0.0
+duration_s = 0.0
+tick_interval_s = 0.0
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &"bind"
+status_potency = 1.0
+status_duration_s = 1.25
+stack_max = 1
+extras = {"pull_distance": 110.0}
+
+[sub_resource type="Resource" id="lvl3_metal_chain"]
+script = ExtResource("2_lvl")
+damage_formula = "50 + ATK*0.85"
+damage_base = 50.0
+damage_int_coef = 0.85
+cooldown_s = 7.0
+range_px = 500.0
+radius_px = 0.0
+duration_s = 0.0
+tick_interval_s = 0.0
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &"bind"
+status_potency = 1.0
+status_duration_s = 1.5
+stack_max = 1
+extras = {"pull_distance": 140.0}
+
+[sub_resource type="Resource" id="lvl4_metal_chain"]
+script = ExtResource("2_lvl")
+damage_formula = "60 + ATK*0.95"
+damage_base = 60.0
+damage_int_coef = 0.95
+cooldown_s = 6.0
+range_px = 500.0
+radius_px = 0.0
+duration_s = 0.0
+tick_interval_s = 0.0
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &"bind"
+status_potency = 1.0
+status_duration_s = 1.75
+stack_max = 1
+extras = {"pull_distance": 170.0}
+
+[sub_resource type="Resource" id="lvl5_metal_chain"]
+script = ExtResource("2_lvl")
+damage_formula = "70 + ATK*1.1"
+damage_base = 70.0
+damage_int_coef = 1.1
+cooldown_s = 5.0
+range_px = 500.0
+radius_px = 0.0
+duration_s = 0.0
+tick_interval_s = 0.0
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &"bind"
+status_potency = 1.0
+status_duration_s = 2.0
+stack_max = 1
+extras = {"pull_distance": 200.0}
+
+[resource]
+script = ExtResource("1_data")
+id = &"metal_chain"
+display_name_ko = "금속 사슬"
+description_ko = "강한 적을 우선 노려 금속 사슬을 던집니다. 피해를 주고 짧게 묶은 뒤 플레이어 쪽으로 끌어옵니다."
+element = 4
+rarity = 1
+trigger_mode = 0
+scene = ExtResource("3_scene")
+icon_color = Color(0.85, 0.75, 0.25, 1)
+max_level = 5
+levels = Array[Resource]([SubResource("lvl1_metal_chain"), SubResource("lvl2_metal_chain"), SubResource("lvl3_metal_chain"), SubResource("lvl4_metal_chain"), SubResource("lvl5_metal_chain")])
+min_chapter_to_offer = 2
+synergy_partners = Array[StringName]([&"flame_barrier"])
+counter_partners = Array[StringName]([])
+evolution_targets = Array[StringName]([&"forge"])
+unlock_condition = "2챕터 도달 시 해금됩니다."

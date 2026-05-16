@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="RandomEventData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/random_event_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"event_invisible_cap"
+display_name_ko = "도깨비감투 발견"
+description_ko = "HP 40% 이하에서 등장(20% 이하 시 ×2 가중). 즉시 사용 또는 보관. 10초 완전 투명(무적+공격), 종료 후 1초간 이속 -50%."
+event_kind = 6
+base_weight = 6.0
+allowed_chapters = PackedInt32Array(1, 2, 3, 4, 5)
+time_min_s = 0.0
+time_max_s = 9999.0
+hp_pct_min = 0.0
+hp_pct_max = 0.40
+requires_post_boss_kill = false
+post_boss_window_s = 0.0
+once_per_run = true
+max_per_run = 1
+duration_s = 10.0
+weight_modifiers = {"hp_lt_20": 2.0}
+script_path = "res://scripts/events/event_invisible_cap.gd"
+icon_color = Color(0.25, 0.22, 0.36, 1.0)
+toast_text_ko = "도깨비감투가 모습을 드러냅니다."

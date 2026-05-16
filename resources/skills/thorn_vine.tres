@@ -1,0 +1,113 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=10 format=3 uid="uid://kkr_wo_thorn_vine"]
+
+[ext_resource type="Script" path="res://scripts/data/skill_data.gd" id="1_data"]
+[ext_resource type="Script" path="res://scripts/data/skill_level.gd" id="2_lvl"]
+[ext_resource type="PackedScene" path="res://scenes/skills/thorn_vine.tscn" id="3_scene"]
+
+[sub_resource type="Resource" id="lvl1_thorn_vine"]
+script = ExtResource("2_lvl")
+damage_formula = "7/s + INT*0.15"
+damage_base = 7.0
+damage_int_coef = 0.15
+cooldown_s = 11.0
+range_px = 240.0
+radius_px = 0.0
+duration_s = 6.0
+tick_interval_s = 0.25
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &"bleed"
+status_potency = 4.0
+status_duration_s = 0.5
+stack_max = 1
+extras = {"width_px": 240.0, "depth_px": 160.0, "slow_factor": 0.5, "bleed_per_s": 4.0}
+
+[sub_resource type="Resource" id="lvl2_thorn_vine"]
+script = ExtResource("2_lvl")
+damage_formula = "11/s + INT*0.25"
+damage_base = 11.0
+damage_int_coef = 0.25
+cooldown_s = 10.0
+range_px = 240.0
+radius_px = 0.0
+duration_s = 6.5
+tick_interval_s = 0.25
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &"bleed"
+status_potency = 7.0
+status_duration_s = 0.5
+stack_max = 1
+extras = {"width_px": 240.0, "depth_px": 160.0, "slow_factor": 0.5, "bleed_per_s": 7.0}
+
+[sub_resource type="Resource" id="lvl3_thorn_vine"]
+script = ExtResource("2_lvl")
+damage_formula = "15/s + INT*0.35"
+damage_base = 15.0
+damage_int_coef = 0.35
+cooldown_s = 9.0
+range_px = 240.0
+radius_px = 0.0
+duration_s = 7.5
+tick_interval_s = 0.25
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &"bleed"
+status_potency = 10.0
+status_duration_s = 0.5
+stack_max = 1
+extras = {"width_px": 240.0, "depth_px": 160.0, "slow_factor": 0.5, "bleed_per_s": 10.0}
+
+[sub_resource type="Resource" id="lvl4_thorn_vine"]
+script = ExtResource("2_lvl")
+damage_formula = "19/s + INT*0.42"
+damage_base = 19.0
+damage_int_coef = 0.42
+cooldown_s = 8.0
+range_px = 240.0
+radius_px = 0.0
+duration_s = 8.0
+tick_interval_s = 0.25
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &"bleed"
+status_potency = 12.0
+status_duration_s = 0.5
+stack_max = 1
+extras = {"width_px": 240.0, "depth_px": 160.0, "slow_factor": 0.5, "bleed_per_s": 12.0}
+
+[sub_resource type="Resource" id="lvl5_thorn_vine"]
+script = ExtResource("2_lvl")
+damage_formula = "22/s + INT*0.5"
+damage_base = 22.0
+damage_int_coef = 0.5
+cooldown_s = 7.0
+range_px = 240.0
+radius_px = 0.0
+duration_s = 9.0
+tick_interval_s = 0.25
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &"bleed"
+status_potency = 14.0
+status_duration_s = 0.5
+stack_max = 1
+extras = {"width_px": 240.0, "depth_px": 160.0, "slow_factor": 0.5, "bleed_per_s": 14.0}
+
+[resource]
+script = ExtResource("1_data")
+id = &"thorn_vine"
+display_name_ko = "가시 덩굴"
+description_ko = "캐릭터 정면 앞쪽에 폭 240 × 깊이 160 크기의 가시밭을 깔아둡니다. 위에 있는 적은 매초 피해를 받고 50% 둔화 및 출혈에 걸립니다."
+element = 3
+rarity = 1
+trigger_mode = 0
+scene = ExtResource("3_scene")
+icon_color = Color(0.3, 0.55, 0.25, 1)
+max_level = 5
+levels = Array[Resource]([SubResource("lvl1_thorn_vine"), SubResource("lvl2_thorn_vine"), SubResource("lvl3_thorn_vine"), SubResource("lvl4_thorn_vine"), SubResource("lvl5_thorn_vine")])
+min_chapter_to_offer = 2
+synergy_partners = Array[StringName]([&"vine_whip"])
+counter_partners = Array[StringName]([&"dagger_throw"])
+evolution_targets = Array[StringName]([&"eternal_garden"])
+unlock_condition = "2챕터 보스 처치 후 해금됩니다."

@@ -22,6 +22,92 @@ const INTERMISSION_PATH: String = "res://scenes/ui/intermission.tscn"
 const MAIN_MENU_PATH: String = "res://scenes/main_menu/main_menu.tscn"
 const CHAPTER_RES_DIR: String = "res://resources/chapters"
 
+# §4 — 챕터별 일반 몬스터 풀 매핑.
+# 1~5장은 chapter_number == .tres 디렉토리 인덱스, 히든(6장)은 hidden/ 하위.
+# 각 엔트리: {key, scene_path, data_path}. game_scene이 PackedScene/EnemyData를 로드해 사용.
+const MONSTER_POOL_BY_CHAPTER: Dictionary = {
+	1: [
+		{"key": "m01", "scene_path": "res://scenes/enemies/m01_dokkaebibul.tscn", "data_path": "res://resources/enemies/chapter1/m01_dokkaebibul.tres"},
+		{"key": "m02", "scene_path": "res://scenes/enemies/m02_dalgyalgwisin.tscn", "data_path": "res://resources/enemies/chapter1/m02_dalgyalgwisin.tres"},
+		{"key": "m03", "scene_path": "res://scenes/enemies/m03_mulgwisin.tscn", "data_path": "res://resources/enemies/chapter1/m03_mulgwisin.tres"},
+		{"key": "m04", "scene_path": "res://scenes/enemies/m04_eodukshini.tscn", "data_path": "res://resources/enemies/chapter1/m04_eodukshini.tres"},
+		{"key": "m05", "scene_path": "res://scenes/enemies/m05_geuseundae.tscn", "data_path": "res://resources/enemies/chapter1/m05_geuseundae.tres"},
+		{"key": "m06", "scene_path": "res://scenes/enemies/m06_bitjarugwisin.tscn", "data_path": "res://resources/enemies/chapter1/m06_bitjarugwisin.tres"},
+		{"key": "m07", "scene_path": "res://scenes/enemies/m07_songakshi.tscn", "data_path": "res://resources/enemies/chapter1/m07_songakshi.tres"},
+		{"key": "m08", "scene_path": "res://scenes/enemies/m08_mongdalgwisin.tscn", "data_path": "res://resources/enemies/chapter1/m08_mongdalgwisin.tres"},
+		{"key": "m09", "scene_path": "res://scenes/enemies/m09_duduri.tscn", "data_path": "res://resources/enemies/chapter1/m09_duduri.tres"},
+	],
+	2: [
+		{"key": "m10", "scene_path": "res://scenes/enemies/m10_samdugu.tscn", "data_path": "res://resources/enemies/chapter2/m10_samdugu.tres"},
+		{"key": "m11", "scene_path": "res://scenes/enemies/m11_horangi.tscn", "data_path": "res://resources/enemies/chapter2/m11_horangi.tres"},
+		{"key": "m12", "scene_path": "res://scenes/enemies/m12_metdwaeji.tscn", "data_path": "res://resources/enemies/chapter2/m12_metdwaeji.tres"},
+		{"key": "m13", "scene_path": "res://scenes/enemies/m13_neoguri.tscn", "data_path": "res://resources/enemies/chapter2/m13_neoguri.tres"},
+		{"key": "m14", "scene_path": "res://scenes/enemies/m14_dukkeobi.tscn", "data_path": "res://resources/enemies/chapter2/m14_dukkeobi.tres"},
+		{"key": "m15", "scene_path": "res://scenes/enemies/m15_geomi.tscn", "data_path": "res://resources/enemies/chapter2/m15_geomi.tres"},
+		{"key": "m16", "scene_path": "res://scenes/enemies/m16_noru.tscn", "data_path": "res://resources/enemies/chapter2/m16_noru.tres"},
+		{"key": "m17", "scene_path": "res://scenes/enemies/m17_namu.tscn", "data_path": "res://resources/enemies/chapter2/m17_namu.tres"},
+		{"key": "m18", "scene_path": "res://scenes/enemies/m18_deonggul.tscn", "data_path": "res://resources/enemies/chapter2/m18_deonggul.tres"},
+		{"key": "m19", "scene_path": "res://scenes/enemies/m19_kamagwi.tscn", "data_path": "res://resources/enemies/chapter2/m19_kamagwi.tres"},
+	],
+	3: [
+		{"key": "m20", "scene_path": "res://scenes/enemies/m20_cheonyeo_gwisin.tscn", "data_path": "res://resources/enemies/chapter3/m20_cheonyeo_gwisin.tres"},
+		{"key": "m21", "scene_path": "res://scenes/enemies/m21_jeoseung_gae.tscn", "data_path": "res://resources/enemies/chapter3/m21_jeoseung_gae.tres"},
+		{"key": "m22", "scene_path": "res://scenes/enemies/m22_mangryang.tscn", "data_path": "res://resources/enemies/chapter3/m22_mangryang.tres"},
+		{"key": "m23", "scene_path": "res://scenes/enemies/m23_gangshi.tscn", "data_path": "res://resources/enemies/chapter3/m23_gangshi.tres"},
+		{"key": "m24", "scene_path": "res://scenes/enemies/m24_yagwang_gwi.tscn", "data_path": "res://resources/enemies/chapter3/m24_yagwang_gwi.tres"},
+		{"key": "m25", "scene_path": "res://scenes/enemies/m25_baekgol_gwi.tscn", "data_path": "res://resources/enemies/chapter3/m25_baekgol_gwi.tres"},
+		{"key": "m26", "scene_path": "res://scenes/enemies/m26_gaeksahon.tscn", "data_path": "res://resources/enemies/chapter3/m26_gaeksahon.tres"},
+		{"key": "m27", "scene_path": "res://scenes/enemies/m27_saseul_gwi.tscn", "data_path": "res://resources/enemies/chapter3/m27_saseul_gwi.tres"},
+		{"key": "m28", "scene_path": "res://scenes/enemies/m28_dochaebi.tscn", "data_path": "res://resources/enemies/chapter3/m28_dochaebi.tres"},
+		{"key": "m29", "scene_path": "res://scenes/enemies/m29_chasahon.tscn", "data_path": "res://resources/enemies/chapter3/m29_chasahon.tres"},
+	],
+	4: [
+		{"key": "m30", "scene_path": "res://scenes/enemies/m30_bulgasari.tscn", "data_path": "res://resources/enemies/chapter4/m30_bulgasari.tres"},
+		{"key": "m31", "scene_path": "res://scenes/enemies/m31_yacha.tscn", "data_path": "res://resources/enemies/chapter4/m31_yacha.tres"},
+		{"key": "m32", "scene_path": "res://scenes/enemies/m32_nachal.tscn", "data_path": "res://resources/enemies/chapter4/m32_nachal.tres"},
+		{"key": "m33", "scene_path": "res://scenes/enemies/m33_cheonnyeo.tscn", "data_path": "res://resources/enemies/chapter4/m33_cheonnyeo.tres"},
+		{"key": "m34", "scene_path": "res://scenes/enemies/m34_noegong.tscn", "data_path": "res://resources/enemies/chapter4/m34_noegong.tres"},
+		{"key": "m35", "scene_path": "res://scenes/enemies/m35_pungbaek.tscn", "data_path": "res://resources/enemies/chapter4/m35_pungbaek.tres"},
+		{"key": "m36", "scene_path": "res://scenes/enemies/m36_usa.tscn", "data_path": "res://resources/enemies/chapter4/m36_usa.tres"},
+		{"key": "m37", "scene_path": "res://scenes/enemies/m37_hak.tscn", "data_path": "res://resources/enemies/chapter4/m37_hak.tres"},
+		{"key": "m38", "scene_path": "res://scenes/enemies/m38_gareungbinga.tscn", "data_path": "res://resources/enemies/chapter4/m38_gareungbinga.tres"},
+		{"key": "m39", "scene_path": "res://scenes/enemies/m39_cheonma.tscn", "data_path": "res://resources/enemies/chapter4/m39_cheonma.tres"},
+	],
+	5: [
+		{"key": "m40", "scene_path": "res://scenes/enemies/m40_heukpung.tscn", "data_path": "res://resources/enemies/chapter5/m40_heukpung.tres"},
+		{"key": "m41", "scene_path": "res://scenes/enemies/m41_bihyeongrang_grimja.tscn", "data_path": "res://resources/enemies/chapter5/m41_bihyeongrang_grimja.tres"},
+		{"key": "m42", "scene_path": "res://scenes/enemies/m42_heukmusa.tscn", "data_path": "res://resources/enemies/chapter5/m42_heukmusa.tres"},
+		{"key": "m43", "scene_path": "res://scenes/enemies/m43_yeonggwi.tscn", "data_path": "res://resources/enemies/chapter5/m43_yeonggwi.tres"},
+		{"key": "m44", "scene_path": "res://scenes/enemies/m44_grimja_dokkaebi.tscn", "data_path": "res://resources/enemies/chapter5/m44_grimja_dokkaebi.tres"},
+		{"key": "m45", "scene_path": "res://scenes/enemies/m45_ohyeomdoen_shinmok_gaji.tscn", "data_path": "res://resources/enemies/chapter5/m45_ohyeomdoen_shinmok_gaji.tres"},
+		{"key": "m46", "scene_path": "res://scenes/enemies/m46_heukryong_saekki.tscn", "data_path": "res://resources/enemies/chapter5/m46_heukryong_saekki.tres"},
+		{"key": "m47", "scene_path": "res://scenes/enemies/m47_geomeun_angae_jamyeong.tscn", "data_path": "res://resources/enemies/chapter5/m47_geomeun_angae_jamyeong.tres"},
+		{"key": "m48", "scene_path": "res://scenes/enemies/m48_sijang_dokkaebi.tscn", "data_path": "res://resources/enemies/chapter5/m48_sijang_dokkaebi.tres"},
+		{"key": "m49", "scene_path": "res://scenes/enemies/m49_geokkuro_dokkaebi.tscn", "data_path": "res://resources/enemies/chapter5/m49_geokkuro_dokkaebi.tres"},
+	],
+	6: [
+		{"key": "m50", "scene_path": "res://scenes/enemies/m50_noreumkkun.tscn", "data_path": "res://resources/enemies/hidden/m50_noreumkkun.tres"},
+		{"key": "m51", "scene_path": "res://scenes/enemies/m51_sulchwihan.tscn", "data_path": "res://resources/enemies/hidden/m51_sulchwihan.tres"},
+		{"key": "m52", "scene_path": "res://scenes/enemies/m52_byeonjang.tscn", "data_path": "res://resources/enemies/hidden/m52_byeonjang.tres"},
+		{"key": "m53", "scene_path": "res://scenes/enemies/m53_ssireum.tscn", "data_path": "res://resources/enemies/hidden/m53_ssireum.tres"},
+	],
+}
+
+# §4 — 보스 11종(미니 5 + 챕터 6) id → scene_path.
+const BOSS_SCENE_BY_ID: Dictionary = {
+	&"mb01_jangsanbeom": "res://scenes/bosses/boss_jangsanbeom.tscn",
+	&"mb02_imugi": "res://scenes/bosses/boss_imugi.tscn",
+	&"mb03_chagwishin": "res://scenes/bosses/boss_chagwishin.tscn",
+	&"mb04_geumdwaeji": "res://scenes/bosses/boss_geumdwaeji.tscn",
+	&"mb05_geomeun_dokkaebi": "res://scenes/bosses/boss_geomeun_dokkaebi.tscn",
+	&"b01_dokkaebibul_daejang": "res://scenes/bosses/boss_dokkaebibul_daejang.tscn",
+	&"b02_gumiho": "res://scenes/bosses/boss_gumiho.tscn",
+	&"b03_jeoseung_saja": "res://scenes/bosses/boss_jeoseung_saja.tscn",
+	&"b04_cheondung_janggun": "res://scenes/bosses/boss_cheondung_janggun.tscn",
+	&"b05_heuk_ryong": "res://scenes/bosses/boss_heuk_ryong.tscn",
+	&"b06_daewang_dokkaebi": "res://scenes/bosses/boss_daewang_dokkaebi.tscn",
+}
+
 var state: FlowState = FlowState.BOOT
 var current_character_id: StringName = &""
 var current_chapter_id: StringName = &""
@@ -229,6 +315,34 @@ func register_chapter(data: ChapterData) -> void:
 	if data == null:
 		return
 	_chapter_registry[data.id] = data
+
+
+# === 매핑 헬퍼 ===
+
+# 현재 챕터의 일반 몬스터 풀(.tres + .tscn 경로 묶음). 챕터가 비었거나 미등록이면 빈 배열.
+func get_monster_pool_for_current_chapter() -> Array:
+	var num: int = current_chapter_data.chapter_number if current_chapter_data else 1
+	return get_monster_pool_for_chapter(num)
+
+
+# 챕터 번호로 일반 몬스터 풀을 반환. 1~6 외의 번호면 빈 배열.
+func get_monster_pool_for_chapter(chapter_number: int) -> Array:
+	return MONSTER_POOL_BY_CHAPTER.get(chapter_number, [])
+
+
+# 현재 챕터의 미니보스 id. 데이터가 비면 &"".
+func get_mini_boss_id() -> StringName:
+	return current_chapter_data.mini_boss_id if current_chapter_data else &""
+
+
+# 현재 챕터의 메인(챕터) 보스 id. 데이터가 비면 &"".
+func get_main_boss_id() -> StringName:
+	return current_chapter_data.chapter_boss_id if current_chapter_data else &""
+
+
+# 보스 id → 보스 씬 경로. 미등록 id면 빈 문자열.
+func get_boss_scene_path(boss_id: StringName) -> String:
+	return BOSS_SCENE_BY_ID.get(boss_id, "")
 
 
 # === 내부 ===

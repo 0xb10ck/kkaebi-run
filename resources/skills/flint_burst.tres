@@ -1,0 +1,113 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=10 format=3 uid="uid://kkr_fb_flint_burst"]
+
+[ext_resource type="Script" path="res://scripts/data/skill_data.gd" id="1_data"]
+[ext_resource type="Script" path="res://scripts/data/skill_level.gd" id="2_lvl"]
+[ext_resource type="PackedScene" path="res://scenes/skills/flint_burst.tscn" id="3_scene"]
+
+[sub_resource type="Resource" id="lvl1_flint_burst"]
+script = ExtResource("2_lvl")
+damage_formula = "25 + INT*0.4"
+damage_base = 25.0
+damage_int_coef = 0.4
+cooldown_s = 4.5
+range_px = 400.0
+radius_px = 90.0
+duration_s = 0.25
+tick_interval_s = 0.0
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &""
+status_potency = 0.0
+status_duration_s = 0.0
+stack_max = 1
+extras = {}
+
+[sub_resource type="Resource" id="lvl2_flint_burst"]
+script = ExtResource("2_lvl")
+damage_formula = "32 + INT*0.5"
+damage_base = 32.0
+damage_int_coef = 0.5
+cooldown_s = 4.0
+range_px = 400.0
+radius_px = 90.0
+duration_s = 0.25
+tick_interval_s = 0.0
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &""
+status_potency = 0.0
+status_duration_s = 0.0
+stack_max = 1
+extras = {}
+
+[sub_resource type="Resource" id="lvl3_flint_burst"]
+script = ExtResource("2_lvl")
+damage_formula = "40 + INT*0.6"
+damage_base = 40.0
+damage_int_coef = 0.6
+cooldown_s = 3.5
+range_px = 400.0
+radius_px = 90.0
+duration_s = 0.25
+tick_interval_s = 0.0
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &""
+status_potency = 0.0
+status_duration_s = 0.0
+stack_max = 1
+extras = {}
+
+[sub_resource type="Resource" id="lvl4_flint_burst"]
+script = ExtResource("2_lvl")
+damage_formula = "50 + INT*0.75"
+damage_base = 50.0
+damage_int_coef = 0.75
+cooldown_s = 3.0
+range_px = 400.0
+radius_px = 90.0
+duration_s = 0.25
+tick_interval_s = 0.0
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &""
+status_potency = 0.0
+status_duration_s = 0.0
+stack_max = 1
+extras = {}
+
+[sub_resource type="Resource" id="lvl5_flint_burst"]
+script = ExtResource("2_lvl")
+damage_formula = "65 + INT*0.9"
+damage_base = 65.0
+damage_int_coef = 0.9
+cooldown_s = 2.5
+range_px = 400.0
+radius_px = 90.0
+duration_s = 0.25
+tick_interval_s = 0.0
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &""
+status_potency = 0.0
+status_duration_s = 0.0
+stack_max = 1
+extras = {}
+
+[resource]
+script = ExtResource("1_data")
+id = &"flint_burst"
+display_name_ko = "부싯돌 폭발"
+description_ko = "가장 가까운 적의 위치에 부싯돌을 던져 작은 폭발을 일으킵니다. 반경 90px의 적에게 피해를 줍니다."
+element = 1
+rarity = 0
+trigger_mode = 0
+scene = ExtResource("3_scene")
+icon_color = Color(0.95, 0.55, 0.2, 1)
+max_level = 5
+levels = Array[Resource]([SubResource("lvl1_flint_burst"), SubResource("lvl2_flint_burst"), SubResource("lvl3_flint_burst"), SubResource("lvl4_flint_burst"), SubResource("lvl5_flint_burst")])
+min_chapter_to_offer = 1
+synergy_partners = Array[StringName]([&"rock_throw"])
+counter_partners = Array[StringName]([&"frost_ring"])
+evolution_targets = Array[StringName]([&"magma_burst", &"steam_explosion"])
+unlock_condition = "기본 해금 — 1챕터부터 등장합니다."

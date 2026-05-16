@@ -1,0 +1,113 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=10 format=3 uid="uid://kkr_fb_samaejinhwa"]
+
+[ext_resource type="Script" path="res://scripts/data/skill_data.gd" id="1_data"]
+[ext_resource type="Script" path="res://scripts/data/skill_level.gd" id="2_lvl"]
+[ext_resource type="PackedScene" path="res://scenes/skills/samaejinhwa.tscn" id="3_scene"]
+
+[sub_resource type="Resource" id="lvl1_samaejinhwa"]
+script = ExtResource("2_lvl")
+damage_formula = "30 + INT*0.5"
+damage_base = 30.0
+damage_int_coef = 0.5
+cooldown_s = 0.0
+range_px = 0.0
+radius_px = 50.0
+duration_s = 5.0
+tick_interval_s = 0.5
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &"burn"
+status_potency = 6.0
+status_duration_s = 3.0
+stack_max = 20
+extras = {"max_marks": 20, "explosion_radius_px": 70.0}
+
+[sub_resource type="Resource" id="lvl2_samaejinhwa"]
+script = ExtResource("2_lvl")
+damage_formula = "45 + INT*0.7"
+damage_base = 45.0
+damage_int_coef = 0.7
+cooldown_s = 0.0
+range_px = 0.0
+radius_px = 50.0
+duration_s = 5.0
+tick_interval_s = 0.5
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &"burn"
+status_potency = 7.0
+status_duration_s = 3.0
+stack_max = 25
+extras = {"max_marks": 25, "explosion_radius_px": 70.0}
+
+[sub_resource type="Resource" id="lvl3_samaejinhwa"]
+script = ExtResource("2_lvl")
+damage_formula = "65 + INT*1.0"
+damage_base = 65.0
+damage_int_coef = 1.0
+cooldown_s = 0.0
+range_px = 0.0
+radius_px = 50.0
+duration_s = 5.0
+tick_interval_s = 0.5
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &"burn"
+status_potency = 8.0
+status_duration_s = 3.0
+stack_max = 30
+extras = {"max_marks": 30, "explosion_radius_px": 70.0}
+
+[sub_resource type="Resource" id="lvl4_samaejinhwa"]
+script = ExtResource("2_lvl")
+damage_formula = "90 + INT*1.3"
+damage_base = 90.0
+damage_int_coef = 1.3
+cooldown_s = 0.0
+range_px = 0.0
+radius_px = 50.0
+duration_s = 5.0
+tick_interval_s = 0.5
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &"burn"
+status_potency = 9.0
+status_duration_s = 3.0
+stack_max = 35
+extras = {"max_marks": 35, "explosion_radius_px": 70.0}
+
+[sub_resource type="Resource" id="lvl5_samaejinhwa"]
+script = ExtResource("2_lvl")
+damage_formula = "120 + INT*1.7"
+damage_base = 120.0
+damage_int_coef = 1.7
+cooldown_s = 0.0
+range_px = 0.0
+radius_px = 50.0
+duration_s = 5.0
+tick_interval_s = 0.5
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &"burn"
+status_potency = 10.0
+status_duration_s = 3.0
+stack_max = 40
+extras = {"max_marks": 40, "explosion_radius_px": 70.0}
+
+[resource]
+script = ExtResource("1_data")
+id = &"samaejinhwa"
+display_name_ko = "삼매진화"
+description_ko = "이동할 때마다 화염 발자국을 남깁니다. 적이 발자국에 닿으면 폭발하며 화상을 입힙니다. 5초 지속, 다수 누적 가능."
+element = 1
+rarity = 2
+trigger_mode = 2
+scene = ExtResource("3_scene")
+icon_color = Color(0.98, 0.15, 0.2, 1)
+max_level = 5
+levels = Array[Resource]([SubResource("lvl1_samaejinhwa"), SubResource("lvl2_samaejinhwa"), SubResource("lvl3_samaejinhwa"), SubResource("lvl4_samaejinhwa"), SubResource("lvl5_samaejinhwa")])
+min_chapter_to_offer = 3
+synergy_partners = Array[StringName]([&"fire_orb"])
+counter_partners = Array[StringName]([])
+evolution_targets = Array[StringName]([&"phoenix_descent"])
+unlock_condition = "3챕터 도달 후 화 속성 스킬 3종 이상을 사용한 런에서 해금됩니다."

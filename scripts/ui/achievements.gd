@@ -70,11 +70,10 @@ func _make_row(d: Dictionary) -> Control:
 	var id: StringName = d.id
 	var target: int = int(d.target)
 	var reward: int = int(d.reward)
-	var progress: int = 0
+	var progress: int = _compute_live_progress(id)
 	var claimed: bool = false
 	if MetaState != null:
 		var entry: Dictionary = MetaState.achievements.get(id, {})
-		progress = int(entry.get("progress", 0))
 		claimed = bool(entry.get("claimed", false))
 
 	var panel: PanelContainer = PanelContainer.new()
@@ -135,12 +134,18 @@ func _make_row(d: Dictionary) -> Control:
 func _on_claim_pressed(id: StringName, target: int, reward: int) -> void:
 	if MetaState == null:
 		return
-	# 도전과제 엔트리가 아직 존재하지 않을 수도 있으므로 진행도 정합성을 한 번 보정.
+	var progress: int = _compute_live_progress(id)
+	if progress < target:
+		EventBus.toast_requested.emit("아직 수령할 수 없습니다.", 1.5)
+		return
+	# claim_achievement는 entry.progress >= entry.target 일 때만 성공한다.
+	# 라이브 진행도가 만족됐으므로 entry를 동기화한 뒤 수령 호출.
 	var entry: Dictionary = MetaState.achievements.get(id, {})
-	entry["progress"] = max(int(entry.get("progress", 0)), target)
+	entry["progress"] = progress
 	entry["target"] = target
 	entry["reward_orbs"] = reward
-	entry["claimed"] = bool(entry.get("claimed", false))
+	if not entry.has("claimed"):
+		entry["claimed"] = false
 	MetaState.achievements[id] = entry
 	var ok: bool = MetaState.claim_achievement(id)
 	if ok:
@@ -148,6 +153,23 @@ func _on_claim_pressed(id: StringName, target: int, reward: int) -> void:
 	else:
 		EventBus.toast_requested.emit("아직 수령할 수 없습니다.", 1.5)
 	_rebuild_list()
+
+
+# 라이브 진행도: MetaState의 누적 통계/언락 카운트에서 직접 도출.
+# 일회성은 자동 추적, 일일/주간은 MetaState.achievements 엔트리에 의존(외부 트래커가 채움).
+func _compute_live_progress(id: StringName) -> int:
+	if MetaState == null:
+		return 0
+	match id:
+		&"ach_first_clear":
+			return int(MetaState.stats.get("total_clears", 0))
+		&"ach_kill_1000":
+			return int(MetaState.stats.get("total_kills", 0))
+		&"ach_unlock_3":
+			return MetaState.unlocked_characters.size()
+		_:
+			var entry: Dictionary = MetaState.achievements.get(id, {})
+			return int(entry.get("progress", 0))
 
 
 func _on_back_pressed() -> void:

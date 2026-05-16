@@ -1,0 +1,113 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=10 format=3 uid="uid://kkr_wa_ice_age"]
+
+[ext_resource type="Script" path="res://scripts/data/skill_data.gd" id="1_data"]
+[ext_resource type="Script" path="res://scripts/data/skill_level.gd" id="2_lvl"]
+[ext_resource type="PackedScene" path="res://scenes/skills/ice_age.tscn" id="3_scene"]
+
+[sub_resource type="Resource" id="lvl1_ice_age"]
+script = ExtResource("2_lvl")
+damage_formula = "40 + INT*0.6"
+damage_base = 40.0
+damage_int_coef = 0.6
+cooldown_s = 75.0
+range_px = 9999.0
+radius_px = 9999.0
+duration_s = 2.0
+tick_interval_s = 0.0
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &"freeze"
+status_potency = 1.0
+status_duration_s = 2.0
+stack_max = 1
+extras = {"freeze_duration": 2.0}
+
+[sub_resource type="Resource" id="lvl2_ice_age"]
+script = ExtResource("2_lvl")
+damage_formula = "60 + INT*0.85"
+damage_base = 60.0
+damage_int_coef = 0.85
+cooldown_s = 65.0
+range_px = 9999.0
+radius_px = 9999.0
+duration_s = 2.5
+tick_interval_s = 0.0
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &"freeze"
+status_potency = 1.0
+status_duration_s = 2.5
+stack_max = 1
+extras = {"freeze_duration": 2.5}
+
+[sub_resource type="Resource" id="lvl3_ice_age"]
+script = ExtResource("2_lvl")
+damage_formula = "85 + INT*1.2"
+damage_base = 85.0
+damage_int_coef = 1.2
+cooldown_s = 55.0
+range_px = 9999.0
+radius_px = 9999.0
+duration_s = 3.0
+tick_interval_s = 0.0
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &"freeze"
+status_potency = 1.0
+status_duration_s = 3.0
+stack_max = 1
+extras = {"freeze_duration": 3.0}
+
+[sub_resource type="Resource" id="lvl4_ice_age"]
+script = ExtResource("2_lvl")
+damage_formula = "115 + INT*1.5"
+damage_base = 115.0
+damage_int_coef = 1.5
+cooldown_s = 45.0
+range_px = 9999.0
+radius_px = 9999.0
+duration_s = 3.5
+tick_interval_s = 0.0
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &"freeze"
+status_potency = 1.0
+status_duration_s = 3.5
+stack_max = 1
+extras = {"freeze_duration": 3.5}
+
+[sub_resource type="Resource" id="lvl5_ice_age"]
+script = ExtResource("2_lvl")
+damage_formula = "150 + INT*1.9"
+damage_base = 150.0
+damage_int_coef = 1.9
+cooldown_s = 35.0
+range_px = 9999.0
+radius_px = 9999.0
+duration_s = 4.0
+tick_interval_s = 0.0
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &"freeze"
+status_potency = 1.0
+status_duration_s = 4.0
+stack_max = 1
+extras = {"freeze_duration": 4.0}
+
+[resource]
+script = ExtResource("1_data")
+id = &"ice_age"
+display_name_ko = "빙하기"
+description_ko = "화면의 모든 적을 일정 시간 얼리고, 해제될 때 큰 피해를 가합니다."
+element = 2
+rarity = 2
+trigger_mode = 0
+scene = ExtResource("3_scene")
+icon_color = Color(0.50, 0.85, 1.0, 1)
+max_level = 5
+levels = Array[Resource]([SubResource("lvl1_ice_age"), SubResource("lvl2_ice_age"), SubResource("lvl3_ice_age"), SubResource("lvl4_ice_age"), SubResource("lvl5_ice_age")])
+min_chapter_to_offer = 3
+synergy_partners = Array[StringName]([&"frost_ring"])
+counter_partners = Array[StringName]([])
+evolution_targets = Array[StringName]([&"sky_fortress"])
+unlock_condition = "3챕터부터 등장하는 전설 스킬입니다."

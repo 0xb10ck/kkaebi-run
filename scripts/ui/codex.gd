@@ -1,138 +1,291 @@
 extends Control
 
 
-# §2.5 — 도감 화면. 요괴/신물/장소 3탭.
-# 잠금 카드는 실루엣 박스, 해금 카드는 이름 + 설명을 표시.
+# §2.5 — 도감 화면. 몬스터/보스/스킬 3탭.
+# resources/enemies/**/*.tres, resources/bosses/*.tres, resources/skills/*.tres 자동 로드.
+# 잠금 카드는 실루엣 + "???", 해금 카드는 sprite_size_px와 placeholder_color로
+# placeholder 박스를 그리고 lore_ko 본문을 보여 준다.
+#
+# 잠금 해제 출처: 몬스터는 MetaState.codex_monsters("discovered"=true), 보스도
+# 같은 dict의 보스 id 키, 스킬은 codex_relics에 우선 두되 진행/획득 정보를 사용한다.
 
 const MAIN_MENU_PATH: String = "res://scenes/main_menu/main_menu.tscn"
-const CARD_SIZE: Vector2 = Vector2(210, 130)
+const CARD_SIZE: Vector2 = Vector2(210, 220)
+const PLACEHOLDER_MAX: Vector2 = Vector2(180, 96)
+const PLACEHOLDER_MIN: Vector2 = Vector2(24, 24)
+
+const ENEMY_DIRS: Array[String] = [
+	"res://resources/enemies/chapter1",
+	"res://resources/enemies/chapter2",
+	"res://resources/enemies/chapter3",
+	"res://resources/enemies/chapter4",
+	"res://resources/enemies/chapter5",
+	"res://resources/enemies/hidden",
+]
+const BOSS_DIR: String = "res://resources/bosses"
+const SKILL_DIR: String = "res://resources/skills"
 
 
 @onready var _monsters_tab: Button = $Tabs/MonstersTab
-@onready var _relics_tab: Button = $Tabs/RelicsTab
-@onready var _places_tab: Button = $Tabs/PlacesTab
+@onready var _bosses_tab: Button = $Tabs/RelicsTab
+@onready var _skills_tab: Button = $Tabs/PlacesTab
 @onready var _progress_label: Label = $ProgressLabel
 @onready var _grid: GridContainer = $Scroll/Grid
 @onready var _back_button: Button = $BackButton
 
-# 카테고리별 placeholder 엔트리. 실제 게임에서는 EnemyData/RelicData/ChapterData에서 수집.
-# {id, name, summary}
-const MONSTER_ENTRIES: Array = [
-	{"id": &"m01_dokkaebibul", "name": "도깨비불", "summary": "두멍마을의 옅은 푸른 도깨비입니다."},
-	{"id": &"m02_egg_specter", "name": "알 귀신", "summary": "껍데기를 두른 작은 귀신입니다."},
-	{"id": &"m03_water_ghost", "name": "물귀신", "summary": "발목을 잡아 끄는 검푸른 손길입니다."},
-	{"id": &"mb01_jangsanbeom", "name": "장산범", "summary": "안개를 가르는 거대한 백호 미니보스입니다."},
-	{"id": &"b01_dokkaebibul_daejang", "name": "도깨비불 대장", "summary": "1장의 챕터 보스입니다."},
-]
+enum Category { MONSTERS, BOSSES, SKILLS }
 
-const RELIC_ENTRIES: Array = [
-	{"id": &"r01_dokkaebi_bangmang", "name": "도깨비 방망이", "summary": "원하는 것을 두드려 내는 신물입니다."},
-	{"id": &"r02_buksu_bujeok", "name": "북수 부적", "summary": "한 번의 피격을 막아 주는 부적입니다."},
-	{"id": &"r03_haetae_oksae", "name": "해태 옥새", "summary": "사악한 기운을 정화하는 옥새입니다."},
-]
-
-const PLACE_ENTRIES: Array = [
-	{"id": &"ch01_dumeong", "name": "두멍마을", "summary": "안개에 잠긴 시작의 마을입니다."},
-	{"id": &"ch02_sinryeong", "name": "신령의 숲", "summary": "오래된 숲의 깊은 곳입니다."},
-	{"id": &"ch03_hwangcheon", "name": "지하 황천", "summary": "죽음의 강이 흐르는 지하 세계입니다."},
-	{"id": &"ch04_cheonsang", "name": "천상계", "summary": "구름 위의 신의 영역입니다."},
-	{"id": &"ch05_sinmok_heart", "name": "신목의 심장", "summary": "모든 여정의 끝, 신목의 중심입니다."},
-	{"id": &"ch_hidden_market", "name": "도깨비 시장", "summary": "이따금 나타나는 보물의 장입니다."},
-]
-
-enum Category { MONSTERS, RELICS, PLACES }
-
+var _monsters: Array[EnemyData] = []
+var _bosses: Array[BossData] = []
+var _skills: Array[SkillData] = []
 var _current_category: Category = Category.MONSTERS
 
 
 func _ready() -> void:
 	_back_button.pressed.connect(_on_back_pressed)
+	# 탭 레이블을 새 분류명으로 교체 (.tscn 노드 구조는 그대로).
+	_monsters_tab.text = "몬스터"
+	_bosses_tab.text = "보스"
+	_skills_tab.text = "스킬"
 	_monsters_tab.pressed.connect(_select_category.bind(Category.MONSTERS))
-	_relics_tab.pressed.connect(_select_category.bind(Category.RELICS))
-	_places_tab.pressed.connect(_select_category.bind(Category.PLACES))
+	_bosses_tab.pressed.connect(_select_category.bind(Category.BOSSES))
+	_skills_tab.pressed.connect(_select_category.bind(Category.SKILLS))
+	if not EventBus.codex_entry_unlocked.is_connected(_on_codex_entry_unlocked):
+		EventBus.codex_entry_unlocked.connect(_on_codex_entry_unlocked)
+	_load_all_resources()
 	_select_category(Category.MONSTERS)
+
+
+func _load_all_resources() -> void:
+	_monsters.clear()
+	for d in ENEMY_DIRS:
+		for res in _load_resources_in(d):
+			if res is EnemyData:
+				_monsters.append(res)
+	_monsters.sort_custom(func(a: EnemyData, b: EnemyData) -> bool:
+		return String(a.id) < String(b.id))
+
+	_bosses.clear()
+	for res in _load_resources_in(BOSS_DIR):
+		if res is BossData:
+			_bosses.append(res)
+	_bosses.sort_custom(func(a: BossData, b: BossData) -> bool:
+		# 미니보스 → 챕터보스, 그다음 id 순.
+		if a.is_mini_boss != b.is_mini_boss:
+			return a.is_mini_boss
+		return String(a.id) < String(b.id))
+
+	_skills.clear()
+	for res in _load_resources_in(SKILL_DIR):
+		if res is SkillData:
+			_skills.append(res)
+	_skills.sort_custom(func(a: SkillData, b: SkillData) -> bool:
+		return String(a.id) < String(b.id))
+
+
+func _load_resources_in(dir_path: String) -> Array[Resource]:
+	var out: Array[Resource] = []
+	var dir: DirAccess = DirAccess.open(dir_path)
+	if dir == null:
+		return out
+	dir.list_dir_begin()
+	var entry: String = dir.get_next()
+	while entry != "":
+		if not dir.current_is_dir() and entry.ends_with(".tres"):
+			var res: Resource = load("%s/%s" % [dir_path, entry])
+			if res != null:
+				out.append(res)
+		entry = dir.get_next()
+	dir.list_dir_end()
+	return out
 
 
 func _select_category(c: Category) -> void:
 	_current_category = c
 	_monsters_tab.button_pressed = c == Category.MONSTERS
-	_relics_tab.button_pressed = c == Category.RELICS
-	_places_tab.button_pressed = c == Category.PLACES
+	_bosses_tab.button_pressed = c == Category.BOSSES
+	_skills_tab.button_pressed = c == Category.SKILLS
 	_rebuild_grid()
 
 
 func _rebuild_grid() -> void:
 	for child in _grid.get_children():
 		child.queue_free()
-	var entries: Array = _entries_for_category(_current_category)
+	var total: int = 0
 	var unlocked_count: int = 0
-	for e in entries:
-		var unlocked: bool = _is_unlocked(e.id)
-		if unlocked:
-			unlocked_count += 1
-		_grid.add_child(_make_card(e, unlocked))
-	_progress_label.text = "%s  %d / %d" % [_category_label(_current_category), unlocked_count, entries.size()]
+	match _current_category:
+		Category.MONSTERS:
+			total = _monsters.size()
+			for m in _monsters:
+				var unlocked: bool = _is_monster_unlocked(m.id)
+				if unlocked:
+					unlocked_count += 1
+				_grid.add_child(_make_monster_card(m, unlocked))
+		Category.BOSSES:
+			total = _bosses.size()
+			for b in _bosses:
+				var unlocked: bool = _is_boss_unlocked(b.id)
+				if unlocked:
+					unlocked_count += 1
+				_grid.add_child(_make_boss_card(b, unlocked))
+		Category.SKILLS:
+			total = _skills.size()
+			for s in _skills:
+				var unlocked: bool = _is_skill_unlocked(s.id)
+				if unlocked:
+					unlocked_count += 1
+				_grid.add_child(_make_skill_card(s, unlocked))
+	_progress_label.text = "%s  %d / %d" % [_category_label(_current_category), unlocked_count, total]
 
 
 func _category_label(c: Category) -> String:
 	match c:
-		Category.MONSTERS: return "요괴 도감"
-		Category.RELICS:   return "신물 도감"
-		_:                 return "장소 도감"
+		Category.MONSTERS: return "몬스터 도감"
+		Category.BOSSES:   return "보스 도감"
+		_:                 return "스킬 도감"
 
 
-func _entries_for_category(c: Category) -> Array:
-	match c:
-		Category.MONSTERS: return MONSTER_ENTRIES
-		Category.RELICS:   return RELIC_ENTRIES
-		_:                 return PLACE_ENTRIES
+# === unlock checks ============================================================
 
-
-func _is_unlocked(id: StringName) -> bool:
+func _is_monster_unlocked(id: StringName) -> bool:
 	if MetaState == null:
 		return false
-	var category_name: StringName = &"monsters"
-	match _current_category:
-		Category.MONSTERS: category_name = &"monsters"
-		Category.RELICS:   category_name = &"relics"
-		Category.PLACES:   category_name = &"places"
-	return MetaState.is_codex_entry_unlocked(category_name, id)
+	var e: Dictionary = MetaState.codex_monsters.get(id, {})
+	return bool(e.get("discovered", false))
 
 
-func _make_card(entry: Dictionary, unlocked: bool) -> Control:
+func _is_boss_unlocked(id: StringName) -> bool:
+	# 보스 처치도 record_boss_defeated()를 통해 codex_monsters에 기록된다.
+	if MetaState == null:
+		return false
+	var e: Dictionary = MetaState.codex_monsters.get(id, {})
+	return bool(e.get("discovered", false))
+
+
+func _is_skill_unlocked(id: StringName) -> bool:
+	# 스킬은 SkillManager.획득 이력이나 MetaState.codex_relics를 활용한다.
+	if MetaState == null:
+		return false
+	var e: Dictionary = MetaState.codex_relics.get(id, {})
+	if bool(e.get("acquired", false)) or bool(e.get("discovered", false)):
+		return true
+	if SkillManager != null and SkillManager.has_method("has_ever_acquired"):
+		return bool(SkillManager.has_ever_acquired(id))
+	return false
+
+
+# === card builders ============================================================
+
+func _make_monster_card(data: EnemyData, unlocked: bool) -> Control:
+	return _make_card(
+		data.display_name_ko,
+		data.lore_ko,
+		_to_vec2(data.sprite_size_px),
+		data.placeholder_color,
+		unlocked,
+	)
+
+
+func _make_boss_card(data: BossData, unlocked: bool) -> Control:
+	var col: Color = Color(0.85, 0.35, 0.35, 1)  # 보스 기본 placeholder 색.
+	# BossData는 placeholder_color가 없으므로 미니/챕터 보스 구분으로 톤만 다르게.
+	if data.is_mini_boss:
+		col = Color(0.80, 0.55, 0.30, 1)
+	return _make_card(
+		data.display_name_ko,
+		data.lore_ko,
+		_to_vec2(data.sprite_size_px),
+		col,
+		unlocked,
+	)
+
+
+func _make_skill_card(data: SkillData, unlocked: bool) -> Control:
+	# 스킬은 sprite가 아닌 아이콘 컬러를 placeholder로 사용. 크기는 표준 32x32.
+	return _make_card(
+		data.display_name_ko,
+		data.description_ko,
+		Vector2(32, 32),
+		data.icon_color,
+		unlocked,
+	)
+
+
+func _make_card(
+	name_ko: String,
+	body_ko: String,
+	sprite_size: Vector2,
+	placeholder_col: Color,
+	unlocked: bool,
+) -> Control:
 	var panel: PanelContainer = PanelContainer.new()
 	panel.custom_minimum_size = CARD_SIZE
+
 	var v: VBoxContainer = VBoxContainer.new()
 	v.name = "Body"
 	v.add_theme_constant_override("separation", 4)
+	v.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	panel.add_child(v)
 
+	# placeholder 박스 (sprite_size_px 비율 보존, 카드 폭에 맞춰 스케일).
+	var placeholder_area: CenterContainer = CenterContainer.new()
+	placeholder_area.custom_minimum_size = Vector2(0, PLACEHOLDER_MAX.y + 8)
+	v.add_child(placeholder_area)
+
+	var placeholder: ColorRect = ColorRect.new()
+	placeholder.custom_minimum_size = _scaled_placeholder_size(sprite_size)
 	if unlocked:
-		var name_label: Label = Label.new()
-		name_label.text = String(entry.get("name", ""))
-		name_label.add_theme_font_size_override("font_size", 15)
-		name_label.add_theme_color_override("font_color", Color(0.878, 0.761, 0.235, 1))
-		v.add_child(name_label)
-
-		var summary: Label = Label.new()
-		summary.text = String(entry.get("summary", ""))
-		summary.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		summary.add_theme_font_size_override("font_size", 12)
-		summary.add_theme_color_override("font_color", Color(0.941, 0.929, 0.902, 0.85))
-		v.add_child(summary)
+		placeholder.color = placeholder_col
 	else:
-		var silhouette: ColorRect = ColorRect.new()
-		silhouette.custom_minimum_size = Vector2(180, 80)
-		silhouette.color = Color(0.18, 0.16, 0.14, 1)
-		v.add_child(silhouette)
+		placeholder.color = Color(0.16, 0.14, 0.13, 1.0)
+	placeholder_area.add_child(placeholder)
 
-		var locked_label: Label = Label.new()
-		locked_label.text = "??? (미해금)"
-		locked_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		locked_label.add_theme_font_size_override("font_size", 12)
-		locked_label.add_theme_color_override("font_color", Color(0.6, 0.55, 0.5, 1))
-		v.add_child(locked_label)
+	# 이름
+	var name_label: Label = Label.new()
+	name_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	name_label.add_theme_font_size_override("font_size", 15)
+	if unlocked:
+		name_label.text = name_ko
+		name_label.add_theme_color_override("font_color", Color(0.878, 0.761, 0.235, 1))
+	else:
+		name_label.text = "???"
+		name_label.add_theme_color_override("font_color", Color(0.6, 0.55, 0.5, 1))
+	v.add_child(name_label)
+
+	# 설명 / lore
+	var lore_label: Label = Label.new()
+	lore_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	lore_label.add_theme_font_size_override("font_size", 12)
+	if unlocked:
+		lore_label.text = body_ko if body_ko != "" else "(설명이 아직 기록되지 않았습니다.)"
+		lore_label.add_theme_color_override("font_color", Color(0.941, 0.929, 0.902, 0.85))
+	else:
+		lore_label.text = "(미해금 — 더 많이 만나야 합니다.)"
+		lore_label.add_theme_color_override("font_color", Color(0.6, 0.55, 0.5, 1))
+	v.add_child(lore_label)
+
 	return panel
+
+
+func _scaled_placeholder_size(sprite_size: Vector2) -> Vector2:
+	# sprite_size_px의 가로/세로 비율을 유지하면서 카드 안에 맞게 스케일.
+	if sprite_size.x <= 0.0 or sprite_size.y <= 0.0:
+		return PLACEHOLDER_MIN
+	var scale_x: float = PLACEHOLDER_MAX.x / sprite_size.x
+	var scale_y: float = PLACEHOLDER_MAX.y / sprite_size.y
+	var s: float = min(scale_x, scale_y)
+	# 너무 작은 placeholder는 보이지 않으므로 하한선 확보.
+	s = max(s, PLACEHOLDER_MIN.x / max(sprite_size.x, 1.0))
+	return Vector2(sprite_size.x * s, sprite_size.y * s)
+
+
+func _to_vec2(v: Vector2i) -> Vector2:
+	return Vector2(float(v.x), float(v.y))
+
+
+func _on_codex_entry_unlocked(_category: StringName, _entry_id: StringName) -> void:
+	# 카테고리에 상관없이 현재 보고 있는 그리드를 새로 고친다.
+	_rebuild_grid()
 
 
 func _on_back_pressed() -> void:

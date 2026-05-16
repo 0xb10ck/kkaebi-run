@@ -1,0 +1,113 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=10 format=3 uid="uid://kkr_mt_thousand_swords"]
+
+[ext_resource type="Script" path="res://scripts/data/skill_data.gd" id="1_data"]
+[ext_resource type="Script" path="res://scripts/data/skill_level.gd" id="2_lvl"]
+[ext_resource type="PackedScene" path="res://scenes/skills/thousand_swords.tscn" id="3_scene"]
+
+[sub_resource type="Resource" id="lvl1_thousand_swords"]
+script = ExtResource("2_lvl")
+damage_formula = "60 + ATK*0.8"
+damage_base = 60.0
+damage_int_coef = 0.8
+cooldown_s = 100.0
+range_px = 9999.0
+radius_px = 80.0
+duration_s = 2.0
+tick_interval_s = 0.0
+projectile_count = 10
+projectile_speed = 0.0
+status_effect = &"crit"
+status_potency = 1.0
+status_duration_s = 0.3
+stack_max = 1
+extras = {"elite_crit_guaranteed": true, "marker_duration_s": 0.3}
+
+[sub_resource type="Resource" id="lvl2_thousand_swords"]
+script = ExtResource("2_lvl")
+damage_formula = "90 + ATK*1.2"
+damage_base = 90.0
+damage_int_coef = 1.2
+cooldown_s = 90.0
+range_px = 9999.0
+radius_px = 80.0
+duration_s = 2.0
+tick_interval_s = 0.0
+projectile_count = 14
+projectile_speed = 0.0
+status_effect = &"crit"
+status_potency = 1.0
+status_duration_s = 0.3
+stack_max = 1
+extras = {"elite_crit_guaranteed": true, "marker_duration_s": 0.3}
+
+[sub_resource type="Resource" id="lvl3_thousand_swords"]
+script = ExtResource("2_lvl")
+damage_formula = "130 + ATK*1.7"
+damage_base = 130.0
+damage_int_coef = 1.7
+cooldown_s = 80.0
+range_px = 9999.0
+radius_px = 80.0
+duration_s = 2.0
+tick_interval_s = 0.0
+projectile_count = 18
+projectile_speed = 0.0
+status_effect = &"crit"
+status_potency = 1.0
+status_duration_s = 0.3
+stack_max = 1
+extras = {"elite_crit_guaranteed": true, "marker_duration_s": 0.3}
+
+[sub_resource type="Resource" id="lvl4_thousand_swords"]
+script = ExtResource("2_lvl")
+damage_formula = "180 + ATK*2.3"
+damage_base = 180.0
+damage_int_coef = 2.3
+cooldown_s = 70.0
+range_px = 9999.0
+radius_px = 80.0
+duration_s = 2.0
+tick_interval_s = 0.0
+projectile_count = 22
+projectile_speed = 0.0
+status_effect = &"crit"
+status_potency = 1.0
+status_duration_s = 0.3
+stack_max = 1
+extras = {"elite_crit_guaranteed": true, "marker_duration_s": 0.3}
+
+[sub_resource type="Resource" id="lvl5_thousand_swords"]
+script = ExtResource("2_lvl")
+damage_formula = "240 + ATK*3.0"
+damage_base = 240.0
+damage_int_coef = 3.0
+cooldown_s = 60.0
+range_px = 9999.0
+radius_px = 80.0
+duration_s = 2.0
+tick_interval_s = 0.0
+projectile_count = 28
+projectile_speed = 0.0
+status_effect = &"crit"
+status_potency = 1.0
+status_duration_s = 0.3
+stack_max = 1
+extras = {"elite_crit_guaranteed": true, "marker_duration_s": 0.3}
+
+[resource]
+script = ExtResource("1_data")
+id = &"thousand_swords"
+display_name_ko = "천검의 강림"
+description_ko = "하늘에서 거대한 검들이 무작위/엘리트 우선으로 차례로 떨어집니다. 검 낙하 지점은 0.3초 전 노란 마커로 표시되고, 엘리트와 보스에게는 크리티컬이 확정 적용됩니다."
+element = 4
+rarity = 2
+trigger_mode = 1
+scene = ExtResource("3_scene")
+icon_color = Color(0.98, 0.98, 0.85, 1)
+max_level = 5
+levels = Array[Resource]([SubResource("lvl1_thousand_swords"), SubResource("lvl2_thousand_swords"), SubResource("lvl3_thousand_swords"), SubResource("lvl4_thousand_swords"), SubResource("lvl5_thousand_swords")])
+min_chapter_to_offer = 4
+synergy_partners = Array[StringName]([&"dagger_storm", &"geumgang_bulgwe"])
+counter_partners = Array[StringName]([])
+evolution_targets = Array[StringName]([&"sky_fortress"])
+unlock_condition = "4챕터 클리어 이후 회차부터 등장합니다."

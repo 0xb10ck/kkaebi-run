@@ -1,0 +1,113 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=10 format=3 uid="uid://kkr_er_earthquake"]
+
+[ext_resource type="Script" path="res://scripts/data/skill_data.gd" id="1_data"]
+[ext_resource type="Script" path="res://scripts/data/skill_level.gd" id="2_lvl"]
+[ext_resource type="PackedScene" path="res://scenes/skills/earthquake.tscn" id="3_scene"]
+
+[sub_resource type="Resource" id="lvl1_earthquake"]
+script = ExtResource("2_lvl")
+damage_formula = "80 + ATK*1.1"
+damage_base = 80.0
+damage_int_coef = 1.1
+cooldown_s = 80.0
+range_px = 9999.0
+radius_px = 50.0
+duration_s = 3.0
+tick_interval_s = 1.0
+projectile_count = 15
+projectile_speed = 0.0
+status_effect = &"stun"
+status_potency = 1.0
+status_duration_s = 0.7
+stack_max = 1
+extras = {"pillar_damage_ratio": 0.3, "boss_slow_factor": 0.5, "boss_slow_duration_s": 1.5}
+
+[sub_resource type="Resource" id="lvl2_earthquake"]
+script = ExtResource("2_lvl")
+damage_formula = "120 + ATK*1.6"
+damage_base = 120.0
+damage_int_coef = 1.6
+cooldown_s = 73.0
+range_px = 9999.0
+radius_px = 50.0
+duration_s = 3.0
+tick_interval_s = 1.0
+projectile_count = 15
+projectile_speed = 0.0
+status_effect = &"stun"
+status_potency = 1.0
+status_duration_s = 0.9
+stack_max = 1
+extras = {"pillar_damage_ratio": 0.3, "boss_slow_factor": 0.5, "boss_slow_duration_s": 1.5}
+
+[sub_resource type="Resource" id="lvl3_earthquake"]
+script = ExtResource("2_lvl")
+damage_formula = "160 + ATK*2.0"
+damage_base = 160.0
+damage_int_coef = 2.0
+cooldown_s = 66.0
+range_px = 9999.0
+radius_px = 50.0
+duration_s = 3.0
+tick_interval_s = 1.0
+projectile_count = 15
+projectile_speed = 0.0
+status_effect = &"stun"
+status_potency = 1.0
+status_duration_s = 1.1
+stack_max = 1
+extras = {"pillar_damage_ratio": 0.3, "boss_slow_factor": 0.5, "boss_slow_duration_s": 1.5}
+
+[sub_resource type="Resource" id="lvl4_earthquake"]
+script = ExtResource("2_lvl")
+damage_formula = "200 + ATK*2.4"
+damage_base = 200.0
+damage_int_coef = 2.4
+cooldown_s = 58.0
+range_px = 9999.0
+radius_px = 50.0
+duration_s = 3.0
+tick_interval_s = 1.0
+projectile_count = 15
+projectile_speed = 0.0
+status_effect = &"stun"
+status_potency = 1.0
+status_duration_s = 1.3
+stack_max = 1
+extras = {"pillar_damage_ratio": 0.3, "boss_slow_factor": 0.5, "boss_slow_duration_s": 1.5}
+
+[sub_resource type="Resource" id="lvl5_earthquake"]
+script = ExtResource("2_lvl")
+damage_formula = "220 + ATK*2.8"
+damage_base = 220.0
+damage_int_coef = 2.8
+cooldown_s = 50.0
+range_px = 9999.0
+radius_px = 50.0
+duration_s = 3.0
+tick_interval_s = 1.0
+projectile_count = 15
+projectile_speed = 0.0
+status_effect = &"stun"
+status_potency = 1.0
+status_duration_s = 1.5
+stack_max = 1
+extras = {"pillar_damage_ratio": 0.3, "boss_slow_factor": 0.5, "boss_slow_duration_s": 1.5}
+
+[resource]
+script = ExtResource("1_data")
+id = &"earthquake"
+display_name_ko = "대지의 진동"
+description_ko = "캐릭터가 발을 굴러 화면 전체에 지진을 일으킵니다. 1차 충격파로 모든 적에게 피해와 스턴을 적용하고(보스는 둔화), 균열에서 솟구치는 15개의 돌기둥이 3초간 다단 타격을 가합니다."
+element = 5
+rarity = 2
+trigger_mode = 1
+scene = ExtResource("3_scene")
+icon_color = Color(0.55, 0.40, 0.25, 1)
+max_level = 5
+levels = Array[Resource]([SubResource("lvl1_earthquake"), SubResource("lvl2_earthquake"), SubResource("lvl3_earthquake"), SubResource("lvl4_earthquake"), SubResource("lvl5_earthquake")])
+min_chapter_to_offer = 5
+synergy_partners = Array[StringName]([&"landslide", &"earth_wall"])
+counter_partners = Array[StringName]([])
+evolution_targets = Array[StringName]([])
+unlock_condition = "5챕터를 클리어한 회차 이후부터 등장합니다."

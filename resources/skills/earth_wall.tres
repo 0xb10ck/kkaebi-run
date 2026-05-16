@@ -1,0 +1,113 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=10 format=3 uid="uid://kkr_er_earth_wall"]
+
+[ext_resource type="Script" path="res://scripts/data/skill_data.gd" id="1_data"]
+[ext_resource type="Script" path="res://scripts/data/skill_level.gd" id="2_lvl"]
+[ext_resource type="PackedScene" path="res://scenes/skills/earth_wall.tscn" id="3_scene"]
+
+[sub_resource type="Resource" id="lvl1_earth_wall"]
+script = ExtResource("2_lvl")
+damage_formula = "30 + ATK*0.4"
+damage_base = 30.0
+damage_int_coef = 0.4
+cooldown_s = 14.0
+range_px = 60.0
+radius_px = 110.0
+duration_s = 4.0
+tick_interval_s = 0.0
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &"knockback"
+status_potency = 120.0
+status_duration_s = 0.2
+stack_max = 1
+extras = {"wall_hp": 60, "wall_width_px": 180.0, "wall_height_px": 80.0, "hp_trigger_pct": 0.6}
+
+[sub_resource type="Resource" id="lvl2_earth_wall"]
+script = ExtResource("2_lvl")
+damage_formula = "45 + ATK*0.55"
+damage_base = 45.0
+damage_int_coef = 0.55
+cooldown_s = 12.0
+range_px = 60.0
+radius_px = 110.0
+duration_s = 4.5
+tick_interval_s = 0.0
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &"knockback"
+status_potency = 120.0
+status_duration_s = 0.2
+stack_max = 1
+extras = {"wall_hp": 90, "wall_width_px": 180.0, "wall_height_px": 80.0, "hp_trigger_pct": 0.6}
+
+[sub_resource type="Resource" id="lvl3_earth_wall"]
+script = ExtResource("2_lvl")
+damage_formula = "65 + ATK*0.7"
+damage_base = 65.0
+damage_int_coef = 0.7
+cooldown_s = 11.0
+range_px = 60.0
+radius_px = 110.0
+duration_s = 5.0
+tick_interval_s = 0.0
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &"knockback"
+status_potency = 120.0
+status_duration_s = 0.2
+stack_max = 1
+extras = {"wall_hp": 130, "wall_width_px": 180.0, "wall_height_px": 80.0, "hp_trigger_pct": 0.6}
+
+[sub_resource type="Resource" id="lvl4_earth_wall"]
+script = ExtResource("2_lvl")
+damage_formula = "90 + ATK*0.9"
+damage_base = 90.0
+damage_int_coef = 0.9
+cooldown_s = 9.5
+range_px = 60.0
+radius_px = 110.0
+duration_s = 5.5
+tick_interval_s = 0.0
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &"knockback"
+status_potency = 120.0
+status_duration_s = 0.2
+stack_max = 1
+extras = {"wall_hp": 180, "wall_width_px": 180.0, "wall_height_px": 80.0, "hp_trigger_pct": 0.6}
+
+[sub_resource type="Resource" id="lvl5_earth_wall"]
+script = ExtResource("2_lvl")
+damage_formula = "120 + ATK*1.0"
+damage_base = 120.0
+damage_int_coef = 1.0
+cooldown_s = 8.0
+range_px = 60.0
+radius_px = 110.0
+duration_s = 6.0
+tick_interval_s = 0.0
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &"knockback"
+status_potency = 120.0
+status_duration_s = 0.2
+stack_max = 1
+extras = {"wall_hp": 240, "wall_width_px": 180.0, "wall_height_px": 80.0, "hp_trigger_pct": 0.6}
+
+[resource]
+script = ExtResource("1_data")
+id = &"earth_wall"
+display_name_ko = "흙벽"
+description_ko = "캐릭터 정면에 흙벽을 생성하여 적과 투사체를 차단합니다. 벽이 부서질 때 광범위 폭발과 넉백이 발생합니다. HP가 60% 이하일 때 우선 발동됩니다."
+element = 5
+rarity = 0
+trigger_mode = 3
+scene = ExtResource("3_scene")
+icon_color = Color(0.55, 0.40, 0.25, 1)
+max_level = 5
+levels = Array[Resource]([SubResource("lvl1_earth_wall"), SubResource("lvl2_earth_wall"), SubResource("lvl3_earth_wall"), SubResource("lvl4_earth_wall"), SubResource("lvl5_earth_wall")])
+min_chapter_to_offer = 1
+synergy_partners = Array[StringName]([&"gold_shield", &"rock_throw"])
+counter_partners = Array[StringName]([&"water_drop"])
+evolution_targets = Array[StringName]([&"iron_citadel", &"mud_swamp", &"magma_armor"])
+unlock_condition = "1챕터에서 처음부터 등장합니다."

@@ -22,8 +22,9 @@ func _ready() -> void:
 	_load_upgrades()
 	_build_cards()
 	_refresh_orbs()
-	if Engine.has_singleton("EventBus"):
+	if not EventBus.meta_changed.is_connected(_on_meta_changed):
 		EventBus.meta_changed.connect(_on_meta_changed)
+	if not EventBus.meta_currency_changed.is_connected(_on_currency_changed):
 		EventBus.meta_currency_changed.connect(_on_currency_changed)
 
 

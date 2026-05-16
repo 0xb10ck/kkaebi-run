@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="RandomEventData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/random_event_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"event_spirit_blessing"
+display_name_ko = "신령의 축복"
+description_ko = "보스 처치 직후 30초 내, HP 50% 이상에서 발동. 공격력 +30% 또는 이동속도 +40% (60초). 종료 시 1초간 행동 불가."
+event_kind = 1
+base_weight = 10.0
+allowed_chapters = PackedInt32Array(2, 3, 4, 5)
+time_min_s = 0.0
+time_max_s = 9999.0
+hp_pct_min = 0.50
+hp_pct_max = 1.0
+requires_post_boss_kill = true
+post_boss_window_s = 30.0
+once_per_run = false
+max_per_run = 2
+duration_s = 60.0
+weight_modifiers = {}
+script_path = "res://scripts/events/event_spirit_blessing.gd"
+icon_color = Color(0.74, 0.95, 0.86, 1.0)
+toast_text_ko = "신령의 가호가 임합니다."

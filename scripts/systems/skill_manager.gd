@@ -7,6 +7,7 @@ extends Node
 const MAX_SKILL_LEVEL: int = 5
 const MAX_OWNED: int = 8
 const OFFER_SIZE: int = 3
+const SKILL_RES_DIR: String = "res://resources/skills"
 
 # MVP 하드코딩 풀 — SkillData.tres가 등록되기 전 폴백.
 const _MVP_SKILL_DEFS: Dictionary = {
@@ -77,7 +78,25 @@ var _active_character: CharacterData
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_PAUSABLE
+	_autoload_skill_resources()
 	EventBus.run_started.connect(_on_run_started)
+
+
+# §2.3 — resources/skills/*.tres를 모두 SkillData로 로드해 skill_db에 등록.
+# 풀스펙 30종은 이 호출 한 번으로 레벨업 3택 풀에 합류한다.
+func _autoload_skill_resources() -> void:
+	var dir: DirAccess = DirAccess.open(SKILL_RES_DIR)
+	if dir == null:
+		return
+	dir.list_dir_begin()
+	var name: String = dir.get_next()
+	while name != "":
+		if not dir.current_is_dir() and (name.ends_with(".tres") or name.ends_with(".res")):
+			var res: Resource = load(SKILL_RES_DIR + "/" + name)
+			if res is SkillData:
+				register_skill(res)
+		name = dir.get_next()
+	dir.list_dir_end()
 
 
 func register_skill(data: SkillData) -> void:
@@ -101,6 +120,9 @@ func reset_for_run(char_data: CharacterData) -> void:
 # === MVP 호환 API ===
 
 func get_offer() -> Array:
+	# §2.3 — 풀스펙 30종이 등록되면 그 풀에서 추첨, 비어 있을 때만 MVP 5종 폴백.
+	if not skill_db.is_empty():
+		return _get_offer_from_db()
 	var unowned_ids: Array = []
 	for id in _MVP_SKILL_DEFS.keys():
 		if not owned.has(id):
@@ -140,8 +162,102 @@ func get_offer() -> Array:
 	return offers
 
 
+# 풀스펙 30종을 대상으로 한 가중치 추첨 — 캐릭터 start_weight_overrides 와 챕터 게이트 반영.
+# OFFER_SIZE 가 채워지지 않으면 남는 슬롯을 보너스로 채운다.
+func _get_offer_from_db() -> Array:
+	var chapter_num: int = _current_chapter_number()
+	var pool: Array = []
+	var weights: Array = []
+	var weight_total: float = 0.0
+	for id in skill_db.keys():
+		var sd: SkillData = skill_db[id]
+		if sd == null:
+			continue
+		if not can_offer(id):
+			continue
+		if chapter_num < sd.min_chapter_to_offer:
+			continue
+		if sd.rarity == GameEnums.Rarity.LEGENDARY and legendary_acquired_this_run >= 2 and not is_owned(id):
+			continue
+		var w: float = 1.0
+		if _active_character != null:
+			var override: Variant = _active_character.start_weight_overrides.get(id, null)
+			if override == null:
+				override = _active_character.start_weight_overrides.get(String(id), null)
+			if override != null:
+				w = float(override)
+		var sd_override: Variant = sd.character_weight_overrides.get(_active_character.id if _active_character else &"", null)
+		if sd_override != null:
+			w = float(sd_override)
+		if w <= 0.0:
+			continue
+		if is_owned(id):
+			w *= 0.6
+		pool.append(id)
+		weights.append(w)
+		weight_total += w
+
+	var picks: Array = []
+	while picks.size() < OFFER_SIZE and not pool.is_empty() and weight_total > 0.0:
+		var r: float = randf() * weight_total
+		var acc: float = 0.0
+		var chosen_idx: int = pool.size() - 1
+		for i in pool.size():
+			acc += float(weights[i])
+			if r <= acc:
+				chosen_idx = i
+				break
+		picks.append(pool[chosen_idx])
+		weight_total -= float(weights[chosen_idx])
+		pool.remove_at(chosen_idx)
+		weights.remove_at(chosen_idx)
+
+	var offers: Array = []
+	for id in picks:
+		var data: SkillData = skill_db[id]
+		offers.append({
+			"type": "skill",
+			"id": String(id),
+			"name": data.display_name_ko,
+			"color": data.icon_color.to_html(false),
+			"desc": data.description_ko,
+			"owned": is_owned(id),
+			"current_level": level_of(id),
+		})
+
+	var remaining: int = OFFER_SIZE - offers.size()
+	if remaining > 0:
+		var bonus_ids: Array = _MVP_BONUS_DEFS.keys()
+		bonus_ids.shuffle()
+		var picked_bonus: Array = bonus_ids.slice(0, remaining)
+		for bid in picked_bonus:
+			var bdef: Dictionary = _MVP_BONUS_DEFS[bid]
+			offers.append({
+				"type": "bonus",
+				"id": bid,
+				"name": bdef["name"],
+				"color": bdef["color"],
+				"desc": bdef["desc"],
+				"owned": false,
+				"current_level": 0,
+			})
+	EventBus.level_up_choices_offered.emit(offers)
+	return offers
+
+
+# 현재 챕터 번호(1~6). ChapterManager 가 비면 1로 폴백.
+func _current_chapter_number() -> int:
+	if ChapterManager == null or ChapterManager.current_chapter_data == null:
+		return 1
+	return max(1, int(ChapterManager.current_chapter_data.chapter_number))
+
+
 func acquire(skill_id: String, player: Node) -> void:
-	# MVP 호환: 미보유면 인스턴스화 후 player의 자식으로 add. 보유면 set_level().
+	# §2.3 — 풀스펙 DB 우선. MVP 5종은 폴백.
+	var sid: StringName = StringName(skill_id)
+	if skill_db.has(sid):
+		_acquire_from_db(sid, player)
+		return
 	if not _MVP_SKILL_DEFS.has(skill_id):
 		return
 	var def: Dictionary = _MVP_SKILL_DEFS[skill_id]
@@ -169,6 +285,41 @@ func acquire(skill_id: String, player: Node) -> void:
 		"level": 1,
 	}
 	EventBus.skill_acquired.emit(StringName(skill_id), 1)
+
+
+# SkillData(.tres) 기반 획득/레벨업. PackedScene이 정의돼 있으면 player의 자식으로 인스턴스화.
+func _acquire_from_db(sid: StringName, player: Node) -> void:
+	var data: SkillData = skill_db[sid]
+	if data == null:
+		return
+	if is_owned(sid):
+		var cur_lv: int = level_of(sid)
+		if cur_lv >= MAX_SKILL_LEVEL:
+			return
+		var new_lv: int = cur_lv + 1
+		var key: Variant = sid if owned.has(sid) else String(sid)
+		var entry: Variant = owned.get(key, null)
+		if entry is Dictionary:
+			entry["level"] = new_lv
+			var inst: Node = entry.get("instance", null)
+			if is_instance_valid(inst) and inst.has_method("set_level"):
+				inst.set_level(new_lv)
+		else:
+			owned[key] = new_lv
+		EventBus.skill_leveled.emit(sid, new_lv)
+		return
+	# 신규 획득. scene 이 있고 player가 유효하면 인스턴스화, 아니면 레벨만 추적.
+	if is_instance_valid(player) and data.scene != null:
+		var instance: Node = data.scene.instantiate()
+		if "player" in instance:
+			instance.set("player", player)
+		player.add_child(instance)
+		owned[sid] = {"scene": data.scene, "instance": instance, "level": 1}
+	else:
+		owned[sid] = 1
+	if data.rarity == GameEnums.Rarity.LEGENDARY:
+		legendary_acquired_this_run += 1
+	EventBus.skill_acquired.emit(sid, 1)
 
 
 # === 풀스펙 API (점진 도입) ===

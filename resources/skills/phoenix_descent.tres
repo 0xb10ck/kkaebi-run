@@ -1,0 +1,113 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=10 format=3 uid="uid://kkr_fb_phoenix_descent"]
+
+[ext_resource type="Script" path="res://scripts/data/skill_data.gd" id="1_data"]
+[ext_resource type="Script" path="res://scripts/data/skill_level.gd" id="2_lvl"]
+[ext_resource type="PackedScene" path="res://scenes/skills/phoenix_descent.tscn" id="3_scene"]
+
+[sub_resource type="Resource" id="lvl1_phoenix_descent"]
+script = ExtResource("2_lvl")
+damage_formula = "40 + INT*0.6 per strike"
+damage_base = 40.0
+damage_int_coef = 0.6
+cooldown_s = 90.0
+range_px = 0.0
+radius_px = 90.0
+duration_s = 2.0
+tick_interval_s = 0.0
+projectile_count = 12
+projectile_speed = 0.0
+status_effect = &"burn"
+status_potency = 8.0
+status_duration_s = 3.0
+stack_max = 1
+extras = {"windup_s": 1.5, "spread_s": 0.5}
+
+[sub_resource type="Resource" id="lvl2_phoenix_descent"]
+script = ExtResource("2_lvl")
+damage_formula = "60 + INT*0.9 per strike"
+damage_base = 60.0
+damage_int_coef = 0.9
+cooldown_s = 75.0
+range_px = 0.0
+radius_px = 90.0
+duration_s = 2.0
+tick_interval_s = 0.0
+projectile_count = 14
+projectile_speed = 0.0
+status_effect = &"burn"
+status_potency = 8.0
+status_duration_s = 3.0
+stack_max = 1
+extras = {"windup_s": 1.5, "spread_s": 0.5}
+
+[sub_resource type="Resource" id="lvl3_phoenix_descent"]
+script = ExtResource("2_lvl")
+damage_formula = "85 + INT*1.2 per strike"
+damage_base = 85.0
+damage_int_coef = 1.2
+cooldown_s = 60.0
+range_px = 0.0
+radius_px = 90.0
+duration_s = 2.0
+tick_interval_s = 0.0
+projectile_count = 16
+projectile_speed = 0.0
+status_effect = &"burn"
+status_potency = 8.0
+status_duration_s = 3.0
+stack_max = 1
+extras = {"windup_s": 1.5, "spread_s": 0.5}
+
+[sub_resource type="Resource" id="lvl4_phoenix_descent"]
+script = ExtResource("2_lvl")
+damage_formula = "115 + INT*1.6 per strike"
+damage_base = 115.0
+damage_int_coef = 1.6
+cooldown_s = 50.0
+range_px = 0.0
+radius_px = 90.0
+duration_s = 2.0
+tick_interval_s = 0.0
+projectile_count = 18
+projectile_speed = 0.0
+status_effect = &"burn"
+status_potency = 8.0
+status_duration_s = 3.0
+stack_max = 1
+extras = {"windup_s": 1.5, "spread_s": 0.5}
+
+[sub_resource type="Resource" id="lvl5_phoenix_descent"]
+script = ExtResource("2_lvl")
+damage_formula = "150 + INT*2.0 per strike"
+damage_base = 150.0
+damage_int_coef = 2.0
+cooldown_s = 40.0
+range_px = 0.0
+radius_px = 90.0
+duration_s = 2.0
+tick_interval_s = 0.0
+projectile_count = 20
+projectile_speed = 0.0
+status_effect = &"burn"
+status_potency = 8.0
+status_duration_s = 3.0
+stack_max = 1
+extras = {"windup_s": 1.5, "spread_s": 0.5}
+
+[resource]
+script = ExtResource("1_data")
+id = &"phoenix_descent"
+display_name_ko = "봉황 강림"
+description_ko = "수동 발동. 1.5초 시전 후 봉황이 강하하여 화면 전역에 여러 번의 화염 폭격을 떨어뜨립니다."
+element = 1
+rarity = 2
+trigger_mode = 1
+scene = ExtResource("3_scene")
+icon_color = Color(0.99, 0.65, 0.18, 1)
+max_level = 5
+levels = Array[Resource]([SubResource("lvl1_phoenix_descent"), SubResource("lvl2_phoenix_descent"), SubResource("lvl3_phoenix_descent"), SubResource("lvl4_phoenix_descent"), SubResource("lvl5_phoenix_descent")])
+min_chapter_to_offer = 4
+synergy_partners = Array[StringName]([&"samaejinhwa"])
+counter_partners = Array[StringName]([])
+evolution_targets = Array[StringName]([])
+unlock_condition = "4챕터 도달 및 삼매진화 LV3 이상 보유한 런에서 해금됩니다."

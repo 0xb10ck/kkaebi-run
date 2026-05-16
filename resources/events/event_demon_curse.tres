@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="RandomEventData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/random_event_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"event_demon_curse"
+display_name_ko = "요괴의 저주"
+description_ko = "3지선다 — 화면 좌우 반전 30초, 짙은 안개 45초, 또는 금화 20% 헌납으로 회피. 디버프 중 받는 피해 +20%."
+event_kind = 2
+base_weight = 18.0
+allowed_chapters = PackedInt32Array(1, 2, 3, 4, 5)
+time_min_s = 180.0
+time_max_s = 9999.0
+hp_pct_min = 0.0
+hp_pct_max = 1.0
+requires_post_boss_kill = false
+post_boss_window_s = 0.0
+once_per_run = false
+max_per_run = 2
+duration_s = 45.0
+weight_modifiers = {}
+script_path = "res://scripts/events/event_demon_curse.gd"
+icon_color = Color(0.7, 0.2, 0.6, 1.0)
+toast_text_ko = "요괴의 저주가 다가옵니다."

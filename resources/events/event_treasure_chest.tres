@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="RandomEventData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/random_event_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"event_treasure_chest"
+display_name_ko = "보물 상자"
+description_ko = "일반 70% / 고급 25% / 봉인 5%. 고급은 70% 전설 스킬 / 30% 함정(HP 50% 손실). 봉인은 30초 안에 미니 웨이브 처치."
+event_kind = 3
+base_weight = 15.0
+allowed_chapters = PackedInt32Array(1, 2, 3, 4, 5)
+time_min_s = 240.0
+time_max_s = 9999.0
+hp_pct_min = 0.0
+hp_pct_max = 1.0
+requires_post_boss_kill = false
+post_boss_window_s = 0.0
+once_per_run = false
+max_per_run = 2
+duration_s = 60.0
+weight_modifiers = {"e6_treasure_luck": 1.05}
+script_path = "res://scripts/events/event_treasure_chest.gd"
+icon_color = Color(0.95, 0.78, 0.32, 1.0)
+toast_text_ko = "보물 상자가 나타났습니다."

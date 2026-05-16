@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="EnvElementData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/env_element_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"env_talisman_pillar"
+display_name_ko = "부적 기둥"
+lore_ko = "다섯 부적이 붙은 목재 기둥. 파괴하면 주변 사악한 기운을 정화합니다."
+env_kind = 3
+size_px = Vector2(32, 96)
+damage_per_tick = 0
+damage_pct_of_max_hp = 0.0
+tick_interval_s = 0.0
+slow_factor = 1.0
+slow_duration_s = 0.0
+vision_reduction = 0.0
+range_reduction = 0.0
+detect_reduction = 0.0
+duration_s = -1.0
+max_hits = 5
+gold_drop_on_destroy = 0
+destructible_by = PackedStringArray("fire", "water", "wood", "metal", "earth")
+spawn_chapters = PackedInt32Array(1, 3, 5)
+spawn_count_per_chapter = {"1": 2, "3": 3, "5": 5}
+script_path = "res://scripts/environment/environment_talisman_pillar.gd"
+scene_path = "res://scenes/environment/talisman_pillar.tscn"
+placeholder_color = Color(0.92, 0.78, 0.3, 1)

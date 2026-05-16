@@ -1,0 +1,113 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=10 format=3 uid="uid://kkr_mt_dagger_storm"]
+
+[ext_resource type="Script" path="res://scripts/data/skill_data.gd" id="1_data"]
+[ext_resource type="Script" path="res://scripts/data/skill_level.gd" id="2_lvl"]
+[ext_resource type="PackedScene" path="res://scenes/skills/dagger_storm.tscn" id="3_scene"]
+
+[sub_resource type="Resource" id="lvl1_dagger_storm"]
+script = ExtResource("2_lvl")
+damage_formula = "22 + ATK*0.35 per dagger"
+damage_base = 22.0
+damage_int_coef = 0.35
+cooldown_s = 8.0
+range_px = 320.0
+radius_px = 0.0
+duration_s = 0.0
+tick_interval_s = 0.0
+projectile_count = 8
+projectile_speed = 700.0
+status_effect = &""
+status_potency = 0.0
+status_duration_s = 0.0
+stack_max = 1
+extras = {"pierce": 1, "crit_bonus": 0.08}
+
+[sub_resource type="Resource" id="lvl2_dagger_storm"]
+script = ExtResource("2_lvl")
+damage_formula = "32 + ATK*0.5 per dagger"
+damage_base = 32.0
+damage_int_coef = 0.5
+cooldown_s = 7.0
+range_px = 340.0
+radius_px = 0.0
+duration_s = 0.0
+tick_interval_s = 0.0
+projectile_count = 10
+projectile_speed = 700.0
+status_effect = &""
+status_potency = 0.0
+status_duration_s = 0.0
+stack_max = 1
+extras = {"pierce": 1, "crit_bonus": 0.08}
+
+[sub_resource type="Resource" id="lvl3_dagger_storm"]
+script = ExtResource("2_lvl")
+damage_formula = "45 + ATK*0.7 per dagger"
+damage_base = 45.0
+damage_int_coef = 0.7
+cooldown_s = 6.5
+range_px = 360.0
+radius_px = 0.0
+duration_s = 0.0
+tick_interval_s = 0.0
+projectile_count = 12
+projectile_speed = 700.0
+status_effect = &""
+status_potency = 0.0
+status_duration_s = 0.0
+stack_max = 1
+extras = {"pierce": 1, "crit_bonus": 0.08}
+
+[sub_resource type="Resource" id="lvl4_dagger_storm"]
+script = ExtResource("2_lvl")
+damage_formula = "55 + ATK*0.85 per dagger"
+damage_base = 55.0
+damage_int_coef = 0.85
+cooldown_s = 5.5
+range_px = 380.0
+radius_px = 0.0
+duration_s = 0.0
+tick_interval_s = 0.0
+projectile_count = 14
+projectile_speed = 700.0
+status_effect = &""
+status_potency = 0.0
+status_duration_s = 0.0
+stack_max = 1
+extras = {"pierce": 1, "crit_bonus": 0.08}
+
+[sub_resource type="Resource" id="lvl5_dagger_storm"]
+script = ExtResource("2_lvl")
+damage_formula = "65 + ATK*1.0 per dagger"
+damage_base = 65.0
+damage_int_coef = 1.0
+cooldown_s = 5.0
+range_px = 400.0
+radius_px = 0.0
+duration_s = 0.0
+tick_interval_s = 0.0
+projectile_count = 16
+projectile_speed = 700.0
+status_effect = &""
+status_potency = 0.0
+status_duration_s = 0.0
+stack_max = 1
+extras = {"pierce": 1, "crit_bonus": 0.08}
+
+[resource]
+script = ExtResource("1_data")
+id = &"dagger_storm"
+display_name_ko = "비수 난무"
+description_ko = "주위 360° 방향으로 다수의 단검을 한꺼번에 발사합니다. 적을 1회 관통합니다."
+element = 4
+rarity = 1
+trigger_mode = 0
+scene = ExtResource("3_scene")
+icon_color = Color(0.9, 0.92, 0.7, 1)
+max_level = 5
+levels = Array[Resource]([SubResource("lvl1_dagger_storm"), SubResource("lvl2_dagger_storm"), SubResource("lvl3_dagger_storm"), SubResource("lvl4_dagger_storm"), SubResource("lvl5_dagger_storm")])
+min_chapter_to_offer = 1
+synergy_partners = Array[StringName]([&"frost_ring", &"dagger_throw"])
+counter_partners = Array[StringName]([])
+evolution_targets = Array[StringName]([&"frost_blade"])
+unlock_condition = "1챕터 보스 클리어 후 해금됩니다."

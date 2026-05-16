@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="RandomEventData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/random_event_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"event_wandering_dokkaebi"
+display_name_ko = "떠돌이 도깨비"
+description_ko = "수수께끼 3택. 정답: 시너지 진화 또는 신화 조각 3. 오답: HP 20% 손실 + 30초간 시야 페이드. 회피: 30초 후 소멸."
+event_kind = 4
+base_weight = 8.0
+allowed_chapters = PackedInt32Array(2, 3, 4, 5)
+time_min_s = 210.0
+time_max_s = 9999.0
+hp_pct_min = 0.0
+hp_pct_max = 1.0
+requires_post_boss_kill = false
+post_boss_window_s = 0.0
+once_per_run = true
+max_per_run = 1
+duration_s = 30.0
+weight_modifiers = {}
+script_path = "res://scripts/events/event_wandering_dokkaebi.gd"
+icon_color = Color(0.6, 0.55, 0.85, 1.0)
+toast_text_ko = "떠돌이 도깨비가 다가옵니다."

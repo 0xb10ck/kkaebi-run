@@ -1,0 +1,113 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=10 format=3 uid="uid://kkr_mt_gold_shield"]
+
+[ext_resource type="Script" path="res://scripts/data/skill_data.gd" id="1_data"]
+[ext_resource type="Script" path="res://scripts/data/skill_level.gd" id="2_lvl"]
+[ext_resource type="PackedScene" path="res://scenes/skills/gold_shield.tscn" id="3_scene"]
+
+[sub_resource type="Resource" id="lvl1_gold_shield"]
+script = ExtResource("2_lvl")
+damage_formula = "0"
+damage_base = 0.0
+damage_int_coef = 0.0
+cooldown_s = 2.0
+range_px = 0.0
+radius_px = 24.0
+duration_s = 0.5
+tick_interval_s = 0.0
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &"invuln"
+status_potency = 0.0
+status_duration_s = 0.5
+stack_max = 1
+extras = {"reflect_chance": 0.15, "reflect_ratio": 0.5}
+
+[sub_resource type="Resource" id="lvl2_gold_shield"]
+script = ExtResource("2_lvl")
+damage_formula = "0"
+damage_base = 0.0
+damage_int_coef = 0.0
+cooldown_s = 1.8
+range_px = 0.0
+radius_px = 24.0
+duration_s = 0.5
+tick_interval_s = 0.0
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &"invuln"
+status_potency = 0.0
+status_duration_s = 0.5
+stack_max = 1
+extras = {"reflect_chance": 0.20, "reflect_ratio": 0.5}
+
+[sub_resource type="Resource" id="lvl3_gold_shield"]
+script = ExtResource("2_lvl")
+damage_formula = "0"
+damage_base = 0.0
+damage_int_coef = 0.0
+cooldown_s = 1.6
+range_px = 0.0
+radius_px = 24.0
+duration_s = 0.5
+tick_interval_s = 0.0
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &"invuln"
+status_potency = 0.0
+status_duration_s = 0.5
+stack_max = 1
+extras = {"reflect_chance": 0.25, "reflect_ratio": 0.5}
+
+[sub_resource type="Resource" id="lvl4_gold_shield"]
+script = ExtResource("2_lvl")
+damage_formula = "0"
+damage_base = 0.0
+damage_int_coef = 0.0
+cooldown_s = 1.4
+range_px = 0.0
+radius_px = 24.0
+duration_s = 0.5
+tick_interval_s = 0.0
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &"invuln"
+status_potency = 0.0
+status_duration_s = 0.5
+stack_max = 1
+extras = {"reflect_chance": 0.30, "reflect_ratio": 0.5}
+
+[sub_resource type="Resource" id="lvl5_gold_shield"]
+script = ExtResource("2_lvl")
+damage_formula = "0"
+damage_base = 0.0
+damage_int_coef = 0.0
+cooldown_s = 1.2
+range_px = 0.0
+radius_px = 24.0
+duration_s = 0.5
+tick_interval_s = 0.0
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &"invuln"
+status_potency = 0.0
+status_duration_s = 0.5
+stack_max = 1
+extras = {"reflect_chance": 0.35, "reflect_ratio": 0.75}
+
+[resource]
+script = ExtResource("1_data")
+id = &"gold_shield"
+display_name_ko = "금빛 방패"
+description_ko = "피격 시 일정 확률로 받은 피해의 일부를 반사하고 0.5초간 무적이 됩니다. 반사 발동 후 짧은 내부 쿨다운이 있습니다."
+element = 4
+rarity = 0
+trigger_mode = 2
+scene = ExtResource("3_scene")
+icon_color = Color(0.95, 0.85, 0.35, 1)
+max_level = 5
+levels = Array[Resource]([SubResource("lvl1_gold_shield"), SubResource("lvl2_gold_shield"), SubResource("lvl3_gold_shield"), SubResource("lvl4_gold_shield"), SubResource("lvl5_gold_shield")])
+min_chapter_to_offer = 1
+synergy_partners = Array[StringName]([&"earth_wall", &"geumgang_bulgwe"])
+counter_partners = Array[StringName]([])
+evolution_targets = Array[StringName]([&"iron_citadel", &"magma_armor"])
+unlock_condition = "1챕터에서 처음부터 등장합니다."

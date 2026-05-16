@@ -1,0 +1,113 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=10 format=3 uid="uid://kkr_wa_mist_veil"]
+
+[ext_resource type="Script" path="res://scripts/data/skill_data.gd" id="1_data"]
+[ext_resource type="Script" path="res://scripts/data/skill_level.gd" id="2_lvl"]
+[ext_resource type="PackedScene" path="res://scenes/skills/mist_veil.tscn" id="3_scene"]
+
+[sub_resource type="Resource" id="lvl1_mist_veil"]
+script = ExtResource("2_lvl")
+damage_formula = "0"
+damage_base = 0.0
+damage_int_coef = 0.0
+cooldown_s = 22.0
+range_px = 130.0
+radius_px = 130.0
+duration_s = 4.0
+tick_interval_s = 0.0
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &"slow"
+status_potency = 0.40
+status_duration_s = 0.5
+stack_max = 1
+extras = {"evasion_bonus": 0.15, "hp_threshold": 0.5}
+
+[sub_resource type="Resource" id="lvl2_mist_veil"]
+script = ExtResource("2_lvl")
+damage_formula = "0"
+damage_base = 0.0
+damage_int_coef = 0.0
+cooldown_s = 20.0
+range_px = 130.0
+radius_px = 130.0
+duration_s = 4.5
+tick_interval_s = 0.0
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &"slow"
+status_potency = 0.40
+status_duration_s = 0.5
+stack_max = 1
+extras = {"evasion_bonus": 0.20, "hp_threshold": 0.5}
+
+[sub_resource type="Resource" id="lvl3_mist_veil"]
+script = ExtResource("2_lvl")
+damage_formula = "0"
+damage_base = 0.0
+damage_int_coef = 0.0
+cooldown_s = 18.0
+range_px = 130.0
+radius_px = 130.0
+duration_s = 5.0
+tick_interval_s = 0.0
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &"slow"
+status_potency = 0.40
+status_duration_s = 0.5
+stack_max = 1
+extras = {"evasion_bonus": 0.25, "hp_threshold": 0.5}
+
+[sub_resource type="Resource" id="lvl4_mist_veil"]
+script = ExtResource("2_lvl")
+damage_formula = "0"
+damage_base = 0.0
+damage_int_coef = 0.0
+cooldown_s = 16.0
+range_px = 130.0
+radius_px = 130.0
+duration_s = 5.5
+tick_interval_s = 0.0
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &"slow"
+status_potency = 0.40
+status_duration_s = 0.5
+stack_max = 1
+extras = {"evasion_bonus": 0.30, "hp_threshold": 0.5}
+
+[sub_resource type="Resource" id="lvl5_mist_veil"]
+script = ExtResource("2_lvl")
+damage_formula = "0"
+damage_base = 0.0
+damage_int_coef = 0.0
+cooldown_s = 14.0
+range_px = 130.0
+radius_px = 130.0
+duration_s = 6.0
+tick_interval_s = 0.0
+projectile_count = 0
+projectile_speed = 0.0
+status_effect = &"slow"
+status_potency = 0.40
+status_duration_s = 0.5
+stack_max = 1
+extras = {"evasion_bonus": 0.35, "hp_threshold": 0.5}
+
+[resource]
+script = ExtResource("1_data")
+id = &"mist_veil"
+display_name_ko = "안개 베일"
+description_ko = "체력이 50% 이하로 떨어지면 자동으로 발동되어 캐릭터 주변을 안개로 감쌉니다. 회피율을 상승시키고 베일 안의 적에게 40% 둔화를 부여합니다."
+element = 2
+rarity = 1
+trigger_mode = 3
+scene = ExtResource("3_scene")
+icon_color = Color(0.55, 0.70, 0.85, 1)
+max_level = 5
+levels = Array[Resource]([SubResource("lvl1_mist_veil"), SubResource("lvl2_mist_veil"), SubResource("lvl3_mist_veil"), SubResource("lvl4_mist_veil"), SubResource("lvl5_mist_veil")])
+min_chapter_to_offer = 2
+synergy_partners = Array[StringName]([&"frost_ring"])
+counter_partners = Array[StringName]([])
+evolution_targets = Array[StringName]([&"eternal_garden"])
+unlock_condition = "2챕터부터 등장하며, 체력 50% 이하에서 자동으로 발동됩니다."
