@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://m47geomeunangaejamyeong"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"m47_geomeun_angae_jamyeong"
+display_name_ko = "검은 안개 잡령"
+lore_ko = "깨비런 창작 세계관 — 검은 안개 그 자체가 잠시 응축되어 의지를 띤 형태. 형체 없는 검은 안개 덩어리 안쪽에 한 쌍의 흰 눈이 박혀 있고, 외곽은 끊임없이 흩어진다."
+sprite_size_px = Vector2i(32, 32)
+placeholder_color = Color(0.10, 0.10, 0.13, 1)
+base_hp = 25
+base_move_speed = 70.0
+base_contact_damage = 6
+attack_cooldown = 1.0
+detection_radius = 800.0
+hitbox_radius = 12.8
+ranged_kind = 0
+ranged_damage = 0
+ranged_range_px = 0.0
+ranged_projectile_speed = 0.0
+ranged_cooldown = 0.0
+ranged_telegraph = 0.0
+special_abilities = Array[int]([])
+special_params = {
+"endless_return_enabled": true,
+"respawn_delay_s": 10.0,
+"respawn_same_position": true,
+"respawn_stops_when_corruption_source_destroyed": true,
+"contact_debuff_kind": "attack_down",
+"contact_debuff_value": -0.2,
+"contact_debuff_duration_s": 5.0,
+}
+group_ai = 0
+group_size = 1
+group_spacing_px = 30.0
+ai_aggression = 1.0
+flock_cohesion = 0.0
+exp_value = 5
+gold_drop_chance = 0.12
+gold_drop_amount = 1
+orb_value = 0
+chapters = Array[int]([5])
+spawn_weight = 100
+min_stage_time_s = 0.0
+max_concurrent = 999

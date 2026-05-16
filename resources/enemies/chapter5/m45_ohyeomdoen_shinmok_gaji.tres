@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://m45ohyeomdoenshinmokgaji"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"m45_ohyeomdoen_shinmok_gaji"
+display_name_ko = "오염된 신목 가지"
+lore_ko = "깨비런 창작 세계관 — 검은 안개에 오염된 신목에서 떨어져 나온 가지가 의지를 가진 형태. 비틀어진 검보랏빛 나뭇가지, 끝에 빨간 봉오리. 잎사귀가 가시처럼 자라 있다."
+sprite_size_px = Vector2i(32, 56)
+placeholder_color = Color(0.18, 0.10, 0.22, 1)
+base_hp = 80
+base_move_speed = 0.0
+base_contact_damage = 0
+attack_cooldown = 2.5
+detection_radius = 800.0
+hitbox_radius = 12.8
+ranged_kind = 1
+ranged_damage = 16
+ranged_range_px = 280.0
+ranged_projectile_speed = 0.0
+ranged_cooldown = 2.5
+ranged_telegraph = 0.0
+special_abilities = Array[int]([])
+special_params = {
+"stationary": true,
+"map_placement_only": true,
+"whip_kind": "straight_line",
+"whip_range_px": 280.0,
+"whip_damage": 16,
+"whip_cooldown_s": 2.5,
+"black_seed_dwell_required_s": 8.0,
+"black_seed_count": 3,
+"black_seed_angles_deg": [-45.0, 0.0, 45.0],
+"black_seed_damage": 8,
+"black_seed_projectile_speed": 180.0,
+}
+group_ai = 0
+group_size = 1
+group_spacing_px = 30.0
+ai_aggression = 1.0
+flock_cohesion = 0.0
+exp_value = 24
+gold_drop_chance = 0.38
+gold_drop_amount = 1
+orb_value = 0
+chapters = Array[int]([5])
+spawn_weight = 30
+min_stage_time_s = 180.0
+max_concurrent = 4

@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://m48sijangdokkaebi"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"m48_sijang_dokkaebi"
+display_name_ko = "시장 도깨비"
+lore_ko = "한국 도깨비 시장 설화 — 밤에만 열리는 환상의 시장을 차린 도깨비 상인. 두건을 쓰고 등에는 작은 좌판을 짊어졌으며, 좌판 위에는 색색의 떡과 엽전이 가득하다."
+sprite_size_px = Vector2i(32, 40)
+placeholder_color = Color(0.62, 0.45, 0.20, 1)
+base_hp = 35
+base_move_speed = 90.0
+base_contact_damage = 6
+attack_cooldown = 1.0
+detection_radius = 800.0
+hitbox_radius = 12.8
+ranged_kind = 0
+ranged_damage = 0
+ranged_range_px = 0.0
+ranged_projectile_speed = 0.0
+ranged_cooldown = 0.0
+ranged_telegraph = 0.0
+special_abilities = Array[int]([8])
+special_params = {
+"idle_when_player_far": true,
+"flee_when_player_near": true,
+"coin_burst_on_death": true,
+"coin_burst_chance": 0.5,
+"coin_burst_gold_multiplier": 3,
+"coin_burst_radius_px": 50.0,
+"coin_burst_damage": 5,
+}
+group_ai = 0
+group_size = 1
+group_spacing_px = 30.0
+ai_aggression = 1.0
+flock_cohesion = 0.0
+exp_value = 12
+gold_drop_chance = 0.80
+gold_drop_amount = 1
+orb_value = 0
+chapters = Array[int]([-1])
+spawn_weight = 90
+min_stage_time_s = 0.0
+max_concurrent = 999
