@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QA Report - kkaebi-run</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0f1117;
+      color: #e1e4e8;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+    .container { max-width: 800px; margin: 0 auto; }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: #fff;
+      border-bottom: 2px solid #30363d;
+      padding-bottom: 0.75rem;
+    }
+    .summary {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .summary-card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      padding: 1.25rem 2rem;
+      text-align: center;
+      flex: 1;
+    }
+    .summary-card .number {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+    .summary-card .label {
+      font-size: 0.9rem;
+      color: #8b949e;
+      margin-top: 0.25rem;
+    }
+    .pass .number { color: #3fb950; }
+    .fail .number { color: #f85149; }
+    h2 {
+      font-size: 1.3rem;
+      margin: 2rem 0 1rem;
+      color: #c9d1d9;
+    }
+    .module {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      margin-bottom: 0.75rem;
+      overflow: hidden;
+    }
+    .module-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.85rem 1.25rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .module-header:hover { background: #1c2128; }
+    .module-name {
+      font-weight: 600;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.95rem;
+    }
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.7rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .badge-pass { background: #0d3b1e; color: #3fb950; border: 1px solid #238636; }
+    .badge-fail { background: #3d1215; color: #f85149; border: 1px solid #da3633; }
+    .module-details {
+      display: none;
+      padding: 0.75rem 1.25rem 1rem;
+      border-top: 1px solid #30363d;
+      background: #0d1117;
+    }
+    .module.open .module-details { display: block; }
+    .module-details code {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.8rem;
+      color: #8b949e;
+      word-break: break-all;
+    }
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    .detail-item {
+      background: #161b22;
+      padding: 0.4rem 0.75rem;
+      border-radius: 6px;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.8rem;
+      color: #c9d1d9;
+    }
+    .stat-row {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .stat {
+      color: #58a6ff;
+      font-weight: 600;
+    }
+    footer {
+      margin-top: 3rem;
+      text-align: center;
+      color: #484f58;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>QA Report &mdash; Godot 4.6 Upgrade (t2)</h1>
+
+    <div style="background:#161b22; border:1px solid #30363d; border-radius:12px; padding:1rem 1.25rem; margin-bottom:1.5rem; font-size:0.9rem;">
+      <div style="display:flex; flex-wrap:wrap; gap:1.25rem; margin-bottom:0.6rem;">
+        <span><span style="color:#8b949e;">Godot Engine:</span> <span style="color:#58a6ff; font-family:'SF Mono',monospace;">4.6.2.stable.official.71f334935</span></span>
+        <span><span style="color:#8b949e;">Run:</span> <span style="color:#c9d1d9; font-family:'SF Mono',monospace;">2026-05-17 02:01 KST</span></span>
+        <span><span style="color:#8b949e;">QA cycles:</span> <span style="color:#3fb950; font-family:'SF Mono',monospace;">1</span> <span style="color:#8b949e;">(of 12 budgeted)</span></span>
+        <span><span style="color:#8b949e;">Result:</span> <span style="color:#3fb950; font-weight:600;">12 PASS / 0 FAIL</span></span>
+      </div>
+      <div style="color:#8b949e; font-size:0.85rem;">errors=0, regressions=0 &middot; loop terminated at cycle 1 (clean first pass) &middot; headless mode via <code style="color:#c9d1d9;">tests/run_qa.sh</code></div>
+    </div>
+
+    <h2 style="margin-top:0;">Godot 4.6 Upgrade &mdash; Files Modified</h2>
+    <div style="background:#161b22; border:1px solid #30363d; border-radius:8px; padding:0.9rem 1.25rem; margin-bottom:2rem;">
+      <ul style="margin-left:1.25rem; color:#c9d1d9; font-size:0.9rem; line-height:1.8;">
+        <li><code style="color:#58a6ff;">project.godot</code> &mdash; <code>config/features</code> updated from <code>("4.2", "GL Compatibility")</code> to <code>("4.6", "GL Compatibility")</code> <span style="color:#8b949e;">(t1)</span></li>
+        <li><code style="color:#58a6ff;">tests/godot46_compat_scan.md</code> &mdash; new compatibility scan report <span style="color:#8b949e;">(t1)</span></li>
+        <li><code style="color:#58a6ff;">tests/qa_report.md</code> &mdash; 4.6 upgrade header section added <span style="color:#8b949e;">(t2)</span></li>
+        <li><code style="color:#58a6ff;">tests/qa_report.html</code> &mdash; version chip + cycle/result strip added <span style="color:#8b949e;">(t2)</span></li>
+      </ul>
+      <p style="margin-top:0.75rem; color:#8b949e; font-size:0.85rem;">No <code>.gd</code> / <code>.tscn</code> / <code>.tres</code> files required runtime patches for 4.6 &mdash; the t1 static scan found zero deprecated API usages across 163 <code>.gd</code> files, and the t2 headless QA confirmed all 12 modules pass with engine 4.6.2.</p>
+    </div>
+
+    <div class="summary">
+      <div class="summary-card pass">
+        <div class="number">12</div>
+        <div class="label">PASS</div>
+      </div>
+      <div class="summary-card fail">
+        <div class="number">0</div>
+        <div class="label">FAIL</div>
+      </div>
+    </div>
+
+    <h2>Modules</h2>
+
+    <div class="module">
+      <div class="module-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="module-name">load_gd</span>
+        <span class="badge badge-pass">PASS</span>
+      </div>
+      <div class="module-details">
+        <div class="stat-row">
+          <span>Checked: <span class="stat">163</span></span>
+          <span>Failed: <span class="stat">0</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="module">
+      <div class="module-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="module-name">load_tscn</span>
+        <span class="badge badge-pass">PASS</span>
+      </div>
+      <div class="module-details">
+        <div class="stat-row">
+          <span>Checked: <span class="stat">137</span></span>
+          <span>Failed: <span class="stat">0</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="module">
+      <div class="module-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="module-name">load_tres</span>
+        <span class="badge badge-pass">PASS</span>
+      </div>
+      <div class="module-details">
+        <div class="stat-row">
+          <span>Checked: <span class="stat">129</span></span>
+          <span>Failed: <span class="stat">0</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="module">
+      <div class="module-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="module-name">autoloads</span>
+        <span class="badge badge-pass">PASS</span>
+      </div>
+      <div class="module-details">
+        <code>All autoloads verified</code>
+      </div>
+    </div>
+
+    <div class="module">
+      <div class="module-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="module-name">chapter</span>
+        <span class="badge badge-pass">PASS</span>
+      </div>
+      <div class="module-details">
+        <div class="detail-grid">
+          <div class="detail-item">ch01_dumeong</div>
+          <div class="detail-item">ch02_sinryeong</div>
+          <div class="detail-item">ch03_hwangcheon</div>
+          <div class="detail-item">ch04_cheonsang</div>
+          <div class="detail-item">ch05_sinmok_heart</div>
+          <div class="detail-item">ch_hidden_market</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="module">
+      <div class="module-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="module-name">boss</span>
+        <span class="badge badge-pass">PASS</span>
+      </div>
+      <div class="module-details">
+        <div class="stat-row">
+          <span>Checked: <span class="stat">11</span></span>
+        </div>
+        <div class="detail-grid">
+          <div class="detail-item">b01_dokkaebibul_daejang</div>
+          <div class="detail-item">b02_gumiho</div>
+          <div class="detail-item">b03_jeoseung_saja</div>
+          <div class="detail-item">b04_cheondung_janggun</div>
+          <div class="detail-item">b05_heuk_ryong</div>
+          <div class="detail-item">b06_daewang_dokkaebi</div>
+          <div class="detail-item">mb01_jangsanbeom</div>
+          <div class="detail-item">mb02_imugi</div>
+          <div class="detail-item">mb03_chagwishin</div>
+          <div class="detail-item">mb04_geumdwaeji</div>
+          <div class="detail-item">mb05_geomeun_dokkaebi</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="module">
+      <div class="module-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="module-name">skill</span>
+        <span class="badge badge-pass">PASS</span>
+      </div>
+      <div class="module-details">
+        <div class="stat-row">
+          <span>Checked: <span class="stat">30</span></span>
+        </div>
+        <div class="detail-grid">
+          <div class="detail-item">geumgang_bulgwe</div>
+          <div class="detail-item">seed_burst</div>
+          <div class="detail-item">frost_ring</div>
+          <div class="detail-item">dragon_palace_wave</div>
+          <div class="detail-item">samaejinhwa</div>
+          <div class="detail-item">flint_burst</div>
+          <div class="detail-item">sand_storm</div>
+          <div class="detail-item">sinmok_blessing</div>
+          <div class="detail-item">world_tree_blessing</div>
+          <div class="detail-item">metal_chain</div>
+          <div class="detail-item">fire_orb</div>
+          <div class="detail-item">vine_whip</div>
+          <div class="detail-item">water_drop</div>
+          <div class="detail-item">phoenix_descent</div>
+          <div class="detail-item">rock_throw</div>
+          <div class="detail-item">earthquake</div>
+          <div class="detail-item">thorn_trap</div>
+          <div class="detail-item">earth_wall</div>
+          <div class="detail-item">thousand_swords</div>
+          <div class="detail-item">dagger_throw</div>
+          <div class="detail-item">flame_barrier</div>
+          <div class="detail-item">ice_age</div>
+          <div class="detail-item">thorn_vine</div>
+          <div class="detail-item">gold_shield</div>
+          <div class="detail-item">dragon_king_wrath</div>
+          <div class="detail-item">flame_breath</div>
+          <div class="detail-item">forest_wrath</div>
+          <div class="detail-item">landslide</div>
+          <div class="detail-item">mist_veil</div>
+          <div class="detail-item">dagger_storm</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="module">
+      <div class="module-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="module-name">character</span>
+        <span class="badge badge-pass">PASS</span>
+      </div>
+      <div class="module-details">
+        <table style="width:100%; border-collapse:collapse; margin-top:0.5rem;">
+          <thead>
+            <tr style="border-bottom:1px solid #30363d; text-align:left;">
+              <th style="padding:0.4rem 0.75rem; color:#8b949e; font-size:0.8rem;">ID</th>
+              <th style="padding:0.4rem 0.75rem; color:#8b949e; font-size:0.8rem;">HP</th>
+              <th style="padding:0.4rem 0.75rem; color:#8b949e; font-size:0.8rem;">ATK</th>
+            </tr>
+          </thead>
+          <tbody style="font-family:'SF Mono','Fira Code',monospace; font-size:0.8rem;">
+            <tr><td style="padding:0.3rem 0.75rem;">barami</td><td style="padding:0.3rem 0.75rem;">80</td><td style="padding:0.3rem 0.75rem;">8</td></tr>
+            <tr><td style="padding:0.3rem 0.75rem;">byeolee</td><td style="padding:0.3rem 0.75rem;">90</td><td style="padding:0.3rem 0.75rem;">9</td></tr>
+            <tr><td style="padding:0.3rem 0.75rem;">dolsoe</td><td style="padding:0.3rem 0.75rem;">150</td><td style="padding:0.3rem 0.75rem;">9</td></tr>
+            <tr><td style="padding:0.3rem 0.75rem;">geurimja</td><td style="padding:0.3rem 0.75rem;">85</td><td style="padding:0.3rem 0.75rem;">11</td></tr>
+            <tr><td style="padding:0.3rem 0.75rem;">hwalee</td><td style="padding:0.3rem 0.75rem;">85</td><td style="padding:0.3rem 0.75rem;">12</td></tr>
+            <tr><td style="padding:0.3rem 0.75rem;">ttukttaki</td><td style="padding:0.3rem 0.75rem;">100</td><td style="padding:0.3rem 0.75rem;">10</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="module">
+      <div class="module-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="module-name">env_event</span>
+        <span class="badge badge-pass">PASS</span>
+      </div>
+      <div class="module-details">
+        <div class="stat-row">
+          <span>Environments: <span class="stat">5</span></span>
+          <span>Events: <span class="stat">7</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="module">
+      <div class="module-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="module-name">ui</span>
+        <span class="badge badge-pass">PASS</span>
+      </div>
+      <div class="module-details">
+        <div class="stat-row">
+          <span>Checked: <span class="stat">14</span></span>
+        </div>
+        <div class="detail-grid">
+          <div class="detail-item">result_screen</div>
+          <div class="detail-item">character_select</div>
+          <div class="detail-item">intermission</div>
+          <div class="detail-item">shinmok</div>
+          <div class="detail-item">toast</div>
+          <div class="detail-item">permanent_upgrade</div>
+          <div class="detail-item">pause_menu</div>
+          <div class="detail-item">codex</div>
+          <div class="detail-item">level_up_panel</div>
+          <div class="detail-item">chapter_select</div>
+          <div class="detail-item">boss_hp_bar</div>
+          <div class="detail-item">hud</div>
+          <div class="detail-item">achievements</div>
+          <div class="detail-item">main_menu</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="module">
+      <div class="module-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="module-name">meta</span>
+        <span class="badge badge-pass">PASS</span>
+      </div>
+      <div class="module-details">
+        <div class="stat-row">
+          <span>Original Orbs: <span class="stat">1989</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="module">
+      <div class="module-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="module-name">integration</span>
+        <span class="badge badge-pass">PASS</span>
+      </div>
+      <div class="module-details">
+        <div class="stat-row">
+          <span>Skills Registered: <span class="stat">30</span></span>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      kkaebi-run Phase 1 QA Report &middot; Generated 2026-05-17 &middot; Godot 4.6.2 stable (headless, 1 cycle)
+    </footer>
+  </div>
+</body>
+</html>
