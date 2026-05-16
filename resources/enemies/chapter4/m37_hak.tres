@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://m37hak"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"m37_hak"
+display_name_ko = "학 요괴"
+lore_ko = "한국 학(鶴) 신선 신앙 — 신선의 영물이던 학이 오염되어 사나운 요괴화. 흰 학의 본체에 부리와 발톱만 검게 변질되어 있고 군데군데 깃털이 빠져 있다."
+sprite_size_px = Vector2i(48, 40)
+placeholder_color = Color(0.95, 0.95, 0.92, 1)
+base_hp = 38
+base_move_speed = 100.0
+base_contact_damage = 9
+attack_cooldown = 5.0
+detection_radius = 800.0
+hitbox_radius = 16.0
+ranged_kind = 1
+ranged_damage = 11
+ranged_range_px = 240.0
+ranged_projectile_speed = 320.0
+ranged_cooldown = 5.0
+ranged_telegraph = 0.3
+special_abilities = Array[int]([])
+special_params = {
+"flight": true,
+"ground_attack_dodge_chance": 0.5,
+"dive_interval_s": 5.0,
+"dive_hitbox_w_px": 100.0,
+"dive_hitbox_h_px": 40.0,
+"dive_damage": 9,
+}
+group_ai = 0
+group_size = 1
+group_spacing_px = 30.0
+ai_aggression = 1.0
+flock_cohesion = 0.0
+exp_value = 15
+gold_drop_chance = 0.32
+gold_drop_amount = 1
+orb_value = 0
+chapters = Array[int]([4])
+spawn_weight = 80
+min_stage_time_s = 0.0
+max_concurrent = 999

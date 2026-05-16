@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://m38gareungbinga"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"m38_gareungbinga"
+display_name_ko = "가릉빈가"
+lore_ko = "불교 가릉빈가(迦陵頻伽) — 상반신은 인간, 하반신은 새의 모습으로 천상의 노래를 부른다는 존재. 여인의 상반신에 공작 깃털 새 다리, 양손에는 종이 부적을 들었다."
+sprite_size_px = Vector2i(32, 48)
+placeholder_color = Color(0.45, 0.80, 0.70, 1)
+base_hp = 42
+base_move_speed = 50.0
+base_contact_damage = 5
+attack_cooldown = 0.5
+detection_radius = 800.0
+hitbox_radius = 12.8
+ranged_kind = 4
+ranged_damage = 1
+ranged_range_px = 180.0
+ranged_projectile_speed = 0.0
+ranged_cooldown = 0.5
+ranged_telegraph = 0.0
+special_abilities = Array[int]([])
+special_params = {
+"song_radius_px": 180.0,
+"song_tick_interval_s": 0.5,
+"song_tick_damage": 1,
+"song_self_move_speed_during": 0.0,
+"scream_threshold_damage": 50,
+"scream_radius_px": 80.0,
+"scream_damage": 6,
+"scream_speed_buff_mult": 1.5,
+"scream_speed_buff_duration_s": 10.0,
+}
+group_ai = 0
+group_size = 1
+group_spacing_px = 30.0
+ai_aggression = 1.0
+flock_cohesion = 0.0
+exp_value = 15
+gold_drop_chance = 0.34
+gold_drop_amount = 1
+orb_value = 0
+chapters = Array[int]([4, 5])
+spawn_weight = 40
+min_stage_time_s = 180.0
+max_concurrent = 999
