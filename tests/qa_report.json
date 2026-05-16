@@ -1,0 +1,147 @@
+{
+  "errors": [],
+  "summary": {
+    "fail": 0,
+    "pass": 12,
+    "cycles": 1,
+    "regression": 0,
+    "korean_mojibake": 0,
+    "status": "PASS"
+  },
+  "spec_checklist": {
+    "monsters_normal": {"target": 53, "actual": 53, "pass": true, "source": "resources/enemies/chapter1..5 (49) + hidden (4)"},
+    "bosses": {"target": 11, "actual": 11, "pass": true, "source": "resources/bosses/ b01..b06 + mb01..mb05"},
+    "skills": {"target": 30, "actual": 30, "pass": true, "source": "SkillManager 등록"},
+    "characters": {"target": 6, "actual": 6, "pass": true, "source": "ttukttaki, dolsoe, barami, byeolee, hwalee, geurimja"},
+    "environments": {"target": 5, "actual": 5, "pass": true, "source": "resources/environments/*.tres"},
+    "events": {"target": 7, "actual": 7, "pass": true, "source": "resources/events/*.tres"},
+    "ui_screens": {"target": 6, "actual": 14, "pass": true, "source": "필수 6 (HUD, 결과, 일시정지, 캐릭터 선택, 챕터 선택, 메인 메뉴) 포함 + 부가 8"},
+    "game_scene": {"pass": true, "source": "MainGameScene 로드/실행"},
+    "meta_system": {"pass": true, "source": "MetaProgressManager / orig_orbs=1299"}
+  },
+  "modules": {
+    "autoloads": {
+      "details": {},
+      "errors": [],
+      "pass": true
+    },
+    "boss": {
+      "details": {
+        "bosses": [
+          "b01_dokkaebibul_daejang",
+          "b02_gumiho",
+          "b03_jeoseung_saja",
+          "b04_cheondung_janggun",
+          "b05_heuk_ryong",
+          "b06_daewang_dokkaebi",
+          "mb01_jangsanbeom",
+          "mb02_imugi",
+          "mb03_chagwishin",
+          "mb04_geumdwaeji",
+          "mb05_geomeun_dokkaebi"
+        ],
+        "checked": 11
+      },
+      "errors": [],
+      "pass": true
+    },
+    "chapter": {
+      "details": {
+        "chapters": [
+          {"id": "ch05_sinmok_heart", "n": 5},
+          {"id": "ch03_hwangcheon", "n": 3},
+          {"id": "ch02_sinryeong", "n": 2},
+          {"id": "ch04_cheonsang", "n": 4},
+          {"id": "ch_hidden_market", "n": 6},
+          {"id": "ch01_dumeong", "n": 1}
+        ]
+      },
+      "errors": [],
+      "pass": true
+    },
+    "character": {
+      "details": {
+        "characters": [
+          {"atk": 8, "hp": 80, "id": "barami"},
+          {"atk": 9, "hp": 90, "id": "byeolee"},
+          {"atk": 9, "hp": 150, "id": "dolsoe"},
+          {"atk": 11, "hp": 85, "id": "geurimja"},
+          {"atk": 12, "hp": 85, "id": "hwalee"},
+          {"atk": 10, "hp": 100, "id": "ttukttaki"}
+        ]
+      },
+      "errors": [],
+      "pass": true
+    },
+    "env_event": {
+      "details": {"env": 5, "event": 7},
+      "errors": [],
+      "pass": true
+    },
+    "integration": {
+      "details": {"skills_registered": 30},
+      "errors": [],
+      "pass": true
+    },
+    "load_gd": {
+      "details": {"checked": 163, "failed": 0, "files": []},
+      "errors": [],
+      "pass": true
+    },
+    "load_tres": {
+      "details": {"checked": 129, "failed": 0, "files": []},
+      "errors": [],
+      "pass": true
+    },
+    "load_tscn": {
+      "details": {"checked": 137, "failed": 0, "files": []},
+      "errors": [],
+      "pass": true
+    },
+    "meta": {
+      "details": {"orig_orbs": 1299},
+      "errors": [],
+      "pass": true
+    },
+    "skill": {
+      "details": {
+        "checked": 30,
+        "skills": [
+          "geumgang_bulgwe", "seed_burst", "frost_ring", "dragon_palace_wave",
+          "samaejinhwa", "flint_burst", "sand_storm", "sinmok_blessing",
+          "world_tree_blessing", "metal_chain", "fire_orb", "vine_whip",
+          "water_drop", "phoenix_descent", "rock_throw", "earthquake",
+          "thorn_trap", "earth_wall", "thousand_swords", "dagger_throw",
+          "flame_barrier", "ice_age", "thorn_vine", "gold_shield",
+          "dragon_king_wrath", "flame_breath", "forest_wrath", "landslide",
+          "mist_veil", "dagger_storm"
+        ]
+      },
+      "errors": [],
+      "pass": true
+    },
+    "ui": {
+      "details": {
+        "checked": 14,
+        "scenes": [
+          "res://scenes/ui/result_screen.tscn",
+          "res://scenes/ui/character_select.tscn",
+          "res://scenes/ui/intermission.tscn",
+          "res://scenes/ui/shinmok.tscn",
+          "res://scenes/ui/toast.tscn",
+          "res://scenes/ui/permanent_upgrade.tscn",
+          "res://scenes/ui/pause_menu.tscn",
+          "res://scenes/ui/codex.tscn",
+          "res://scenes/ui/level_up_panel.tscn",
+          "res://scenes/ui/chapter_select.tscn",
+          "res://scenes/ui/boss_hp_bar.tscn",
+          "res://scenes/ui/hud.tscn",
+          "res://scenes/ui/achievements.tscn",
+          "res://scenes/main_menu/main_menu.tscn"
+        ]
+      },
+      "errors": [],
+      "pass": true
+    }
+  }
+}
