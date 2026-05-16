@@ -1,0 +1,51 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://m52byeonjang"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"m52_byeonjang"
+display_name_ko = "변장 도깨비"
+lore_ko = "한국 도깨비 변신 설화 — 물건이나 사람으로 둔갑해 행인을 골탕 먹이는 짓궂은 도깨비. 평소엔 보물 상자 혹은 금화 더미 같은 아이템 외형으로 길에 놓여 있다가, 정체가 들통나면 작은 도깨비 모습으로 본모습을 드러낸다."
+sprite_size_px = Vector2i(32, 32)
+placeholder_color = Color(0.85, 0.70, 0.20, 1)
+base_hp = 40
+base_move_speed = 80.0
+base_contact_damage = 10
+attack_cooldown = 4.0
+detection_radius = 800.0
+hitbox_radius = 12.8
+ranged_kind = 4
+ranged_damage = 10
+ranged_range_px = 80.0
+ranged_projectile_speed = 0.0
+ranged_cooldown = 4.0
+ranged_telegraph = 0.0
+special_abilities = Array[int]([7])
+special_params = {
+"disguise_on_spawn": true,
+"disguise_treasure_chest_chance": 0.5,
+"disguise_gold_pile_chance": 0.5,
+"disguise_sprite_w_px": 32,
+"disguise_sprite_h_px": 32,
+"reveal_trigger_player_radius_px": 40.0,
+"reveal_trigger_on_hit": true,
+"disguise_burst_radius_px": 80.0,
+"disguise_burst_damage": 10,
+"disguise_burst_cooldown_s": 4.0,
+"disguise_damage_taken_mult": 0.3,
+"chase_after_reveal": true,
+}
+group_ai = 0
+group_size = 1
+group_spacing_px = 30.0
+ai_aggression = 1.0
+flock_cohesion = 0.0
+exp_value = 18
+gold_drop_chance = 0.70
+gold_drop_amount = 1
+orb_value = 0
+chapters = Array[int]([-1])
+spawn_weight = 80
+min_stage_time_s = 0.0
+max_concurrent = 999

@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://m50noreumkkun"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"m50_noreumkkun"
+display_name_ko = "노름꾼 도깨비"
+lore_ko = "한국 도깨비 노름 설화 — 사람과 윷·골패로 노름을 즐기는 도깨비. 다홍 조끼를 입고 한 손에 윷가락 네 개를, 다른 손에 엽전 한 꿰미를 쥐고 있다."
+sprite_size_px = Vector2i(32, 40)
+placeholder_color = Color(0.80, 0.20, 0.25, 1)
+base_hp = 45
+base_move_speed = 60.0
+base_contact_damage = 7
+attack_cooldown = 5.0
+detection_radius = 800.0
+hitbox_radius = 12.8
+ranged_kind = 1
+ranged_damage = 18
+ranged_range_px = 240.0
+ranged_projectile_speed = 0.0
+ranged_cooldown = 5.0
+ranged_telegraph = 0.0
+special_abilities = Array[int]([])
+special_params = {
+"yut_throw_interval_s": 5.0,
+"yut_throw_range_px": 240.0,
+"yut_result_uniform_probability": true,
+"yut_outcomes": ["gae", "do", "geol", "yut", "mo"],
+"mo_fire_aoe_size_px": 32,
+"mo_fire_aoe_damage": 18,
+"yut_coin_directions": 4,
+"yut_coin_damage": 12,
+"yut_coin_projectile_speed": 180.0,
+"geol_player_slow_value": -0.2,
+"geol_player_slow_duration_s": 3.0,
+"do_self_heal_amount": 20,
+"gae_no_effect": true,
+}
+group_ai = 0
+group_size = 1
+group_spacing_px = 30.0
+ai_aggression = 1.0
+flock_cohesion = 0.0
+exp_value = 16
+gold_drop_chance = 0.70
+gold_drop_amount = 1
+orb_value = 0
+chapters = Array[int]([-1])
+spawn_weight = 60
+min_stage_time_s = 120.0
+max_concurrent = 999

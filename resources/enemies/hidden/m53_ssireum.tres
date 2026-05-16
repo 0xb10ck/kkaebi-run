@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://m53ssireum"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"m53_ssireum"
+display_name_ko = "씨름 도깨비"
+lore_ko = "한국 「도깨비와 씨름」 설화 — 길 가는 사람에게 씨름을 걸어오는 도깨비. 우락부락한 장사 체격에 샅바를 동여맸으며, 설화 그대로 한쪽 다리만 도드라지게 강조되어 있다."
+sprite_size_px = Vector2i(40, 48)
+placeholder_color = Color(0.45, 0.30, 0.20, 1)
+base_hp = 70
+base_move_speed = 70.0
+base_contact_damage = 12
+attack_cooldown = 5.0
+detection_radius = 800.0
+hitbox_radius = 16.0
+ranged_kind = 0
+ranged_damage = 0
+ranged_range_px = 0.0
+ranged_projectile_speed = 0.0
+ranged_cooldown = 0.0
+ranged_telegraph = 0.0
+special_abilities = Array[int]([1])
+special_params = {
+"charge_attack": true,
+"charge_cooldown_s": 5.0,
+"grapple_window_s": 0.5,
+"grapple_evade_input_releases": true,
+"grapple_restraint_duration_s": 0.8,
+"grapple_throw_damage": 24,
+"grapple_throw_damage_mult": 2.0,
+"grapple_self_stagger_s": 1.5,
+}
+group_ai = 0
+group_size = 1
+group_spacing_px = 30.0
+ai_aggression = 1.0
+flock_cohesion = 0.0
+exp_value = 22
+gold_drop_chance = 0.65
+gold_drop_amount = 1
+orb_value = 0
+chapters = Array[int]([-1])
+spawn_weight = 40
+min_stage_time_s = 180.0
+max_concurrent = 999

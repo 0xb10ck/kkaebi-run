@@ -1,0 +1,51 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://m51sulchwihan"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"m51_sulchwihan"
+display_name_ko = "술취한 도깨비"
+lore_ko = "도깨비 민담 — 막걸리를 매우 좋아하는 도깨비. 양손에 호리병을 들고 비틀거리는 자세를 취하며, 코는 새빨갛게 물들고 양 뺨에 짙은 홍조가 번져 있다."
+sprite_size_px = Vector2i(32, 40)
+placeholder_color = Color(0.78, 0.65, 0.55, 1)
+base_hp = 50
+base_move_speed = 60.0
+base_contact_damage = 8
+attack_cooldown = 1.0
+detection_radius = 800.0
+hitbox_radius = 12.8
+ranged_kind = 4
+ranged_damage = 2
+ranged_range_px = 60.0
+ranged_projectile_speed = 0.0
+ranged_cooldown = 0.5
+ranged_telegraph = 0.0
+special_abilities = Array[int]([11])
+special_params = {
+"zigzag_movement": true,
+"zigzag_angle_change_deg": 30.0,
+"zigzag_change_interval_s": 0.5,
+"aura_dot_radius_px": 60.0,
+"aura_dot_damage": 2,
+"aura_dot_tick_interval_s": 0.5,
+"enrage_hp_threshold_pct": 0.30,
+"enrage_move_speed_mult": 2.0,
+"enrage_charge_enabled": true,
+"enrage_charge_width_px": 32.0,
+"enrage_charge_length_px": 48.0,
+"enrage_charge_damage_mult": 1.5,
+}
+group_ai = 0
+group_size = 1
+group_spacing_px = 30.0
+ai_aggression = 1.0
+flock_cohesion = 0.0
+exp_value = 15
+gold_drop_chance = 0.55
+gold_drop_amount = 1
+orb_value = 0
+chapters = Array[int]([-1])
+spawn_weight = 70
+min_stage_time_s = 60.0
+max_concurrent = 999
