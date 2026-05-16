@@ -84,7 +84,8 @@ func _ready() -> void:
 		if data.ranged_telegraph > 0.0:
 			_ranged_telegraph = data.ranged_telegraph
 	_state = State.IDLE
-	_state_timer = _jump_pause
+	# 스폰 즉시 첫 도약을 준비한다 — 다음 IDLE 사이클부터 _jump_pause(1.5s) 간격이 적용된다.
+	_state_timer = 0.0
 	_ranged_cd_timer = _ranged_cooldown
 	hp = max_hp
 

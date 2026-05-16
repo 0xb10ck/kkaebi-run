@@ -24,6 +24,7 @@ weapon_max_targets = 1
 passive_id = &"shadow_step"
 ultimate_id = &"shadow_clones"
 ultimate_cooldown_s = 65.0
+starting_skill_ids = Array[StringName]([&"dagger_throw"])
 unlock_cost_orbs = 600
 unlock_requires = Array[StringName]([])
 unlocked_by_default = false

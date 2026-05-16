@@ -124,11 +124,16 @@ func _physics_process(delta: float) -> void:
 func _fire_whip() -> void:
 	if not is_instance_valid(target):
 		return
-	var dir: Vector2 = (target.global_position - global_position)
-	if dir.length_squared() <= 0.0001:
+	var to_target: Vector2 = (target.global_position - global_position)
+	var dist: float = to_target.length()
+	var dir: Vector2
+	if to_target.length_squared() <= 0.0001:
 		dir = Vector2.RIGHT
 	else:
-		dir = dir.normalized()
+		dir = to_target.normalized()
+	# 채찍은 직선 사거리 안의 플레이어를 즉시 후려친다 — 투사체는 시각 피드백.
+	if dist <= _whip_range and target.has_method("take_damage"):
+		target.take_damage(_whip_damage)
 	var p: EnemyProjectile = ENEMY_PROJECTILE.instantiate()
 	p.speed = _whip_speed
 	p.damage = _whip_damage

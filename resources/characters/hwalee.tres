@@ -24,6 +24,7 @@ weapon_max_targets = 1
 passive_id = &"fire_child"
 ultimate_id = &"bulkkot_pokbal"
 ultimate_cooldown_s = 60.0
+starting_skill_ids = Array[StringName]([&"fire_orb"])
 unlock_cost_orbs = 80
 unlock_requires = Array[StringName]([])
 unlocked_by_default = false

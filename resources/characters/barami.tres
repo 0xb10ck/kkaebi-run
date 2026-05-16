@@ -24,6 +24,7 @@ weapon_max_targets = 4
 passive_id = &"wind_step"
 ultimate_id = &"taepung_eye"
 ultimate_cooldown_s = 50.0
+starting_skill_ids = Array[StringName]([&"frost_blade"])
 unlock_cost_orbs = 150
 unlock_requires = Array[StringName]([])
 unlocked_by_default = false

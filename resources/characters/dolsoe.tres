@@ -24,6 +24,7 @@ weapon_max_targets = 8
 passive_id = &"stone_will"
 ultimate_id = &"jijin"
 ultimate_cooldown_s = 55.0
+starting_skill_ids = Array[StringName]([&"earth_wall"])
 unlock_cost_orbs = 250
 unlock_requires = Array[StringName]([])
 unlocked_by_default = false

@@ -40,6 +40,9 @@ extends Resource
 @export var ultimate_params: Dictionary = {}
 @export_multiline var ultimate_description: String = ""
 
+# === 시작 보유 스킬 (런 시작 시 자동 보유) ===
+@export var starting_skill_ids: Array[StringName] = []
+
 # === 시작 스킬 가중치 (skill_id -> float) ===
 @export var start_weight_overrides: Dictionary = {}
 

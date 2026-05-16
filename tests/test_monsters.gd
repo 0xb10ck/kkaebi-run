@@ -151,6 +151,12 @@ func _test_one(file_name: String) -> void:
 		await process_frame
 		return
 
+	# 변장형 몬스터(M52 변장 도깨비) — 위장 중에는 스폰 후 정지·무공격이 의도된 거동이다.
+	# reveal_trigger_on_hit 경로로 위장을 해제해 위장 해제 후 추격/광역 거동을 60 tick 안에 검증한다.
+	# (피해량 1 은 disguise_damage_taken_mult(0.3) 적용 후 0 으로 절삭되어 HP 가 깎이지 않는다.)
+	if "_is_revealed" in monster and not bool(monster.get("_is_revealed")) and monster.has_method("take_damage"):
+		monster.call("take_damage", 1, null)
+
 	var start_pos: Vector2 = Vector2.ZERO
 	if monster is Node2D:
 		start_pos = (monster as Node2D).global_position

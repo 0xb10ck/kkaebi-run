@@ -256,18 +256,18 @@ func _test_boss(entry: Dictionary) -> void:
 	var bus_defeats: Array = []
 	var on_bus_defeated: Callable = func(bid: StringName, t: float, nh: bool) -> void:
 		bus_defeats.append({"id": bid, "time": t, "no_hit": nh})
-	EventBus.boss_defeated.connect(on_bus_defeated)
+	_event_bus.boss_defeated.connect(on_bus_defeated)
 
-	var orbs_before: int = int(MetaState.dokkaebi_orbs)
+	var orbs_before: int = int(_meta_state.get("dokkaebi_orbs"))
 	var currency_changes: Array = []
 	var on_currency_changed: Callable = func(cur: StringName, val: int) -> void:
 		currency_changes.append({"currency": cur, "new_value": val})
-	EventBus.meta_currency_changed.connect(on_currency_changed)
+	_event_bus.meta_currency_changed.connect(on_currency_changed)
 
 	var cleared_emissions: Array = []
 	var on_chapter_cleared: Callable = func(ch_id: StringName, first: bool) -> void:
 		cleared_emissions.append({"chapter": ch_id, "first_clear": first})
-	EventBus.chapter_cleared.connect(on_chapter_cleared)
+	_event_bus.chapter_cleared.connect(on_chapter_cleared)
 
 	# HP 강제 1 + armor 를 충분히 넘어 1 이상 데미지가 들어가도록 큰 값.
 	boss.current_hp = 1
@@ -295,7 +295,7 @@ func _test_boss(entry: Dictionary) -> void:
 		death_msgs.append("EventBus.boss_defeated not emitted for %s (got=%s)" % [String(boss_id), str(bus_defeats)])
 
 	# 보상 정산: MetaState.record_boss_defeated 가 dokkaebi_orbs 를 증가시켜야 한다.
-	var orbs_after: int = int(MetaState.dokkaebi_orbs)
+	var orbs_after: int = int(_meta_state.get("dokkaebi_orbs"))
 	if orbs_after <= orbs_before:
 		death_ok = false
 		death_msgs.append("MetaState.dokkaebi_orbs did not increase (%d → %d)" % [orbs_before, orbs_after])
@@ -303,7 +303,7 @@ func _test_boss(entry: Dictionary) -> void:
 	# ChapterManager 의 다음-챕터 전환(=unlock_next 등가) 트리거 검증.
 	# BossArena._advance_after_boss 와 동일한 호출 시퀀스.
 	var cleared_before: int = cleared_emissions.size()
-	ChapterManager.on_boss_defeated(boss_id, 1.0, true)
+	_chapter_manager.call("on_boss_defeated", boss_id, 1.0, true)
 	await process_frame
 
 	if cleared_emissions.size() == cleared_before:
@@ -318,10 +318,10 @@ func _test_boss(entry: Dictionary) -> void:
 	# ── spy 해제 ────────────────────────────────────────────────────
 	_disconnect_safe(boss, "phase_changed", on_phase_changed)
 	_disconnect_safe(boss, "died", on_died)
-	EventBus.boss_phase_changed.disconnect(on_ev_phase_changed)
-	EventBus.boss_defeated.disconnect(on_bus_defeated)
-	EventBus.meta_currency_changed.disconnect(on_currency_changed)
-	EventBus.chapter_cleared.disconnect(on_chapter_cleared)
+	_event_bus.boss_phase_changed.disconnect(on_ev_phase_changed)
+	_event_bus.boss_defeated.disconnect(on_bus_defeated)
+	_event_bus.meta_currency_changed.disconnect(on_currency_changed)
+	_event_bus.chapter_cleared.disconnect(on_chapter_cleared)
 
 	if not death_ok:
 		_record_fail(label, "death check: " + "; ".join(death_msgs))

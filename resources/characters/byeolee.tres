@@ -24,6 +24,7 @@ weapon_max_targets = 3
 passive_id = &"starbond"
 ultimate_id = &"starfall"
 ultimate_cooldown_s = 70.0
+starting_skill_ids = Array[StringName]([&"fire_orb"])
 unlock_cost_orbs = 400
 unlock_requires = Array[StringName]([])
 unlocked_by_default = false
