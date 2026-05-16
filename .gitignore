@@ -11,3 +11,8 @@ builds/
 
 # Godot auto-generated UID files
 *.gd.uid
+
+# QA runner auto-generated reports — regenerated on every run, do not track.
+# Use tests/REPORT.md as the stable, manually-maintained report.
+tests/qa_report.json
+tests/qa_report.md
