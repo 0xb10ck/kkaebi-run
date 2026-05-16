@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://m40heukpung"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"m40_heukpung"
+display_name_ko = "흑풍"
+lore_ko = "깨비런 창작 설화 — 검은 안개에서 태어난 형체 없는 살의의 바람. 칠흑같이 검은 회오리 안쪽에 한 쌍의 빨간 눈이 박혀 있고, 외곽은 끊임없이 흐릿하게 흩어진다."
+sprite_size_px = Vector2i(40, 40)
+placeholder_color = Color(0.08, 0.08, 0.10, 1)
+base_hp = 60
+base_move_speed = 80.0
+base_contact_damage = 14
+attack_cooldown = 3.0
+detection_radius = 800.0
+hitbox_radius = 16.0
+ranged_kind = 4
+ranged_damage = 14
+ranged_range_px = 100.0
+ranged_projectile_speed = 0.0
+ranged_cooldown = 3.0
+ranged_telegraph = 0.0
+special_abilities = Array[int]([7])
+special_params = {
+"invisible_alpha": 0.2,
+"reveal_distance_px": 80.0,
+"reveal_duration_s": 3.0,
+"swing_radius_px": 100.0,
+"swing_damage": 14,
+"minimap_hidden": true,
+}
+group_ai = 0
+group_size = 1
+group_spacing_px = 30.0
+ai_aggression = 1.0
+flock_cohesion = 0.0
+exp_value = 22
+gold_drop_chance = 0.44
+gold_drop_amount = 1
+orb_value = 0
+chapters = Array[int]([5])
+spawn_weight = 70
+min_stage_time_s = 60.0
+max_concurrent = 999

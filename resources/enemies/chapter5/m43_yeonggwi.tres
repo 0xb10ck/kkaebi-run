@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://m43yeonggwi"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"m43_yeonggwi"
+display_name_ko = "영귀"
+lore_ko = "일반 원귀 신앙 — 한이 풀리지 못한 영혼이 검은 안개에 흡수되어 광폭화한 형태. 흐릿한 인간 실루엣은 형태가 자주 바뀌어 작아졌다 커졌다를 반복한다."
+sprite_size_px = Vector2i(40, 48)
+placeholder_color = Color(0.20, 0.18, 0.25, 1)
+base_hp = 30
+base_move_speed = 50.0
+base_contact_damage = 12
+attack_cooldown = 1.5
+detection_radius = 800.0
+hitbox_radius = 16.0
+ranged_kind = 4
+ranged_damage = 8
+ranged_range_px = 50.0
+ranged_projectile_speed = 0.0
+ranged_cooldown = 1.5
+ranged_telegraph = 0.0
+special_abilities = Array[int]([])
+special_params = {
+"phase_toggle_interval_s": 2.0,
+"small_form_sprite_w_px": 16,
+"small_form_sprite_h_px": 16,
+"small_form_hp": 1,
+"small_form_move_speed": 100.0,
+"small_form_contact_damage": 5,
+"big_form_sprite_w_px": 40,
+"big_form_sprite_h_px": 48,
+"big_form_hp": 30,
+"big_form_move_speed": 50.0,
+"big_form_contact_damage": 12,
+"big_form_scream_radius_px": 50.0,
+"big_form_scream_damage": 8,
+"refill_hp_on_toggle": true,
+}
+group_ai = 0
+group_size = 1
+group_spacing_px = 30.0
+ai_aggression = 1.0
+flock_cohesion = 0.0
+exp_value = 14
+gold_drop_chance = 0.30
+gold_drop_amount = 1
+orb_value = 0
+chapters = Array[int]([5])
+spawn_weight = 70
+min_stage_time_s = 60.0
+max_concurrent = 999

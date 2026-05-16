@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://m44grimjadokkaebi"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"m44_grimja_dokkaebi"
+display_name_ko = "그림자 도깨비"
+lore_ko = "깨비런 창작 — 검은 안개에 완전히 잠식된 도깨비, 정체성을 잃었다. 본래 플레이어 도깨비와 닮았으나 검고 윤곽이 흐릿하며, 한쪽 눈만 붉게 타오른다."
+sprite_size_px = Vector2i(40, 48)
+placeholder_color = Color(0.13, 0.10, 0.13, 1)
+base_hp = 70
+base_move_speed = 90.0
+base_contact_damage = 14
+attack_cooldown = 4.0
+detection_radius = 800.0
+hitbox_radius = 16.0
+ranged_kind = 1
+ranged_damage = 12
+ranged_range_px = 200.0
+ranged_projectile_speed = 0.0
+ranged_cooldown = 4.0
+ranged_telegraph = 0.0
+special_abilities = Array[int]([])
+special_params = {
+"mimic_player_skill_window_s": 4.0,
+"mimic_cooldown_s": 4.0,
+"mimic_simplified": true,
+"mimic_damage": 12,
+"mimic_range_px": 200.0,
+"visual_copy_player_motion": true,
+}
+group_ai = 0
+group_size = 1
+group_spacing_px = 30.0
+ai_aggression = 1.0
+flock_cohesion = 0.0
+exp_value = 25
+gold_drop_chance = 0.48
+gold_drop_amount = 1
+orb_value = 0
+chapters = Array[int]([5])
+spawn_weight = 40
+min_stage_time_s = 120.0
+max_concurrent = 999

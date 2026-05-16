@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://m42heukmusa"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"m42_heukmusa"
+display_name_ko = "흑무사"
+lore_ko = "깨비런 창작 — 검은 안개가 무인의 시체에 깃들어 일으킨 망령 병사. 무겁고 검은 갑옷에 양손으로 거대 도를 들었으며, 투구에는 빨간 술이 늘어져 있다."
+sprite_size_px = Vector2i(48, 56)
+placeholder_color = Color(0.10, 0.10, 0.12, 1)
+base_hp = 110
+base_move_speed = 40.0
+base_contact_damage = 22
+attack_cooldown = 3.5
+detection_radius = 800.0
+hitbox_radius = 19.2
+ranged_kind = 4
+ranged_damage = 22
+ranged_range_px = 96.0
+ranged_projectile_speed = 0.0
+ranged_cooldown = 3.5
+ranged_telegraph = 1.0
+special_abilities = Array[int]([])
+special_params = {
+"greatcleave_telegraph_s": 1.0,
+"greatcleave_box_w_px": 64.0,
+"greatcleave_box_h_px": 96.0,
+"greatcleave_damage": 22,
+"self_stun_after_s": 1.0,
+"self_stun_taken_damage_mult": 1.5,
+}
+group_ai = 0
+group_size = 1
+group_spacing_px = 30.0
+ai_aggression = 1.0
+flock_cohesion = 0.0
+exp_value = 28
+gold_drop_chance = 0.50
+gold_drop_amount = 1
+orb_value = 0
+chapters = Array[int]([5])
+spawn_weight = 30
+min_stage_time_s = 180.0
+max_concurrent = 999

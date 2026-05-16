@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://m41bihyeongranggrimja"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"m41_bihyeongrang_grimja"
+display_name_ko = "비형랑의 그림자"
+lore_ko = "삼국유사 권1 「비형랑조」 — 비형랑이 부린 도깨비 군대의 잔해. 검은 안개로 빚어진 무사 형상으로 한쪽 손에 흐릿한 칼을 들고, 갓 대신 검은 머리띠를 둘렀다."
+sprite_size_px = Vector2i(32, 48)
+placeholder_color = Color(0.12, 0.12, 0.16, 1)
+base_hp = 65
+base_move_speed = 80.0
+base_contact_damage = 15
+attack_cooldown = 2.5
+detection_radius = 800.0
+hitbox_radius = 12.8
+ranged_kind = 4
+ranged_damage = 22
+ranged_range_px = 60.0
+ranged_projectile_speed = 0.0
+ranged_cooldown = 2.5
+ranged_telegraph = 0.13
+special_abilities = Array[int]([])
+special_params = {
+"guard_window_s": 0.13,
+"guard_damage_mult": 0.3,
+"counter_radius_px": 60.0,
+"counter_damage_mult": 1.5,
+"counter_damage": 22,
+"melee_approach_only": true,
+}
+group_ai = 0
+group_size = 1
+group_spacing_px = 30.0
+ai_aggression = 1.0
+flock_cohesion = 0.0
+exp_value = 23
+gold_drop_chance = 0.42
+gold_drop_amount = 1
+orb_value = 0
+chapters = Array[int]([5])
+spawn_weight = 60
+min_stage_time_s = 90.0
+max_concurrent = 999
