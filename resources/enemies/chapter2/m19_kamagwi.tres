@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://m19kamagwi"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"m19_kamagwi"
+display_name_ko = "까마귀 떼"
+lore_ko = "한국 흉조(凶兆) 신앙 — 까마귀가 죽음과 흉사의 전조다. 노란 부리의 검은 까마귀 여섯 마리가 한 무리로 움직이며 수직 강하한다."
+sprite_size_px = Vector2i(64, 48)
+placeholder_color = Color(0.10, 0.10, 0.12, 1)
+base_hp = 18
+base_move_speed = 90.0
+base_contact_damage = 5
+attack_cooldown = 4.0
+detection_radius = 800.0
+hitbox_radius = 19.2
+ranged_kind = 0
+ranged_damage = 0
+ranged_range_px = 0.0
+ranged_projectile_speed = 0.0
+ranged_cooldown = 4.0
+ranged_telegraph = 0.0
+special_abilities = Array[int]([4])
+special_params = {
+"swarm_unit_count": 6,
+"individual_sprite_w": 16,
+"individual_sprite_h": 12,
+"single_hp_pool": 1,
+"dive_interval_s": 4.0,
+"dive_target": "player_overhead",
+"dive_hitbox_w": 32,
+"dive_hitbox_h": 64,
+"dive_blur_duration_s": 1.0,
+"regather_after_dive_s": 1.0,
+}
+group_ai = 1
+group_size = 6
+group_spacing_px = 16.0
+ai_aggression = 1.0
+flock_cohesion = 0.9
+exp_value = 6
+gold_drop_chance = 0.18
+gold_drop_amount = 1
+orb_value = 0
+chapters = Array[int]([2, 4])
+spawn_weight = 80
+min_stage_time_s = 0.0
+max_concurrent = 999

@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://m10samdugu"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"m10_samdugu"
+display_name_ko = "삼두구"
+lore_ko = "한국 삼두견(三頭犬) 전설 — 머리 셋의 신령한 사냥개가 타락한 모습. 검은 털, 붉은 세 쌍의 눈으로 삼중 포효를 내뱉는다."
+sprite_size_px = Vector2i(48, 40)
+placeholder_color = Color(0.15, 0.10, 0.10, 1)
+base_hp = 35
+base_move_speed = 75.0
+base_contact_damage = 8
+attack_cooldown = 3.0
+detection_radius = 800.0
+hitbox_radius = 16.0
+ranged_kind = 4
+ranged_damage = 9
+ranged_range_px = 220.0
+ranged_projectile_speed = 0.0
+ranged_cooldown = 3.0
+ranged_telegraph = 0.0
+special_abilities = Array[int]([19])
+special_params = {
+"howl_directions": 3,
+"howl_cone_deg": 30.0,
+"howl_stun_duration_s": 0.5,
+"howl_self_pause_s": 0.4,
+"howl_cooldown_s": 3.0,
+"dash_speed_mult": 1.3,
+"dash_duration_s": 1.0,
+}
+group_ai = 0
+group_size = 1
+group_spacing_px = 30.0
+ai_aggression = 1.0
+flock_cohesion = 0.0
+exp_value = 8
+gold_drop_chance = 0.22
+gold_drop_amount = 1
+orb_value = 0
+chapters = Array[int]([2, 3])
+spawn_weight = 80
+min_stage_time_s = 0.0
+max_concurrent = 999

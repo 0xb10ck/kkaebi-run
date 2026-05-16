@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://m11horangi"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"m11_horangi"
+display_name_ko = "호랑이 망령"
+lore_ko = "한국 산신 신앙 — 산을 다스리던 호랑이가 한을 품어 망령이 됐다. 반투명한 푸른빛 몸으로 시야 밖에서 매복 돌격한다."
+sprite_size_px = Vector2i(48, 32)
+placeholder_color = Color(0.5, 0.7, 0.95, 0.8)
+base_hp = 40
+base_move_speed = 70.0
+base_contact_damage = 12
+attack_cooldown = 4.0
+detection_radius = 800.0
+hitbox_radius = 12.8
+ranged_kind = 0
+ranged_damage = 0
+ranged_range_px = 0.0
+ranged_projectile_speed = 0.0
+ranged_cooldown = 2.0
+ranged_telegraph = 0.0
+special_abilities = Array[int]([1])
+special_params = {
+"ambush_spawn_distance_px": 200.0,
+"charge_speed_px": 175.0,
+"charge_duration_s": 1.5,
+"post_charge_stun_s": 1.5,
+"charge_cooldown_s": 6.0,
+"hit_roar_radius_px": 80.0,
+"hit_roar_slow_duration_s": 0.5,
+"hit_roar_slow_mult": 0.7,
+}
+group_ai = 0
+group_size = 1
+group_spacing_px = 30.0
+ai_aggression = 1.0
+flock_cohesion = 0.0
+exp_value = 10
+gold_drop_chance = 0.30
+gold_drop_amount = 1
+orb_value = 0
+chapters = Array[int]([2])
+spawn_weight = 60
+min_stage_time_s = 60.0
+max_concurrent = 999

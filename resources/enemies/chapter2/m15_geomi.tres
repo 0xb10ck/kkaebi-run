@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://m15geomi"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"m15_geomi"
+display_name_ko = "거미요괴"
+lore_ko = "어우야담 — 거대 거미가 사람 모습으로 둔갑해 길손을 가둔다. 자주색 몸에 해골 무늬, 새끼 거미를 거느리며 거미줄 트랩을 친다."
+sprite_size_px = Vector2i(32, 24)
+placeholder_color = Color(0.45, 0.20, 0.45, 1)
+base_hp = 30
+base_move_speed = 80.0
+base_contact_damage = 6
+attack_cooldown = 7.0
+detection_radius = 800.0
+hitbox_radius = 9.6
+ranged_kind = 0
+ranged_damage = 0
+ranged_range_px = 0.0
+ranged_projectile_speed = 0.0
+ranged_cooldown = 7.0
+ranged_telegraph = 0.0
+special_abilities = Array[int]([])
+special_params = {
+"web_size_w": 80,
+"web_size_h": 80,
+"web_back_offset_px": 60.0,
+"web_duration_s": 8.0,
+"web_slow_mult": 0.5,
+"web_slow_duration_s": 3.0,
+"web_max_overlap": 3,
+"web_cooldown_s": 7.0,
+"spiderling_id": "m15a_geomi_spiderling",
+"spiderling_count": 2,
+"spiderling_flee_on_death": 1,
+}
+group_ai = 0
+group_size = 1
+group_spacing_px = 30.0
+ai_aggression = 1.0
+flock_cohesion = 0.0
+exp_value = 8
+gold_drop_chance = 0.24
+gold_drop_amount = 1
+orb_value = 0
+chapters = Array[int]([2, 3])
+spawn_weight = 80
+min_stage_time_s = 0.0
+max_concurrent = 999

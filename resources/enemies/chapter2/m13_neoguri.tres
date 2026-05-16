@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://m13neoguri"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"m13_neoguri"
+display_name_ko = "너구리 변신술사"
+lore_ko = "한국 둔갑 설화 — 늙은 너구리가 사람으로 둔갑해 길손을 농락한다. 갓을 쓰고 부채를 든 채 1장 몹의 모습으로 변신한다."
+sprite_size_px = Vector2i(32, 40)
+placeholder_color = Color(0.55, 0.50, 0.45, 1)
+base_hp = 28
+base_move_speed = 65.0
+base_contact_damage = 6
+attack_cooldown = 5.0
+detection_radius = 800.0
+hitbox_radius = 12.8
+ranged_kind = 4
+ranged_damage = 8
+ranged_range_px = 80.0
+ranged_projectile_speed = 0.0
+ranged_cooldown = 5.0
+ranged_telegraph = 0.0
+special_abilities = Array[int]([7])
+special_params = {
+"disguise_interval_s": 5.0,
+"disguise_pool": "m01..m09",
+"disguise_visual_only": 1,
+"disguise_reveal_distance_px": 50.0,
+"disguise_reveal_on_hit": 1,
+"fan_strike_radius_px": 80.0,
+}
+group_ai = 0
+group_size = 1
+group_spacing_px = 30.0
+ai_aggression = 1.0
+flock_cohesion = 0.0
+exp_value = 9
+gold_drop_chance = 0.26
+gold_drop_amount = 1
+orb_value = 0
+chapters = Array[int]([2])
+spawn_weight = 50
+min_stage_time_s = 0.0
+max_concurrent = 999

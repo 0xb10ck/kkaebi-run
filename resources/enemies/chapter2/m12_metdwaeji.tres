@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://m12metdwaeji"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"m12_metdwaeji"
+display_name_ko = "멧돼지 요괴"
+lore_ko = "한국 민간 설화 — 산속 늙은 멧돼지가 요력을 얻어 사람을 해친다. 등에 부러진 나뭇가지가 박힌 채 저돌맹진한다."
+sprite_size_px = Vector2i(48, 40)
+placeholder_color = Color(0.20, 0.15, 0.10, 1)
+base_hp = 50
+base_move_speed = 50.0
+base_contact_damage = 14
+attack_cooldown = 5.0
+detection_radius = 800.0
+hitbox_radius = 16.0
+ranged_kind = 0
+ranged_damage = 0
+ranged_range_px = 0.0
+ranged_projectile_speed = 0.0
+ranged_cooldown = 2.0
+ranged_telegraph = 0.0
+special_abilities = Array[int]([1])
+special_params = {
+"charge_telegraph_s": 0.5,
+"charge_speed_px": 160.0,
+"charge_cooldown_s": 5.0,
+"wall_collide_stun_s": 1.5,
+"wall_collide_damage_taken_mult": 1.5,
+}
+group_ai = 0
+group_size = 1
+group_spacing_px = 30.0
+ai_aggression = 1.0
+flock_cohesion = 0.0
+exp_value = 12
+gold_drop_chance = 0.28
+gold_drop_amount = 1
+orb_value = 0
+chapters = Array[int]([2, 4])
+spawn_weight = 70
+min_stage_time_s = 0.0
+max_concurrent = 999
