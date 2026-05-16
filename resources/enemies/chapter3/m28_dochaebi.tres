@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://m28dochaebi"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"m28_dochaebi"
+display_name_ko = "도채비"
+lore_ko = "한국 도깨비 설화의 부정적 변종 — 검은 안개에 오염되어 타락한 도깨비. 일반 도깨비와 비슷하지만 살갗이 검보랏빛이고, 한쪽 뿔이 부러져 손에 부러진 방망이를 쥔다."
+sprite_size_px = Vector2i(32, 40)
+placeholder_color = Color(0.30, 0.20, 0.40, 1)
+base_hp = 32
+base_move_speed = 70.0
+base_contact_damage = 9
+attack_cooldown = 6.0
+detection_radius = 800.0
+hitbox_radius = 12.8
+ranged_kind = 0
+ranged_damage = 0
+ranged_range_px = 50.0
+ranged_projectile_speed = 0.0
+ranged_cooldown = 6.0
+ranged_telegraph = 0.5
+special_abilities = Array[int]([])
+special_params = {
+"swap_trigger_front_distance_px": 50.0,
+"swap_telegraph_s": 0.5,
+"swap_cooldown_s": 6.0,
+"swap_dodgeable_on_input": true,
+"death_buff_radius_px": 60.0,
+"death_buff_target_family": "dokkaebi",
+"death_buff_attack_bonus": 0.25,
+"death_buff_duration_s": 5.0,
+}
+group_ai = 0
+group_size = 1
+group_spacing_px = 30.0
+ai_aggression = 1.0
+flock_cohesion = 0.0
+exp_value = 10
+gold_drop_chance = 0.26
+gold_drop_amount = 1
+orb_value = 0
+chapters = Array[int]([3, 5])
+spawn_weight = 70
+min_stage_time_s = 0.0
+max_concurrent = 999

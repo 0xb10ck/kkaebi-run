@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://m23gangshi"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"m23_gangshi"
+display_name_ko = "강시"
+lore_ko = "한국 강시 설화(중국 도교 영향) — 부적이 떨어진 시체가 깡총깡총 뛰며 산 자를 공격한다. 청나라식 관복을 입은 굳은 시체, 이마에 노란 종이 부적, 팔은 정면으로 뻗어 있다."
+sprite_size_px = Vector2i(32, 48)
+placeholder_color = Color(0.20, 0.30, 0.30, 1)
+base_hp = 38
+base_move_speed = 60.0
+base_contact_damage = 9
+attack_cooldown = 1.5
+detection_radius = 800.0
+hitbox_radius = 12.8
+ranged_kind = 0
+ranged_damage = 0
+ranged_range_px = 0.0
+ranged_projectile_speed = 0.0
+ranged_cooldown = 2.0
+ranged_telegraph = 0.0
+special_abilities = Array[int]([])
+special_params = {
+"hop_duration_s": 0.6,
+"hop_pause_s": 0.4,
+"hop_invuln_during_air": true,
+"weakspot_hitbox_w": 32,
+"weakspot_hitbox_h": 16,
+"weakspot_offset_y_px": -16,
+"weakspot_damage_mult": 2.0,
+"weakspot_active_phase": "pause",
+"weakspot_instakill_damage": 100,
+}
+group_ai = 0
+group_size = 1
+group_spacing_px = 30.0
+ai_aggression = 1.0
+flock_cohesion = 0.0
+exp_value = 10
+gold_drop_chance = 0.25
+gold_drop_amount = 1
+orb_value = 0
+chapters = Array[int]([3])
+spawn_weight = 70
+min_stage_time_s = 0.0
+max_concurrent = 999

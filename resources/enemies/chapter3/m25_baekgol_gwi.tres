@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://m25baekgolgwi"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"m25_baekgol_gwi"
+display_name_ko = "백골귀"
+lore_ko = "한국 시체 설화 — 매장되지 못한 백골이 일어나 산 자를 공격한다. 누런 해골 병사가 부서진 갑옷 조각만 걸친 채 부러진 창을 들고 비척거린다."
+sprite_size_px = Vector2i(32, 40)
+placeholder_color = Color(0.85, 0.80, 0.65, 1)
+base_hp = 36
+base_move_speed = 60.0
+base_contact_damage = 8
+attack_cooldown = 1.5
+detection_radius = 800.0
+hitbox_radius = 12.8
+ranged_kind = 0
+ranged_damage = 0
+ranged_range_px = 0.0
+ranged_projectile_speed = 0.0
+ranged_cooldown = 2.0
+ranged_telegraph = 0.0
+special_abilities = Array[int]([])
+special_params = {
+"reassemble_window_s": 1.5,
+"reassemble_revive_hp_pct": 0.3,
+"reassemble_post_speed_mult": 1.2,
+"reassemble_max_triggers": 1,
+"reassemble_cancel_on_hit_during_window": true,
+}
+group_ai = 0
+group_size = 1
+group_spacing_px = 30.0
+ai_aggression = 1.0
+flock_cohesion = 0.0
+exp_value = 11
+gold_drop_chance = 0.24
+gold_drop_amount = 1
+orb_value = 0
+chapters = Array[int]([3, 5])
+spawn_weight = 70
+min_stage_time_s = 0.0
+max_concurrent = 999

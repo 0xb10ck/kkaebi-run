@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://m26gaeksahon"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"m26_gaeksahon"
+display_name_ko = "객사혼"
+lore_ko = "한국 민간 신앙 — 객사(타향에서 죽음)한 영혼이 갈 곳을 잃고 떠도는 잡귀. 형체가 흐릿한 회색 영혼이 머리를 숙인 채 옅게 발광한다."
+sprite_size_px = Vector2i(24, 32)
+placeholder_color = Color(0.55, 0.55, 0.65, 0.7)
+base_hp = 14
+base_move_speed = 30.0
+base_contact_damage = 6
+attack_cooldown = 1.0
+detection_radius = 60.0
+hitbox_radius = 9.6
+ranged_kind = 4
+ranged_damage = 12
+ranged_range_px = 60.0
+ranged_projectile_speed = 0.0
+ranged_cooldown = 0.0
+ranged_telegraph = 0.0
+special_abilities = Array[int]([8])
+special_params = {
+"wander_only": true,
+"no_player_tracking": true,
+"trigger_distance_px": 30.0,
+"burst_radius_px": 60.0,
+"burst_damage_mult": 2.0,
+"burst_damage": 12,
+"die_after_burst": true,
+"approach_speed_px": 120.0,
+}
+group_ai = 0
+group_size = 1
+group_spacing_px = 30.0
+ai_aggression = 0.5
+flock_cohesion = 0.0
+exp_value = 8
+gold_drop_chance = 0.20
+gold_drop_amount = 1
+orb_value = 0
+chapters = Array[int]([3])
+spawn_weight = 75
+min_stage_time_s = 0.0
+max_concurrent = 999

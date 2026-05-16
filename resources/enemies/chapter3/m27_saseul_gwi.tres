@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://m27saseulgwi"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"m27_saseul_gwi"
+display_name_ko = "사슬귀"
+lore_ko = "한국 저승 설화 — 저승사자가 망자의 영혼을 묶기 위해 부리는 사슬 영. 회색 갑옷을 두른 형체가 한 손에 길게 늘어진 쇠사슬을 쥐고, 사슬 끝에 갈고리가 박혀 있다."
+sprite_size_px = Vector2i(32, 40)
+placeholder_color = Color(0.40, 0.40, 0.45, 1)
+base_hp = 40
+base_move_speed = 50.0
+base_contact_damage = 10
+attack_cooldown = 4.0
+detection_radius = 800.0
+hitbox_radius = 12.8
+ranged_kind = 1
+ranged_damage = 8
+ranged_range_px = 200.0
+ranged_projectile_speed = 600.0
+ranged_cooldown = 4.0
+ranged_telegraph = 0.3
+special_abilities = Array[int]([])
+special_params = {
+"chain_range_px": 200.0,
+"chain_projectile_speed_px": 600.0,
+"chain_damage": 8,
+"chain_visible_line": true,
+"pull_on_hit": true,
+"pull_immobilize_s": 0.5,
+"post_pull_pause_s": 1.0,
+"post_pull_melee_damage": 10,
+"chain_cooldown_s": 4.0,
+}
+group_ai = 0
+group_size = 1
+group_spacing_px = 30.0
+ai_aggression = 1.0
+flock_cohesion = 0.0
+exp_value = 12
+gold_drop_chance = 0.28
+gold_drop_amount = 1
+orb_value = 0
+chapters = Array[int]([3, 4])
+spawn_weight = 60
+min_stage_time_s = 0.0
+max_concurrent = 999

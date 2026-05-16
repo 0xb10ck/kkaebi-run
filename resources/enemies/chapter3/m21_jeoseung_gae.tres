@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://m21jeoseunggae"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"m21_jeoseung_gae"
+display_name_ko = "저승개"
+lore_ko = "한국 저승 설화 — 저승사자를 호위하며 망자의 영혼을 사냥하는 검은 사냥개. 칠흑같이 검은 털, 입에서 푸른 도깨비불을 흘리고 목에는 굵은 쇠사슬이 감겨 있다."
+sprite_size_px = Vector2i(40, 32)
+placeholder_color = Color(0.05, 0.05, 0.08, 1)
+base_hp = 45
+base_move_speed = 90.0
+base_contact_damage = 10
+attack_cooldown = 1.5
+detection_radius = 800.0
+hitbox_radius = 12.8
+ranged_kind = 0
+ranged_damage = 0
+ranged_range_px = 0.0
+ranged_projectile_speed = 0.0
+ranged_cooldown = 2.0
+ranged_telegraph = 0.0
+special_abilities = Array[int]([])
+special_params = {
+"pair_spawn_chance": 0.5,
+"pair_partner_id": "m21_jeoseung_gae",
+"flank_rotation_dir_deg": 90.0,
+"flank_approach_offset_px": 60.0,
+"flank_engage_distance_px": 200.0,
+"mouth_flame_visual": true,
+}
+group_ai = 0
+group_size = 1
+group_spacing_px = 60.0
+ai_aggression = 1.0
+flock_cohesion = 0.0
+exp_value = 11
+gold_drop_chance = 0.28
+gold_drop_amount = 1
+orb_value = 0
+chapters = Array[int]([3, 5])
+spawn_weight = 80
+min_stage_time_s = 0.0
+max_concurrent = 999

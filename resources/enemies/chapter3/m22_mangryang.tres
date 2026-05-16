@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://m22mangryang"]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"m22_mangryang"
+display_name_ko = "망량"
+lore_ko = "산해경 인용 + 한국 전승 — 산과 늪에 깃든 도깨비 같은 잡령(雜靈). 사람을 닮은 흐릿한 회색 형체, 짧은 다리와 긴 팔에 흙·물풀이 묻어 있다."
+sprite_size_px = Vector2i(28, 36)
+placeholder_color = Color(0.40, 0.45, 0.40, 0.85)
+base_hp = 30
+base_move_speed = 70.0
+base_contact_damage = 8
+attack_cooldown = 1.5
+detection_radius = 800.0
+hitbox_radius = 11.2
+ranged_kind = 0
+ranged_damage = 0
+ranged_range_px = 0.0
+ranged_projectile_speed = 0.0
+ranged_cooldown = 2.0
+ranged_telegraph = 0.0
+special_abilities = Array[int]([])
+special_params = {
+"bond_group_id": "m22_mangryang",
+"bond_speed_bonus_per_kill": 0.10,
+"bond_damage_bonus_per_kill": 0.15,
+"bond_stack_max": 5,
+"pack_min": 3,
+"pack_max": 6,
+}
+group_ai = 1
+group_size = 4
+group_spacing_px = 32.0
+ai_aggression = 1.0
+flock_cohesion = 0.7
+exp_value = 9
+gold_drop_chance = 0.22
+gold_drop_amount = 1
+orb_value = 0
+chapters = Array[int]([3])
+spawn_weight = 80
+min_stage_time_s = 0.0
+max_concurrent = 999
