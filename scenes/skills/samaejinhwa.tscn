@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://scripts/skills/samaejinhwa.gd" id="1_samaejinhwa"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/samaejinhwa/samaejinhwa.png" id="2_samaejinhwa_fx"]
 
 [node name="Samaejinhwa" type="Node2D"]
 script = ExtResource("1_samaejinhwa")
+
+[node name="EffectSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_samaejinhwa_fx")
+visible = false

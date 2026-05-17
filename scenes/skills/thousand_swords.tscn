@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://scripts/skills/thousand_swords.gd" id="1_thousand_swords"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/thousand_swords/thousand_swords.png" id="2_thousand_swords_fx"]
 
 [node name="ThousandSwords" type="Node2D"]
 script = ExtResource("1_thousand_swords")
+
+[node name="EffectSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_thousand_swords_fx")
+visible = false

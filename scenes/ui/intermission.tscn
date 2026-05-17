@@ -1,6 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://b00kkaebi0intermission"]
+[gd_scene load_steps=9 format=3 uid="uid://b00kkaebi0intermission"]
 
 [ext_resource type="Script" path="res://scripts/gameplay/intermission.gd" id="1_inter"]
+[ext_resource type="Texture2D" path="res://assets/ui/panel_frame.png" id="2_panel"]
+[ext_resource type="Texture2D" path="res://assets/ui/button_normal.png" id="3_btnnorm"]
+[ext_resource type="Texture2D" path="res://assets/ui/button_hover.png" id="4_btnhov"]
+[ext_resource type="Texture2D" path="res://assets/ui/button_pressed.png" id="5_btnprs"]
+
+[sub_resource type="StyleBoxTexture" id="SBT_panel"]
+texture = ExtResource("2_panel")
+
+[sub_resource type="StyleBoxTexture" id="SBT_btn_normal"]
+texture = ExtResource("3_btnnorm")
+
+[sub_resource type="StyleBoxTexture" id="SBT_btn_hover"]
+texture = ExtResource("4_btnhov")
+
+[sub_resource type="StyleBoxTexture" id="SBT_btn_pressed"]
+texture = ExtResource("5_btnprs")
 
 [node name="Intermission" type="Control"]
 layout_mode = 3
@@ -22,6 +38,7 @@ offset_left = 48.0
 offset_top = 220.0
 offset_right = 432.0
 offset_bottom = 640.0
+theme_override_styles/panel = SubResource("SBT_panel")
 
 [node name="Title" type="Label" parent="Panel"]
 layout_mode = 0
@@ -57,6 +74,9 @@ offset_right = 304.0
 offset_bottom = 332.0
 text = "다음 챕터로 떠나겠습니다"
 theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("SBT_btn_normal")
+theme_override_styles/hover = SubResource("SBT_btn_hover")
+theme_override_styles/pressed = SubResource("SBT_btn_pressed")
 
 [node name="MenuButton" type="Button" parent="Panel"]
 layout_mode = 0
@@ -66,3 +86,6 @@ offset_right = 304.0
 offset_bottom = 388.0
 text = "메인 메뉴로 돌아가기"
 theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("SBT_btn_normal")
+theme_override_styles/hover = SubResource("SBT_btn_hover")
+theme_override_styles/pressed = SubResource("SBT_btn_pressed")

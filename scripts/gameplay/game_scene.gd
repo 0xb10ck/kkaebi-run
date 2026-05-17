@@ -85,6 +85,8 @@ enum State { PLAYING, DEAD, CLEARED }
 @onready var player: Node2D = $Player
 @onready var enemy_container: Node2D = $EnemyContainer
 @onready var background: ColorRect = $Background
+@onready var background_texture: TextureRect = $ParallaxBackground/ParallaxLayer/BackgroundTexture
+@onready var chapter_tilemap: TileMap = $ChapterTileMap
 @onready var skill_manager: Node = SkillManager
 
 # 챕터 의존 상태 — _ready에서 ChapterData로부터 채워짐.
@@ -224,6 +226,26 @@ func _apply_chapter_context() -> void:
 	_use_data_pool = true
 	if background != null and data.background_color.a > 0.0:
 		background.color = data.background_color
+	_apply_chapter_visuals(data)
+
+
+func _apply_chapter_visuals(data: ChapterData) -> void:
+	# §UX — 챕터별 배경 PNG / TileSet 자동 매핑.
+	# 경로 규칙:
+	#   배경:  res://assets/backgrounds/{id}_bg.png
+	#   타일셋: res://assets/tilesets/{id}/{id}_tileset.tres
+	# 리소스가 없으면 game_scene.tscn에 박힌 기본값(ch01_dumeong)을 그대로 둔다.
+	var chapter_id: String = String(data.id)
+	var bg_path: String = "res://assets/backgrounds/%s_bg.png" % chapter_id
+	if background_texture != null and ResourceLoader.exists(bg_path):
+		var bg_tex: Resource = load(bg_path)
+		if bg_tex is Texture2D:
+			background_texture.texture = bg_tex
+	var ts_path: String = "res://assets/tilesets/%s/%s_tileset.tres" % [chapter_id, chapter_id]
+	if chapter_tilemap != null and ResourceLoader.exists(ts_path):
+		var ts_res: Resource = load(ts_path)
+		if ts_res is TileSet:
+			chapter_tilemap.tile_set = ts_res
 
 
 # ChapterManager가 보유한 챕터별 풀 매핑을 끌어와 PackedScene/EnemyData를 로드해 캐시.

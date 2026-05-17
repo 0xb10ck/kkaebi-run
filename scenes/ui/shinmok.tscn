@@ -1,6 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://b00kkaebi0shinmok"]
+[gd_scene load_steps=8 format=3 uid="uid://b00kkaebi0shinmok"]
 
 [ext_resource type="Script" path="res://scripts/ui/shinmok.gd" id="1_shin"]
+[ext_resource type="Texture2D" path="res://assets/ui/panel_frame.png" id="2_panel"]
+[ext_resource type="Texture2D" path="res://assets/ui/button_normal.png" id="3_btnnorm"]
+[ext_resource type="Texture2D" path="res://assets/ui/button_hover.png" id="4_btnhov"]
+[ext_resource type="Texture2D" path="res://assets/ui/button_pressed.png" id="5_btnprs"]
+
+[sub_resource type="StyleBoxTexture" id="SBT_btn_normal"]
+texture = ExtResource("3_btnnorm")
+
+[sub_resource type="StyleBoxTexture" id="SBT_btn_hover"]
+texture = ExtResource("4_btnhov")
+
+[sub_resource type="StyleBoxTexture" id="SBT_btn_pressed"]
+texture = ExtResource("5_btnprs")
 
 [node name="Shinmok" type="Control"]
 layout_mode = 3
@@ -15,6 +28,18 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color(0.102, 0.086, 0.071, 1)
+
+[node name="TitlePanel" type="NinePatchRect" parent="."]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 464.0
+offset_bottom = 100.0
+texture = ExtResource("2_panel")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+mouse_filter = 2
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 0
@@ -39,6 +64,18 @@ horizontal_alignment = 1
 vertical_alignment = 1
 theme_override_colors/font_color = Color(0.941, 0.929, 0.902, 0.9)
 theme_override_font_sizes/font_size = 16
+
+[node name="VisualFrame" type="NinePatchRect" parent="."]
+offset_left = 130.0
+offset_top = 100.0
+offset_right = 350.0
+offset_bottom = 320.0
+texture = ExtResource("2_panel")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+mouse_filter = 2
 
 [node name="Visual" type="ColorRect" parent="."]
 layout_mode = 0
@@ -80,6 +117,9 @@ offset_right = 380.0
 offset_bottom = 448.0
 text = "헌납하기"
 theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("SBT_btn_normal")
+theme_override_styles/hover = SubResource("SBT_btn_hover")
+theme_override_styles/pressed = SubResource("SBT_btn_pressed")
 
 [node name="UnlocksTitle" type="Label" parent="."]
 layout_mode = 0
@@ -114,3 +154,6 @@ offset_right = 380.0
 offset_bottom = 828.0
 text = "메인 메뉴로 돌아가기"
 theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("SBT_btn_normal")
+theme_override_styles/hover = SubResource("SBT_btn_hover")
+theme_override_styles/pressed = SubResource("SBT_btn_pressed")

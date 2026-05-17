@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://scripts/skills/water_drop.gd" id="1_water_drop"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/water_drop/water_drop.png" id="2_water_drop_fx"]
 
 [node name="WaterDrop" type="Node2D"]
 script = ExtResource("1_water_drop")
+
+[node name="EffectSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_water_drop_fx")
+visible = false

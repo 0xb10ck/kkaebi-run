@@ -1,10 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://b00kkaebi0toast0"]
+[gd_scene load_steps=3 format=3 uid="uid://b00kkaebi0toast0"]
 
 [ext_resource type="Script" path="res://scripts/ui/toast.gd" id="1_toast"]
+[ext_resource type="Texture2D" path="res://assets/ui/panel_frame.png" id="2_panel"]
+
+[sub_resource type="StyleBoxTexture" id="SBT_panel"]
+texture = ExtResource("2_panel")
 
 [node name="Toast" type="CanvasLayer"]
 layer = 25
 script = ExtResource("1_toast")
+
+[node name="Background" type="NinePatchRect" parent="."]
+offset_left = 16.0
+offset_top = 110.0
+offset_right = 464.0
+offset_bottom = 190.0
+texture = ExtResource("2_panel")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
 
 [node name="Label" type="Label" parent="."]
 offset_left = 16.0
@@ -20,3 +35,4 @@ theme_override_colors/font_color = Color(0.984, 0.949, 0.886, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("SBT_panel")

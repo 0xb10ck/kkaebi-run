@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://scripts/skills/earth_wall.gd" id="1_earth_wall"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/earth_wall/earth_wall.png" id="2_earth_wall_fx"]
 
 [node name="EarthWall" type="Node2D"]
 script = ExtResource("1_earth_wall")
+
+[node name="EffectSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_earth_wall_fx")
+visible = false

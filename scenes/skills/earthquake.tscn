@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://scripts/skills/earthquake.gd" id="1_earthquake"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/earthquake/earthquake.png" id="2_earthquake_fx"]
 
 [node name="Earthquake" type="Node2D"]
 script = ExtResource("1_earthquake")
+
+[node name="EffectSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_earthquake_fx")
+visible = false

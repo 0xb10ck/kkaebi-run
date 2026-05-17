@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://scripts/skills/dragon_king_wrath.gd" id="1_dragon_king_wrath"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/dragon_king_wrath/dragon_king_wrath.png" id="2_dragon_king_wrath_fx"]
 
 [node name="DragonKingWrath" type="Node2D"]
 script = ExtResource("1_dragon_king_wrath")
+
+[node name="EffectSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_dragon_king_wrath_fx")
+visible = false

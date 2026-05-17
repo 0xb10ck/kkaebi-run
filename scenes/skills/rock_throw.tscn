@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://scripts/skills/rock_throw.gd" id="1_rock_throw"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/rock_throw/rock_throw.png" id="2_rock_throw_fx"]
 
 [node name="RockThrow" type="Node2D"]
 script = ExtResource("1_rock_throw")
+
+[node name="EffectSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_rock_throw_fx")
+visible = false

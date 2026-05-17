@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://scripts/skills/dragon_palace_wave.gd" id="1_dragon_palace_wave"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/dragon_palace_wave/dragon_palace_wave.png" id="2_dragon_palace_wave_fx"]
 
 [node name="DragonPalaceWave" type="Node2D"]
 script = ExtResource("1_dragon_palace_wave")
+
+[node name="EffectSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_dragon_palace_wave_fx")
+visible = false

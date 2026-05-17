@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://scripts/skills/flame_breath.gd" id="1_flame_breath"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/flame_breath/flame_breath.png" id="2_flame_breath_fx"]
 
 [node name="FlameBreath" type="Node2D"]
 script = ExtResource("1_flame_breath")
+
+[node name="EffectSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_flame_breath_fx")
+visible = false

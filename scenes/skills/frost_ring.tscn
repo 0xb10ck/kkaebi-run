@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=5 format=3]
 
 [ext_resource type="Script" path="res://scripts/skills/frost_ring.gd" id="1_frost_ring"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/frost_ring/frost_ring.png" id="2_frost_ring_fx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_frost_ring"]
 radius = 100.0
@@ -14,3 +15,7 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_frost_ring")
+
+[node name="EffectSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_frost_ring_fx")
+visible = false

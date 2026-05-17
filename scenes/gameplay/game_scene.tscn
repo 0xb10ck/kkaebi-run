@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b00kkaebi0gamescene"]
+[gd_scene load_steps=9 format=3 uid="uid://b00kkaebi0gamescene"]
 
 [ext_resource type="Script" path="res://scripts/gameplay/game_scene.gd" id="1_gs"]
 [ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="2_player"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" path="res://scenes/enemies/enemy_egg.tscn" id="4_enemy_egg"]
 [ext_resource type="PackedScene" path="res://scenes/enemies/enemy_water.tscn" id="5_enemy_water"]
 [ext_resource type="PackedScene" path="res://scenes/items/exp_gem.tscn" id="6_exp_gem"]
+[ext_resource type="Texture2D" path="res://assets/backgrounds/ch01_dumeong_bg.png" id="7_bg_tex"]
+[ext_resource type="TileSet" path="res://assets/tilesets/ch01_dumeong/ch01_dumeong_tileset.tres" id="8_tileset"]
 
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_gs")
@@ -16,6 +18,27 @@ offset_top = -2000.0
 offset_right = 2000.0
 offset_bottom = 2000.0
 color = Color(0.165, 0.165, 0.207, 1)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+layer = -10
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(480, 854)
+
+[node name="BackgroundTexture" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 480.0
+offset_bottom = 854.0
+texture = ExtResource("7_bg_tex")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="ChapterTileMap" type="TileMap" parent="."]
+z_index = -5
+tile_set = ExtResource("8_tileset")
+format = 2
 
 [node name="Player" parent="." instance=ExtResource("2_player")]
 

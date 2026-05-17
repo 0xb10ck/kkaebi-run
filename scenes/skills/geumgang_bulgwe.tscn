@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://scripts/skills/geumgang_bulgwe.gd" id="1_geumgang_bulgwe"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/geumgang_bulgwe/geumgang_bulgwe.png" id="2_geumgang_bulgwe_fx"]
 
 [node name="GeumgangBulgwe" type="Node2D"]
 script = ExtResource("1_geumgang_bulgwe")
+
+[node name="EffectSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_geumgang_bulgwe_fx")
+visible = false

@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=5 format=3]
 
 [ext_resource type="Script" path="res://scripts/skills/flame_barrier.gd" id="1_flame_barrier"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/flame_barrier/flame_barrier.png" id="2_flame_barrier_fx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_flame_barrier"]
 radius = 110.0
@@ -14,3 +15,7 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_flame_barrier")
+
+[node name="EffectSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_flame_barrier_fx")
+visible = false

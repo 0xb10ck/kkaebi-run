@@ -1,9 +1,9 @@
 [
   {
     "kind": "character",
-    "scene_path": "",
-    "target_node": null,
-    "target_node_type": null,
+    "scene_path": "res://scenes/characters/barami.tscn",
+    "target_node": "Barami/AnimatedSprite2D",
+    "target_node_type": "AnimatedSprite2D",
     "asset_path": "res://assets/sprites/characters/barami/barami.png",
     "asset_size": [
       640,
@@ -11,14 +11,14 @@
     ],
     "hframes": 20,
     "vframes": 1,
-    "suggested_action": "missing_scene",
-    "note": "no character scene for barami"
+    "suggested_action": "skip_animated_sprite",
+    "note": ""
   },
   {
     "kind": "character",
-    "scene_path": "",
-    "target_node": null,
-    "target_node_type": null,
+    "scene_path": "res://scenes/characters/byeolee.tscn",
+    "target_node": "Byeolee/AnimatedSprite2D",
+    "target_node_type": "AnimatedSprite2D",
     "asset_path": "res://assets/sprites/characters/byeolee/byeolee.png",
     "asset_size": [
       640,
@@ -26,14 +26,14 @@
     ],
     "hframes": 20,
     "vframes": 1,
-    "suggested_action": "missing_scene",
-    "note": "no character scene for byeolee"
+    "suggested_action": "skip_animated_sprite",
+    "note": ""
   },
   {
     "kind": "character",
-    "scene_path": "",
-    "target_node": null,
-    "target_node_type": null,
+    "scene_path": "res://scenes/characters/dolsoe.tscn",
+    "target_node": "Dolsoe/AnimatedSprite2D",
+    "target_node_type": "AnimatedSprite2D",
     "asset_path": "res://assets/sprites/characters/dolsoe/dolsoe.png",
     "asset_size": [
       640,
@@ -41,14 +41,14 @@
     ],
     "hframes": 20,
     "vframes": 1,
-    "suggested_action": "missing_scene",
-    "note": "no character scene for dolsoe"
+    "suggested_action": "skip_animated_sprite",
+    "note": ""
   },
   {
     "kind": "character",
-    "scene_path": "",
-    "target_node": null,
-    "target_node_type": null,
+    "scene_path": "res://scenes/characters/geurimja.tscn",
+    "target_node": "Geurimja/AnimatedSprite2D",
+    "target_node_type": "AnimatedSprite2D",
     "asset_path": "res://assets/sprites/characters/geurimja/geurimja.png",
     "asset_size": [
       640,
@@ -56,14 +56,14 @@
     ],
     "hframes": 20,
     "vframes": 1,
-    "suggested_action": "missing_scene",
-    "note": "no character scene for geurimja"
+    "suggested_action": "skip_animated_sprite",
+    "note": ""
   },
   {
     "kind": "character",
-    "scene_path": "",
-    "target_node": null,
-    "target_node_type": null,
+    "scene_path": "res://scenes/characters/hwalee.tscn",
+    "target_node": "Hwalee/AnimatedSprite2D",
+    "target_node_type": "AnimatedSprite2D",
     "asset_path": "res://assets/sprites/characters/hwalee/hwalee.png",
     "asset_size": [
       640,
@@ -71,14 +71,14 @@
     ],
     "hframes": 20,
     "vframes": 1,
-    "suggested_action": "missing_scene",
-    "note": "no character scene for hwalee"
+    "suggested_action": "skip_animated_sprite",
+    "note": ""
   },
   {
     "kind": "character",
-    "scene_path": "",
-    "target_node": null,
-    "target_node_type": null,
+    "scene_path": "res://scenes/characters/ttukttaki.tscn",
+    "target_node": "Ttukttaki/AnimatedSprite2D",
+    "target_node_type": "AnimatedSprite2D",
     "asset_path": "res://assets/sprites/characters/ttukttaki/ttukttaki.png",
     "asset_size": [
       640,
@@ -86,14 +86,14 @@
     ],
     "hframes": 20,
     "vframes": 1,
-    "suggested_action": "missing_scene",
-    "note": "no character scene for ttukttaki"
+    "suggested_action": "skip_animated_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m01_dokkaebibul.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M01Dokkaebibul/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m01_dokkaebibul/m01_dokkaebibul.png",
     "asset_size": [
       320,
@@ -101,14 +101,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m02_dalgyalgwisin.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M02DalgyalGwisin/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m02_dalgyalgwisin/m02_dalgyalgwisin.png",
     "asset_size": [
       320,
@@ -116,14 +116,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m03_mulgwisin.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M03MulGwisin/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m03_mulgwisin/m03_mulgwisin.png",
     "asset_size": [
       320,
@@ -131,14 +131,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m04_eodukshini.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M04Eodukshini/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m04_eodukshini/m04_eodukshini.png",
     "asset_size": [
       320,
@@ -146,14 +146,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m05_geuseundae.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M05Geuseundae/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m05_geuseundae/m05_geuseundae.png",
     "asset_size": [
       320,
@@ -161,14 +161,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m06_bitjarugwisin.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M06BitjaruGwisin/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m06_bitjarugwisin/m06_bitjarugwisin.png",
     "asset_size": [
       320,
@@ -176,14 +176,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m07_songakshi.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M07Songakshi/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m07_songakshi/m07_songakshi.png",
     "asset_size": [
       320,
@@ -191,14 +191,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m08_mongdalgwisin.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M08MongdalGwisin/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m08_mongdalgwisin/m08_mongdalgwisin.png",
     "asset_size": [
       320,
@@ -206,14 +206,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m09_duduri.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M09Duduri/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m09_duduri/m09_duduri.png",
     "asset_size": [
       320,
@@ -221,14 +221,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m10_samdugu.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M10Samdugu/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m10_samdugu/m10_samdugu.png",
     "asset_size": [
       320,
@@ -236,14 +236,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m11_horangi.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M11Horangi/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m11_horangi/m11_horangi.png",
     "asset_size": [
       320,
@@ -251,14 +251,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m12_metdwaeji.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M12Metdwaeji/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m12_metdwaeji/m12_metdwaeji.png",
     "asset_size": [
       320,
@@ -266,14 +266,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m13_neoguri.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M13Neoguri/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m13_neoguri/m13_neoguri.png",
     "asset_size": [
       320,
@@ -281,14 +281,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m14_dukkeobi.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M14Dukkeobi/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m14_dukkeobi/m14_dukkeobi.png",
     "asset_size": [
       320,
@@ -296,14 +296,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m15_geomi.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M15Geomi/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m15_geomi/m15_geomi.png",
     "asset_size": [
       320,
@@ -311,14 +311,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m16_noru.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M16Noru/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m16_noru/m16_noru.png",
     "asset_size": [
       320,
@@ -326,14 +326,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m17_namu.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M17Namu/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m17_namu/m17_namu.png",
     "asset_size": [
       320,
@@ -341,14 +341,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m18_deonggul.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M18Deonggul/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m18_deonggul/m18_deonggul.png",
     "asset_size": [
       320,
@@ -356,14 +356,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m19_kamagwi.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M19Kamagwi/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m19_kamagwi/m19_kamagwi.png",
     "asset_size": [
       320,
@@ -371,14 +371,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m20_cheonyeo_gwisin.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M20CheonyeoGwisin/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m20_cheonyeo_gwisin/m20_cheonyeo_gwisin.png",
     "asset_size": [
       320,
@@ -386,14 +386,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m21_jeoseung_gae.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M21JeoseungGae/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m21_jeoseung_gae/m21_jeoseung_gae.png",
     "asset_size": [
       320,
@@ -401,14 +401,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m22_mangryang.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M22Mangryang/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m22_mangryang/m22_mangryang.png",
     "asset_size": [
       320,
@@ -416,14 +416,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m23_gangshi.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M23Gangshi/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m23_gangshi/m23_gangshi.png",
     "asset_size": [
       320,
@@ -431,14 +431,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m24_yagwang_gwi.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M24YagwangGwi/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m24_yagwang_gwi/m24_yagwang_gwi.png",
     "asset_size": [
       320,
@@ -446,14 +446,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m25_baekgol_gwi.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M25BaekgolGwi/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m25_baekgol_gwi/m25_baekgol_gwi.png",
     "asset_size": [
       320,
@@ -461,14 +461,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m26_gaeksahon.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M26Gaeksahon/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m26_gaeksahon/m26_gaeksahon.png",
     "asset_size": [
       320,
@@ -476,14 +476,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m27_saseul_gwi.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M27SaseulGwi/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m27_saseul_gwi/m27_saseul_gwi.png",
     "asset_size": [
       320,
@@ -491,14 +491,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m28_dochaebi.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M28Dochaebi/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m28_dochaebi/m28_dochaebi.png",
     "asset_size": [
       320,
@@ -506,14 +506,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m29_chasahon.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M29Chasahon/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m29_chasahon/m29_chasahon.png",
     "asset_size": [
       320,
@@ -521,14 +521,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m30_bulgasari.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M30Bulgasari/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m30_bulgasari/m30_bulgasari.png",
     "asset_size": [
       320,
@@ -536,14 +536,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m31_yacha.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M31Yacha/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m31_yacha/m31_yacha.png",
     "asset_size": [
       320,
@@ -551,14 +551,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m32_nachal.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M32Nachal/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m32_nachal/m32_nachal.png",
     "asset_size": [
       320,
@@ -566,14 +566,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m33_cheonnyeo.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M33Cheonnyeo/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m33_cheonnyeo/m33_cheonnyeo.png",
     "asset_size": [
       320,
@@ -581,14 +581,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m34_noegong.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M34Noegong/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m34_noegong/m34_noegong.png",
     "asset_size": [
       320,
@@ -596,14 +596,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m35_pungbaek.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M35Pungbaek/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m35_pungbaek/m35_pungbaek.png",
     "asset_size": [
       320,
@@ -611,14 +611,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m36_usa.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M36Usa/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m36_usa/m36_usa.png",
     "asset_size": [
       320,
@@ -626,14 +626,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m37_hak.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M37Hak/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m37_hak/m37_hak.png",
     "asset_size": [
       320,
@@ -641,14 +641,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m38_gareungbinga.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M38Gareungbinga/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m38_gareungbinga/m38_gareungbinga.png",
     "asset_size": [
       320,
@@ -656,14 +656,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m39_cheonma.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M39Cheonma/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m39_cheonma/m39_cheonma.png",
     "asset_size": [
       320,
@@ -671,14 +671,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m40_heukpung.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M40Heukpung/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m40_heukpung/m40_heukpung.png",
     "asset_size": [
       320,
@@ -686,14 +686,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m41_bihyeongrang_grimja.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M41BihyeongrangGrimja/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m41_bihyeongrang_grimja/m41_bihyeongrang_grimja.png",
     "asset_size": [
       320,
@@ -701,14 +701,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m42_heukmusa.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M42Heukmusa/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m42_heukmusa/m42_heukmusa.png",
     "asset_size": [
       320,
@@ -716,14 +716,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m43_yeonggwi.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M43Yeonggwi/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m43_yeonggwi/m43_yeonggwi.png",
     "asset_size": [
       320,
@@ -731,14 +731,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m44_grimja_dokkaebi.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M44GrimjaDokkaebi/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m44_grimja_dokkaebi/m44_grimja_dokkaebi.png",
     "asset_size": [
       320,
@@ -746,14 +746,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m45_ohyeomdoen_shinmok_gaji.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M45OhyeomdoenShinmokGaji/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m45_ohyeomdoen_shinmok_gaji/m45_ohyeomdoen_shinmok_gaji.png",
     "asset_size": [
       320,
@@ -761,14 +761,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m46_heukryong_saekki.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M46HeukryongSaekki/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m46_heukryong_saekki/m46_heukryong_saekki.png",
     "asset_size": [
       320,
@@ -776,14 +776,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m47_geomeun_angae_jamyeong.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M47GeomeunAngaeJamyeong/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m47_geomeun_angae_jamyeong/m47_geomeun_angae_jamyeong.png",
     "asset_size": [
       320,
@@ -791,14 +791,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m48_sijang_dokkaebi.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M48SijangDokkaebi/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m48_sijang_dokkaebi/m48_sijang_dokkaebi.png",
     "asset_size": [
       320,
@@ -806,14 +806,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m49_geokkuro_dokkaebi.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M49GeokkuroDokkaebi/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m49_geokkuro_dokkaebi/m49_geokkuro_dokkaebi.png",
     "asset_size": [
       320,
@@ -821,14 +821,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m50_noreumkkun.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M50Noreumkkun/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m50_noreumkkun/m50_noreumkkun.png",
     "asset_size": [
       320,
@@ -836,14 +836,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m51_sulchwihan.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M51Sulchwihan/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m51_sulchwihan/m51_sulchwihan.png",
     "asset_size": [
       320,
@@ -851,14 +851,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m52_byeonjang.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M52Byeonjang/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m52_byeonjang/m52_byeonjang.png",
     "asset_size": [
       320,
@@ -866,14 +866,14 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "monster",
     "scene_path": "res://scenes/enemies/m53_ssireum.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "M53Ssireum/Sprite2D",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/monsters/m53_ssireum/m53_ssireum.png",
     "asset_size": [
       320,
@@ -881,8 +881,8 @@
     ],
     "hframes": 10,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "boss",
@@ -1052,8 +1052,8 @@
   {
     "kind": "effect",
     "scene_path": "res://scenes/skills/dagger_storm.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "DaggerStorm/EffectSprite",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/effects/dagger_storm/dagger_storm.png",
     "asset_size": [
       128,
@@ -1061,14 +1061,14 @@
     ],
     "hframes": 4,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "effect",
     "scene_path": "res://scenes/skills/dagger_throw.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "DaggerThrow/EffectSprite",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/effects/dagger_throw/dagger_throw.png",
     "asset_size": [
       128,
@@ -1076,14 +1076,14 @@
     ],
     "hframes": 4,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "effect",
     "scene_path": "res://scenes/skills/dragon_king_wrath.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "DragonKingWrath/EffectSprite",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/effects/dragon_king_wrath/dragon_king_wrath.png",
     "asset_size": [
       128,
@@ -1091,14 +1091,14 @@
     ],
     "hframes": 4,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "effect",
     "scene_path": "res://scenes/skills/dragon_palace_wave.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "DragonPalaceWave/EffectSprite",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/effects/dragon_palace_wave/dragon_palace_wave.png",
     "asset_size": [
       128,
@@ -1106,14 +1106,14 @@
     ],
     "hframes": 4,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "effect",
     "scene_path": "res://scenes/skills/earth_wall.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "EarthWall/EffectSprite",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/effects/earth_wall/earth_wall.png",
     "asset_size": [
       128,
@@ -1121,14 +1121,14 @@
     ],
     "hframes": 4,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "effect",
     "scene_path": "res://scenes/skills/earthquake.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "Earthquake/EffectSprite",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/effects/earthquake/earthquake.png",
     "asset_size": [
       128,
@@ -1136,14 +1136,14 @@
     ],
     "hframes": 4,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "effect",
     "scene_path": "res://scenes/skills/fire_orb.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "FireOrb/EffectSprite",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/effects/fire_orb/fire_orb.png",
     "asset_size": [
       128,
@@ -1151,14 +1151,14 @@
     ],
     "hframes": 4,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "effect",
     "scene_path": "res://scenes/skills/flame_barrier.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "FlameBarrier/EffectSprite",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/effects/flame_barrier/flame_barrier.png",
     "asset_size": [
       128,
@@ -1166,14 +1166,14 @@
     ],
     "hframes": 4,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "effect",
     "scene_path": "res://scenes/skills/flame_breath.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "FlameBreath/EffectSprite",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/effects/flame_breath/flame_breath.png",
     "asset_size": [
       128,
@@ -1181,14 +1181,14 @@
     ],
     "hframes": 4,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "effect",
     "scene_path": "res://scenes/skills/flint_burst.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "FlintBurst/EffectSprite",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/effects/flint_burst/flint_burst.png",
     "asset_size": [
       128,
@@ -1196,14 +1196,14 @@
     ],
     "hframes": 4,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "effect",
     "scene_path": "res://scenes/skills/forest_wrath.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "ForestWrath/EffectSprite",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/effects/forest_wrath/forest_wrath.png",
     "asset_size": [
       128,
@@ -1211,14 +1211,14 @@
     ],
     "hframes": 4,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "effect",
     "scene_path": "res://scenes/skills/frost_ring.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "FrostRing/EffectSprite",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/effects/frost_ring/frost_ring.png",
     "asset_size": [
       128,
@@ -1226,14 +1226,14 @@
     ],
     "hframes": 4,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "effect",
     "scene_path": "res://scenes/skills/geumgang_bulgwe.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "GeumgangBulgwe/EffectSprite",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/effects/geumgang_bulgwe/geumgang_bulgwe.png",
     "asset_size": [
       128,
@@ -1241,14 +1241,14 @@
     ],
     "hframes": 4,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "effect",
     "scene_path": "res://scenes/skills/gold_shield.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "GoldShield/EffectSprite",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/effects/gold_shield/gold_shield.png",
     "asset_size": [
       128,
@@ -1256,14 +1256,14 @@
     ],
     "hframes": 4,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "effect",
     "scene_path": "res://scenes/skills/ice_age.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "IceAge/EffectSprite",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/effects/ice_age/ice_age.png",
     "asset_size": [
       128,
@@ -1271,14 +1271,14 @@
     ],
     "hframes": 4,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "effect",
     "scene_path": "res://scenes/skills/landslide.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "Landslide/EffectSprite",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/effects/landslide/landslide.png",
     "asset_size": [
       128,
@@ -1286,14 +1286,14 @@
     ],
     "hframes": 4,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "effect",
     "scene_path": "res://scenes/skills/metal_chain.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "MetalChain/EffectSprite",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/effects/metal_chain/metal_chain.png",
     "asset_size": [
       128,
@@ -1301,14 +1301,14 @@
     ],
     "hframes": 4,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "effect",
     "scene_path": "res://scenes/skills/mist_veil.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "MistVeil/EffectSprite",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/effects/mist_veil/mist_veil.png",
     "asset_size": [
       128,
@@ -1316,14 +1316,14 @@
     ],
     "hframes": 4,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "effect",
     "scene_path": "res://scenes/skills/phoenix_descent.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "PhoenixDescent/EffectSprite",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/effects/phoenix_descent/phoenix_descent.png",
     "asset_size": [
       128,
@@ -1331,14 +1331,14 @@
     ],
     "hframes": 4,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "effect",
     "scene_path": "res://scenes/skills/rock_throw.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "RockThrow/EffectSprite",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/effects/rock_throw/rock_throw.png",
     "asset_size": [
       128,
@@ -1346,14 +1346,14 @@
     ],
     "hframes": 4,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "effect",
     "scene_path": "res://scenes/skills/samaejinhwa.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "Samaejinhwa/EffectSprite",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/effects/samaejinhwa/samaejinhwa.png",
     "asset_size": [
       128,
@@ -1361,14 +1361,14 @@
     ],
     "hframes": 4,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "effect",
     "scene_path": "res://scenes/skills/sand_storm.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "SandStorm/EffectSprite",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/effects/sand_storm/sand_storm.png",
     "asset_size": [
       128,
@@ -1376,14 +1376,14 @@
     ],
     "hframes": 4,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "effect",
     "scene_path": "res://scenes/skills/seed_burst.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "SeedBurst/EffectSprite",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/effects/seed_burst/seed_burst.png",
     "asset_size": [
       128,
@@ -1391,14 +1391,14 @@
     ],
     "hframes": 4,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "effect",
     "scene_path": "res://scenes/skills/sinmok_blessing.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "SinmokBlessing/EffectSprite",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/effects/sinmok_blessing/sinmok_blessing.png",
     "asset_size": [
       128,
@@ -1406,14 +1406,14 @@
     ],
     "hframes": 4,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "effect",
     "scene_path": "res://scenes/skills/thorn_trap.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "ThornTrap/EffectSprite",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/effects/thorn_trap/thorn_trap.png",
     "asset_size": [
       128,
@@ -1421,14 +1421,14 @@
     ],
     "hframes": 4,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "effect",
     "scene_path": "res://scenes/skills/thorn_vine.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "ThornVine/EffectSprite",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/effects/thorn_vine/thorn_vine.png",
     "asset_size": [
       128,
@@ -1436,14 +1436,14 @@
     ],
     "hframes": 4,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "effect",
     "scene_path": "res://scenes/skills/thousand_swords.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "ThousandSwords/EffectSprite",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/effects/thousand_swords/thousand_swords.png",
     "asset_size": [
       128,
@@ -1451,14 +1451,14 @@
     ],
     "hframes": 4,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "effect",
     "scene_path": "res://scenes/skills/vine_whip.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "VineWhip/EffectSprite",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/effects/vine_whip/vine_whip.png",
     "asset_size": [
       128,
@@ -1466,14 +1466,14 @@
     ],
     "hframes": 4,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "effect",
     "scene_path": "res://scenes/skills/water_drop.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "WaterDrop/EffectSprite",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/effects/water_drop/water_drop.png",
     "asset_size": [
       128,
@@ -1481,14 +1481,14 @@
     ],
     "hframes": 4,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "effect",
     "scene_path": "res://scenes/skills/world_tree_blessing.tscn",
-    "target_node": null,
-    "target_node_type": null,
+    "target_node": "WorldTreeBlessing/EffectSprite",
+    "target_node_type": "Sprite2D",
     "asset_path": "res://assets/sprites/effects/world_tree_blessing/world_tree_blessing.png",
     "asset_size": [
       128,
@@ -1496,14 +1496,14 @@
     ],
     "hframes": 4,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "no Sprite2D/AnimatedSprite2D in scene"
+    "suggested_action": "wire_sprite",
+    "note": ""
   },
   {
     "kind": "ui",
     "scene_path": "res://scenes/main_menu/main_menu.tscn",
     "target_node": "Background",
-    "target_node_type": "ColorRect",
+    "target_node_type": "TextureRect",
     "asset_path": "res://assets/ui/main_menu_bg.png",
     "asset_size": [
       480,
@@ -1511,8 +1511,8 @@
     ],
     "hframes": 1,
     "vframes": 1,
-    "suggested_action": "manual_replace_node",
-    "note": "node Background is ColorRect, expected TextureRect"
+    "suggested_action": "wire_texture",
+    "note": ""
   },
   {
     "kind": "ui",
@@ -1526,8 +1526,8 @@
     ],
     "hframes": 1,
     "vframes": 1,
-    "suggested_action": "manual_add_node",
-    "note": "node Logo not present in main_menu/main_menu.tscn"
+    "suggested_action": "wire_texture",
+    "note": ""
   },
   {
     "kind": "ui",

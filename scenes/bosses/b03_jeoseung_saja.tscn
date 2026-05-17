@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=6 format=3]
 
 [ext_resource type="Script" path="res://scripts/bosses/boss_jeoseung_saja.gd" id="1_script"]
 [ext_resource type="Resource" path="res://resources/bosses/b03_jeoseung_saja.tres" id="2_data"]
+[ext_resource type="Texture2D" path="res://assets/sprites/bosses/b03_jeoseung_saja/b03_jeoseung_saja.png" id="3_sprite"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
 size = Vector2(56, 88)
@@ -33,3 +34,8 @@ shape = SubResource("RectangleShape2D_contact")
 position = Vector2(0, -68)
 
 [node name="SightLine" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_sprite")
+hframes = 12
+frame = 0

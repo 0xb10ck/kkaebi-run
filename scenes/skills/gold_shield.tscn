@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://scripts/skills/gold_shield.gd" id="1_gold_shield"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/gold_shield/gold_shield.png" id="2_gold_shield_fx"]
 
 [node name="GoldShield" type="Node2D"]
 script = ExtResource("1_gold_shield")
+
+[node name="EffectSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_gold_shield_fx")
+visible = false

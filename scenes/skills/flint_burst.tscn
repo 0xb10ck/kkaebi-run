@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://scripts/skills/flint_burst.gd" id="1_flint_burst"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/flint_burst/flint_burst.png" id="2_flint_burst_fx"]
 
 [node name="FlintBurst" type="Node2D"]
 script = ExtResource("1_flint_burst")
+
+[node name="EffectSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_flint_burst_fx")
+visible = false

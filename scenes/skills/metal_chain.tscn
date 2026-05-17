@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://scripts/skills/metal_chain.gd" id="1_metal_chain"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/metal_chain/metal_chain.png" id="2_metal_chain_fx"]
 
 [node name="MetalChain" type="Node2D"]
 script = ExtResource("1_metal_chain")
+
+[node name="EffectSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_metal_chain_fx")
+visible = false
