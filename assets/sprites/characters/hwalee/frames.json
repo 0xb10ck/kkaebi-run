@@ -1,0 +1,9 @@
+{
+  "size": [
+    32,
+    32
+  ],
+  "frames": 4,
+  "layout": "hstrip",
+  "sheet": "hwalee_idle.png"
+}
