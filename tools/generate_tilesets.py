@@ -6,6 +6,10 @@ Each chapter produces, under assets/tilesets/<chapter_id>/:
     <chapter_id>_tiles.png        -- 112x16 horizontal strip sheet
     tiles.json                    -- sheet metadata
 
+Additionally, a flat copy of every sheet is written directly under
+assets/tilesets/ so that consumers can load them by chapter id alone:
+    assets/tilesets/<chapter_id>.png  -- byte-identical copy of the sheet
+
 Tile order on every sheet:
     ground, ground_alt, wall_top, wall_side, deco1, deco2, deco_glow
 
@@ -467,6 +471,10 @@ def main_run():
                 f"{cid}/sheet: size {sheet.size} != ({SHEET_W},{SHEET_H})"
             )
         print(f"[OK] {cid}/sheet -> {sheet_path} size={sheet.size}")
+
+        flat_path = os.path.join(out_root, f"{cid}.png")
+        sheet.save(flat_path, "PNG")
+        print(f"[OK] {cid}/flat -> {flat_path} size={sheet.size}")
 
         meta_path = os.path.join(cdir, "tiles.json")
         with open(meta_path, "w", encoding="utf-8") as f:
