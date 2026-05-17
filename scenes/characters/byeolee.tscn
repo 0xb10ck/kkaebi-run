@@ -116,3 +116,8 @@ animations = [{
 sprite_frames = SubResource("SpriteFrames_chr")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_sheet")
+hframes = 20
