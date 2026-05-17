@@ -1,0 +1,13 @@
+{
+  "tile_size": 16,
+  "order": [
+    "ground",
+    "ground_alt",
+    "wall_top",
+    "wall_side",
+    "deco1",
+    "deco2",
+    "deco_glow"
+  ],
+  "sheet": "ch05_sinmok_heart_tiles.png"
+}

@@ -2,16 +2,24 @@
 
 importer="texture"
 type="CompressedTexture2D"
+uid="uid://ben6oqoq0xd6s"
+path="res://.godot/imported/deco_02.png-de223ef75978e4bf30bb4d0e57ac28bd.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://assets/tilesets/ch04_cheonsang/deco_02.png"
-dest_files=["res://.godot/imported/deco_02.png-2b5575c5e25de36d.ctex"]
+dest_files=["res://.godot/imported/deco_02.png-de223ef75978e4bf30bb4d0e57ac28bd.ctex"]
 
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
@@ -19,6 +27,10 @@ mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
