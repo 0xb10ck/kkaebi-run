@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/bosses/boss_heuk_ryong.gd" id="1_script"]
 [ext_resource type="Resource" path="res://resources/bosses/b05_heuk_ryong.tres" id="2_data"]
-[ext_resource type="Texture2D" path="res://assets/sprites/bosses/b05_heuk_ryong/b05_heuk_ryong.png" id="3_sprite_tex"]
+[ext_resource type="Texture2D" path="res://assets/sprites/bosses/boss_heuk_ryong.png" id="3_sprite_tex"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
 size = Vector2(96, 96)

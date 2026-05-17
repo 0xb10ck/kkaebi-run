@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/bosses/boss_chagwishin.gd" id="1_script"]
 [ext_resource type="Resource" path="res://resources/bosses/mb03_chagwishin.tres" id="2_data"]
-[ext_resource type="Texture2D" path="res://assets/sprites/bosses/mb03_chagwishin/mb03_chagwishin.png" id="3_sprite_tex"]
+[ext_resource type="Texture2D" path="res://assets/sprites/bosses/boss_chagwishin.png" id="3_sprite_tex"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
 size = Vector2(48, 72)
