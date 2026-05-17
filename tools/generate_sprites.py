@@ -5,9 +5,12 @@ Usage:
     pip install Pillow
     python tools/generate_sprites.py
 
-Output (per character id):
-    assets/sprites/characters/<id>/<id>_idle.png   (128x32 RGBA, 4-frame hstrip)
-    assets/sprites/characters/<id>/frames.json
+Output (flat, directly under assets/sprites/characters/):
+    assets/sprites/characters/<id>_idle.png    (128x32 RGBA, 4-frame hstrip)
+    assets/sprites/characters/<id>_idle.json   (frame metadata)
+
+Any stale outputs from the previous per-character subfolder layout
+(<id>/<id>_idle.png and <id>/frames.json) are removed on each run.
 """
 
 import json
@@ -203,14 +206,11 @@ def main_run():
 
     failures = []
     for char_id, color, motif in CHARACTERS:
-        out_dir = os.path.join(base, char_id)
-        os.makedirs(out_dir, exist_ok=True)
-
         sheet = _build_sheet(color, motif)
-        sheet_path = os.path.join(out_dir, f"{char_id}_idle.png")
+        sheet_path = os.path.join(base, f"{char_id}_idle.png")
         sheet.save(sheet_path, "PNG")
 
-        frames_path = os.path.join(out_dir, "frames.json")
+        frames_path = os.path.join(base, f"{char_id}_idle.json")
         with open(frames_path, "w", encoding="utf-8") as f:
             json.dump(
                 {
@@ -223,6 +223,14 @@ def main_run():
                 ensure_ascii=False,
                 indent=2,
             )
+
+        legacy_dir = os.path.join(base, char_id)
+        for legacy in (
+            os.path.join(legacy_dir, f"{char_id}_idle.png"),
+            os.path.join(legacy_dir, "frames.json"),
+        ):
+            if os.path.isfile(legacy):
+                os.remove(legacy)
 
         ratio = _alpha_ratio(sheet)
         ok = 0.30 <= ratio <= 0.50
