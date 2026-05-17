@@ -121,3 +121,4 @@ autoplay = "idle"
 visible = false
 texture = ExtResource("1_sheet")
 hframes = 20
+vframes = 2
