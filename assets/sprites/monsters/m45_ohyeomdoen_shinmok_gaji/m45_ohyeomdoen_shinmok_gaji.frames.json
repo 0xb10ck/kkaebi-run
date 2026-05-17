@@ -1,0 +1,30 @@
+{
+  "monster_id": "m45_ohyeomdoen_shinmok_gaji",
+  "category": "식물",
+  "frame_size": [
+    32,
+    32
+  ],
+  "sheet_size": [
+    320,
+    32
+  ],
+  "total_frames": 10,
+  "anims": [
+    {
+      "name": "idle",
+      "start": 0,
+      "count": 4
+    },
+    {
+      "name": "attack",
+      "start": 4,
+      "count": 3
+    },
+    {
+      "name": "die",
+      "start": 7,
+      "count": 3
+    }
+  ]
+}

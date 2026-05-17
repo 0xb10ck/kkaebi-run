@@ -1,0 +1,89 @@
+{
+  "$schema_version": "1.0",
+  "description": "Kkaebi Run 아트 에셋 생성 단일 소스 팔레트. docs/art-asset-spec.md 와 함께 사용됨.",
+  "base": {
+    "hanji_yellow": "#D4A574",
+    "jade": "#5BAD8A",
+    "ink": "#2D2D2D",
+    "vermillion": "#E85D3A",
+    "sky": "#7BC8F6",
+    "gold": "#F0C75E",
+    "ink_outline": "#1A1A1A",
+    "paper_bg": "#F4E8D0"
+  },
+  "global": {
+    "outline_hex": "#1A1A1A",
+    "outline_width_px": 1,
+    "dithering": false,
+    "head_body_ratio_min": "1:1",
+    "head_body_ratio_max": "1:1.5",
+    "silhouette_policy": "rounded",
+    "background_paper_hex": "#F4E8D0"
+  },
+  "resolutions": {
+    "character_px": [32, 32],
+    "monster_normal_px": [32, 32],
+    "boss_px": [64, 64],
+    "background_tile_px": [16, 16],
+    "effect_px": [32, 32],
+    "ui_9slice_small_px": [64, 64],
+    "ui_9slice_wide_px": [128, 64]
+  },
+  "spritesheets": {
+    "character": {
+      "layout": "horizontal_strip",
+      "frames": { "idle": 4, "run": 6, "attack": 4, "hit": 2, "die": 4 },
+      "total_frames": 20,
+      "sheet_px": [640, 32]
+    },
+    "monster_normal": {
+      "layout": "horizontal_strip",
+      "frames": { "idle": 4, "attack": 3, "die": 3 },
+      "total_frames": 10,
+      "sheet_px": [320, 32]
+    },
+    "boss": {
+      "layout": "horizontal_strip",
+      "frames": { "idle": 4, "attack": 4, "die": 4 },
+      "total_frames": 12,
+      "sheet_px": [768, 64]
+    },
+    "skill_effect": {
+      "layout": "horizontal_strip",
+      "frames": 4,
+      "sheet_px": [128, 32]
+    }
+  },
+  "characters": {
+    "barami":    { "main": "#7BC8F6", "sub": "#3F8FCC", "point": "#FFFFFF", "props": ["머리띠"] },
+    "byeolee":   { "main": "#9C7BD0", "sub": "#6B4FA0", "point": "#F0C75E", "props": ["별 모티프"] },
+    "dolsoe":    { "main": "#8B5A2B", "sub": "#5A3A1C", "point": "#C9A06A", "props": ["갑옷", "무거운 발"] },
+    "geurimja":  { "main": "#2D2D2D", "sub": "#1A1A1A", "point": "#FFFFFF", "props": ["닌자복", "흰 눈"] },
+    "hwalee":    { "main": "#E85D3A", "sub": "#A33B22", "point": "#F0C75E", "props": ["도포", "머리 불꽃"] },
+    "ttukttaki": { "main": "#5BAD8A", "sub": "#327A5C", "point": "#D4A574", "props": ["한복", "나뭇잎 장식"] }
+  },
+  "chapter_tilesets": {
+    "ch01_dumeong":      { "mood": "어두운 숲",       "ground": "#2A2A35", "wall": "#1A1A1A", "deco": "#5BAD8A", "accent": "#7BC8F6" },
+    "ch02_sinryeong":    { "mood": "신비 빛나는 숲", "ground": "#234A36", "wall": "#0F2A1E", "deco": "#5BAD8A", "accent": "#F0C75E" },
+    "ch03_hwangcheon":   { "mood": "지하/뼈/안개",    "ground": "#2D2D2D", "wall": "#1A1A1A", "deco": "#C8C3B8", "accent": "#7BC8F6" },
+    "ch04_cheonsang":    { "mood": "구름/천궁",       "ground": "#F4E8D0", "wall": "#D4A574", "deco": "#F0C75E", "accent": "#7BC8F6" },
+    "ch05_sinmok_heart": { "mood": "나무 내부",       "ground": "#3A2818", "wall": "#1A1208", "deco": "#5BAD8A", "accent": "#E85D3A" }
+  },
+  "skill_effect_keys": {
+    "fire":   { "main": "#E85D3A", "sub": "#F0C75E", "outline": "#1A1A1A" },
+    "water":  { "main": "#7BC8F6", "sub": "#A6E6FF", "outline": "#1A1A1A" },
+    "wood":   { "main": "#5BAD8A", "sub": "#A5D75A", "outline": "#1A1A1A" },
+    "metal":  { "main": "#F0C75E", "sub": "#FFFFFF", "outline": "#1A1A1A" },
+    "earth":  { "main": "#D4A574", "sub": "#8B5A2B", "outline": "#1A1A1A" },
+    "shadow": { "main": "#2D2D2D", "sub": "#9C7BD0", "outline": "#1A1A1A" }
+  },
+  "ui": {
+    "button_state": { "normal": "#D4A574", "hover": "#F0C75E", "pressed": "#8B5A2B", "outline": "#1A1A1A" },
+    "panel_hanji":   { "fill": "#F4E8D0", "edge": "#D4A574", "ink": "#2D2D2D" },
+    "panel_wood":    { "fill": "#8B5A2B", "edge": "#5A3A1C", "ink": "#2D2D2D" },
+    "hp_bar":        { "back": "#2D2D2D", "fill": "#E85D3A", "edge": "#1A1A1A" },
+    "skill_frame":   { "fill": "#F4E8D0", "edge": "#1A1A1A", "highlight": "#F0C75E" },
+    "level_up_panel":{ "fill": "#F4E8D0", "edge": "#D4A574", "ink_title": "#E85D3A" },
+    "logo":          { "ink": "#1A1A1A", "fill": "#E85D3A", "back": "#F4E8D0" }
+  }
+}

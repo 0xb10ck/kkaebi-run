@@ -1,0 +1,18 @@
+{
+  "buttons": [
+    "normal",
+    "hover",
+    "pressed"
+  ],
+  "panels": [
+    "panel_frame.png",
+    "hp_bar_bg.png",
+    "hp_bar_fill.png",
+    "skill_icon_frame.png",
+    "level_up_panel.png"
+  ],
+  "logo": [
+    "logo.png",
+    "title_bg.png"
+  ]
+}

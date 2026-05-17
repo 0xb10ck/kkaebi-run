@@ -1,0 +1,29 @@
+{
+  "chapter_id": "ch01_dumeong",
+  "tile_size": [
+    16,
+    16
+  ],
+  "sheet_size": [
+    128,
+    128
+  ],
+  "grid_cols": 8,
+  "slot_order": [
+    "ground_00",
+    "ground_01",
+    "ground_02",
+    "ground_03",
+    "ground_04",
+    "wall_00",
+    "wall_01",
+    "wall_02",
+    "wall_03",
+    "wall_04",
+    "deco_00",
+    "deco_01",
+    "deco_02",
+    "deco_03",
+    "deco_04"
+  ]
+}

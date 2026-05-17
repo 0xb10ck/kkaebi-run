@@ -1,0 +1,31 @@
+{
+  "boss_id": "mb01_jangsanbeom",
+  "frame_size": [
+    64,
+    64
+  ],
+  "sheet_size": [
+    768,
+    64
+  ],
+  "total_frames": 12,
+  "anims": [
+    {
+      "name": "idle",
+      "start": 0,
+      "count": 4
+    },
+    {
+      "name": "attack",
+      "start": 4,
+      "count": 4
+    },
+    {
+      "name": "die",
+      "start": 8,
+      "count": 4
+    }
+  ],
+  "motif": "별",
+  "detail_slot": null
+}

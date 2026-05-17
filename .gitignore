@@ -16,3 +16,11 @@ builds/
 # Use tests/REPORT.md as the stable, manually-maintained report.
 tests/qa_report.json
 tests/qa_report.md
+
+# Python virtualenv & bytecode caches
+.venv/
+__pycache__/
+*.pyc
+
+# Art pipeline local cache (regenerated on each build)
+assets/.art_cache.json

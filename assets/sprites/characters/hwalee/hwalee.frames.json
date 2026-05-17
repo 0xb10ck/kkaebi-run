@@ -1,0 +1,41 @@
+{
+  "char_id": "hwalee",
+  "frame_size": [
+    32,
+    32
+  ],
+  "sheet_size": [
+    640,
+    32
+  ],
+  "total_frames": 20,
+  "anims": [
+    {
+      "name": "idle",
+      "start": 0,
+      "count": 4
+    },
+    {
+      "name": "run",
+      "start": 4,
+      "count": 6
+    },
+    {
+      "name": "attack",
+      "start": 10,
+      "count": 4
+    },
+    {
+      "name": "hit",
+      "start": 14,
+      "count": 2
+    },
+    {
+      "name": "die",
+      "start": 16,
+      "count": 4
+    }
+  ],
+  "motif": "불꽃",
+  "has_weapon": true
+}

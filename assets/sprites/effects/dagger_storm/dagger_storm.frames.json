@@ -1,0 +1,23 @@
+{
+  "skill_id": "dagger_storm",
+  "element": 4,
+  "rarity": 1,
+  "shape": "aoe",
+  "palette_key": "metal",
+  "frame_size": [
+    32,
+    32
+  ],
+  "sheet_size": [
+    128,
+    32
+  ],
+  "total_frames": 4,
+  "anims": [
+    {
+      "name": "play",
+      "start": 0,
+      "count": 4
+    }
+  ]
+}

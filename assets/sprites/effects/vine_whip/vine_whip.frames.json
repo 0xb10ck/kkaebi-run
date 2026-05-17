@@ -1,0 +1,23 @@
+{
+  "skill_id": "vine_whip",
+  "element": 3,
+  "rarity": 0,
+  "shape": "projectile",
+  "palette_key": "wood",
+  "frame_size": [
+    32,
+    32
+  ],
+  "sheet_size": [
+    128,
+    32
+  ],
+  "total_frames": 4,
+  "anims": [
+    {
+      "name": "play",
+      "start": 0,
+      "count": 4
+    }
+  ]
+}

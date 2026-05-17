@@ -1,0 +1,23 @@
+{
+  "skill_id": "landslide",
+  "element": 5,
+  "rarity": 2,
+  "shape": "aura",
+  "palette_key": "earth",
+  "frame_size": [
+    32,
+    32
+  ],
+  "sheet_size": [
+    128,
+    32
+  ],
+  "total_frames": 4,
+  "anims": [
+    {
+      "name": "play",
+      "start": 0,
+      "count": 4
+    }
+  ]
+}
