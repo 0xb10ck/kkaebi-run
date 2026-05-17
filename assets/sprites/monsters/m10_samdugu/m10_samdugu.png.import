@@ -2,16 +2,24 @@
 
 importer="texture"
 type="CompressedTexture2D"
+uid="uid://biejtco5w8lq3"
+path="res://.godot/imported/m10_samdugu.png-1f28c10de4d6fa091a1466a8d79661c1.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://assets/sprites/monsters/m10_samdugu/m10_samdugu.png"
-dest_files=["res://.godot/imported/m10_samdugu.png-d43ffbdcce0b1beb.ctex"]
+dest_files=["res://.godot/imported/m10_samdugu.png-1f28c10de4d6fa091a1466a8d79661c1.ctex"]
 
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
@@ -19,6 +27,10 @@ mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

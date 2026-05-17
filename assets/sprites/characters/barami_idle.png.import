@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bix8v5itkqxda"
-path="res://.godot/imported/byeolee.png-cc18aedc2e964dd2f1736b3ce061f49d.ctex"
+uid="uid://b152dlrc0vsan"
+path="res://.godot/imported/barami_idle.png-c1b270c6cf8ed4710e9d20e99620f946.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/characters/byeolee/byeolee.png"
-dest_files=["res://.godot/imported/byeolee.png-cc18aedc2e964dd2f1736b3ce061f49d.ctex"]
+source_file="res://assets/sprites/characters/barami_idle.png"
+dest_files=["res://.godot/imported/barami_idle.png-c1b270c6cf8ed4710e9d20e99620f946.ctex"]
 
 [params]
 
@@ -37,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
