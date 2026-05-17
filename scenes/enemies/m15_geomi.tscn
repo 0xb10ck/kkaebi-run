@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/enemies/enemy_geomi.gd" id="1_script"]
 [ext_resource type="Resource" path="res://resources/enemies/chapter2/m15_geomi.tres" id="2_data"]
-[ext_resource type="Texture2D" path="res://assets/sprites/monsters/m15_geomi/m15_geomi.png" id="3_sprite_tex"]
+[ext_resource type="Texture2D" path="res://assets/sprites/monsters/m15_geomi/m15_geomi.png" id="1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_body"]
 radius = 9.6
@@ -17,11 +17,10 @@ script = ExtResource("1_script")
 data = ExtResource("2_data")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("3_sprite_tex")
-hframes = 10
-vframes = 1
-frame = 0
+texture = ExtResource("1")
 centered = true
+hframes = 10
+frame = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_body")
