@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=6 format=3]
 
 [ext_resource type="Script" path="res://scripts/enemies/enemy_namu.gd" id="1_script"]
 [ext_resource type="Resource" path="res://resources/enemies/chapter2/m17_namu.tres" id="2_data"]
+[ext_resource type="Texture2D" path="res://assets/sprites/monsters/m17_namu/m17_namu.png" id="3_sprite_tex"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_body"]
 radius = 12.8
@@ -14,6 +15,13 @@ collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_script")
 data = ExtResource("2_data")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("3_sprite_tex")
+hframes = 10
+vframes = 1
+frame = 0
+centered = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_body")

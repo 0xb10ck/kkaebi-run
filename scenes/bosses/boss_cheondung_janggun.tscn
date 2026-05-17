@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b00kkaebi0boss09cheondungjanggun"]
+[gd_scene load_steps=6 format=3 uid="uid://b00kkaebi0boss09cheondungjanggun"]
 
 [ext_resource type="Script" path="res://scripts/bosses/boss_cheondung_janggun.gd" id="1_script"]
 [ext_resource type="Resource" path="res://resources/bosses/b04_cheondung_janggun.tres" id="2_data"]
+[ext_resource type="Texture2D" path="res://assets/sprites/bosses/b04_cheondung_janggun/b04_cheondung_janggun.png" id="3_sprite_tex"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
 size = Vector2(88, 120)
@@ -14,6 +15,13 @@ collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_script")
 data = ExtResource("2_data")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("3_sprite_tex")
+hframes = 12
+vframes = 1
+frame = 0
+centered = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_body")
